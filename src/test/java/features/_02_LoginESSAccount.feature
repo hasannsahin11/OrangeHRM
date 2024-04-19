@@ -18,6 +18,6 @@ Feature: Login to OrangeHRM ESS
 #  both invalid username & password
       | GButlers | 7Sbhaheen7 |
 #  valid un invalid pass
-      | RRPagac7 | JButlers  |
+      | SShaheen11 | JButlers  |
 #  invalid un valid pass
-      | GButlers | RRPagac7  |
+      | GButlers | SShaheen11  |

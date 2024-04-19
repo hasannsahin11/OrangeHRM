@@ -64,6 +64,5 @@ public class _03_VerifyDisabledPersonalInfoFieldsSteps {
 
         }
         DriverClass.quitDriver();
-
     }
 }

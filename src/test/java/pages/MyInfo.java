@@ -26,11 +26,15 @@ public class MyInfo extends MyMethods {
     @FindBy(name = "firstName")
     private WebElement firstName;
 
-//    @FindBy(xpath = "(//button[@type='submit'])[2]")
-//    private WebElement saveBtn;
-
     @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
     private WebElement successfullyUpdatedMsg;
+
+    @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
+    private WebElement profilePic;
+
+    @FindBy(css = "button.oxd-icon-button.oxd-icon-button--solid-main.employee-image-action")
+    private WebElement uploadBtn;
+
 
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
@@ -52,11 +56,15 @@ public class MyInfo extends MyMethods {
         return firstName;
     }
 
-//    public WebElement getSaveBtn() {
-//        return saveBtn;
-//    }
-
     public WebElement getSuccessfullyUpdatedMsg() {
         return successfullyUpdatedMsg;
+    }
+
+    public WebElement getProfilePic() {
+        return profilePic;
+    }
+
+    public WebElement getUploadBtn() {
+        return uploadBtn;
     }
 }
