@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.AdminPanel;
@@ -118,6 +117,9 @@ public class _01_ESSUserAccountCreationSteps {
 
         dc.waitUntilClickable(dc.getSaveBtn());
         dc.clickMethod(dc.getSaveBtn());
+
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
+        System.out.println(dc.getSuccessMessage().getText());
 
     }
 

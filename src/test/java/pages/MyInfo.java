@@ -35,7 +35,6 @@ public class MyInfo extends MyMethods {
     @FindBy(css = "button.oxd-icon-button.oxd-icon-button--solid-main.employee-image-action")
     private WebElement uploadBtn;
 
-
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
     }
@@ -67,4 +66,5 @@ public class MyInfo extends MyMethods {
     public WebElement getUploadBtn() {
         return uploadBtn;
     }
+
 }

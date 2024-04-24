@@ -47,7 +47,7 @@ public class _05_UploadProfilePictureSteps {
     @And("I select a JPG image file that is less than One MB")
     public void i_select_a_jpg_image_file_that_is_less_than_one_mb() {
 
-        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\mi9.jpg\"";
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\ElonJPG.jpg\"";
 
         try {
             Robot robot = new Robot();
@@ -80,12 +80,15 @@ public class _05_UploadProfilePictureSteps {
     @Then("the profile picture should be successfully uploaded and displayed")
     public void the_profile_picture_should_be_successfully_uploaded_and_displayed() {
 
-        mi.wait.until(ExpectedConditions.attributeToBe(By.xpath("(//img[@alt='profile picture'])[2]"),"naturalWidth", "1153"));
+//        mi.wait.until(ExpectedConditions.attributeToBe(By.xpath("(//img[@alt='profile picture'])[2]"),"naturalWidth", "1371"));
+
+        mi.wait.until(ExpectedConditions.not(ExpectedConditions.attributeToBe(By.xpath("(//img[@alt='profile picture'])[2]"),"naturalWidth", String.valueOf(previousWidth))));
 
         uploadedHeight = Integer.parseInt(mi.getProfilePic().getAttribute("naturalWidth"));
         uploadedHeight = Integer.parseInt(mi.getProfilePic().getAttribute("naturalHeight"));
         System.out.println("Uploaded Image's width: " + mi.getProfilePic().getAttribute("naturalWidth"));
         System.out.println("Uploaded Image's height: " + mi.getProfilePic().getAttribute("naturalHeight"));
+
 
         Assert.assertFalse(previousHeight==uploadedHeight);
         Assert.assertFalse(previousWidth == uploadedWidth);
@@ -93,5 +96,117 @@ public class _05_UploadProfilePictureSteps {
         DriverClass.quitDriver();
 
     }
+    @And("I select a PNG image file that is less than One MB")
+    public void i_select_a_png_image_file_that_is_less_than_one_mb() {
 
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\JeffPNG.png\"";
+
+        try {
+            Robot robot = new Robot();
+
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            StringSelection stringSelection = new StringSelection(newPPPath);
+            clipboard.setContents(stringSelection, null);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            robot.delay(2000);
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("I select an Invalid .exe file that is less than One MB")
+    public void i_select_an_invalid_exe_file_that_is_less_than_one_mb() {
+
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\helloWorld.exe\"";
+
+        try {
+            Robot robot = new Robot();
+
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            StringSelection stringSelection = new StringSelection(newPPPath);
+            clipboard.setContents(stringSelection, null);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            robot.delay(2000);
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Then("a {string} message should be displayed, and the profile picture shouldn't be updated")
+    public void a_message_should_be_displayed_and_the_profile_picture_shouldn_t_be_updated(String invalidFormatMsg) {
+
+        System.out.println(dc.getImageErrorMsg().getText());
+        Assert.assertEquals(dc.getImageErrorMsg().getText(),invalidFormatMsg);
+
+        DriverClass.quitDriver();
+    }
+
+    @And("I select a PNG image file that is more than One MB")
+    public void i_select_a_png_image_file_that_is_more_than_one_mb() {
+
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\Jeff1MB.png\"";
+
+        try {
+            Robot robot = new Robot();
+
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            StringSelection stringSelection = new StringSelection(newPPPath);
+            clipboard.setContents(stringSelection, null);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            robot.delay(2000);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            robot.delay(2000);
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    @Then("a {string} message should be displayed and the profile picture shouldn't be updated")
+    public void a_message_should_be_displayed_and_the_profile_picture_shouldnt_be_updated(String overSizeImageMsg) {
+
+        System.out.println(dc.getImageErrorMsg().getText());
+        Assert.assertEquals(dc.getImageErrorMsg().getText(), overSizeImageMsg);
+
+        DriverClass.quitDriver();
+    }
 }

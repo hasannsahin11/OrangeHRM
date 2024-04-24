@@ -18,6 +18,9 @@ public class DialogContent extends MyMethods {
     @FindBy (xpath = "//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")
     private WebElement successMessage;
 
+    @FindBy(css = ".oxd-input-field-error-message")
+    private WebElement imageErrorMsg;
+
 
     public WebElement getSaveBtn() {
         return saveBtn;
@@ -25,5 +28,9 @@ public class DialogContent extends MyMethods {
 
     public WebElement getSuccessMessage() {
         return successMessage;
+    }
+
+    public WebElement getImageErrorMsg() {
+        return imageErrorMsg;
     }
 }
