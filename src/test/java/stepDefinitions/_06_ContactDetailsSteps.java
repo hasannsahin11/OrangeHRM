@@ -179,6 +179,33 @@ public class _06_ContactDetailsSteps {
 
         Assert.assertEquals(cd.getOtherEmail().getAttribute("value"),"sshaheen11@qa.com");
         System.out.println("cd.getOtherEmail().getAttribute(\"value\") = " + cd.getOtherEmail().getAttribute("value"));
-
     }
+
+    @And("Enter an address with more than {int} characters.")
+    public void enter_an_address_with_more_than_characters(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("Enter a zipcode with more than {int} characters.")
+    public void enter_a_zipcode_with_more_than_characters(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("Enter a phone number with more than {int} characters.")
+    public void enter_a_phone_number_with_more_than_characters(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("Enter an email address with more than {int} characters.")
+    public void enter_an_email_address_with_more_than_characters(Integer int1) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("The system should prevent the user from entering more than required amounts and display a red error message under each field")
+    public void the_system_should_prevent_the_user_from_entering_more_than_required_amounts_and_display_a_red_error_message_under_each_field() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
 }

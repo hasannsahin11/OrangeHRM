@@ -7,9 +7,9 @@ Feature: Contact Details View and Update
 
 
   Scenario: Verify existing email address displayed
-  Given I'm on the My Info page
-  When I navigate to the Contact Details page
-  Then "sania1@osohrm.com" should be displayed in the Work Email field
+    Given I'm on the My Info page
+    When I navigate to the Contact Details page
+    Then "sania1@osohrm.com" should be displayed in the Work Email field
 
 
   Scenario: Update Contact Details with valid information
@@ -21,7 +21,16 @@ Feature: Contact Details View and Update
     And I click on the Save button
     Then the contact information should be saved and displayed successfully
 
-    Scenario: Verify Contact Details displayed accurately
-      Given I'm on the My Info page
-      When I navigate to the Contact Details page
-      Then the updated contact information should be displayed accurately
+  Scenario: Verify Contact Details displayed accurately
+    Given I'm on the My Info page
+    When I navigate to the Contact Details page
+    Then the updated contact information should be displayed accurately
+
+  Scenario: Verify that the address, zipcode, phone number, and email fields have the correct character limits.
+    Given I'm on the My Info page
+    When I navigate to the Contact Details page
+    And Enter an address with more than 70 characters.
+    And Enter a zipcode with more than 10 characters.
+    And Enter a phone number with more than 25 characters.
+    And Enter an email address with more than 50 characters.
+    Then The system should prevent the user from entering more than required amounts and display a red error message under each field
