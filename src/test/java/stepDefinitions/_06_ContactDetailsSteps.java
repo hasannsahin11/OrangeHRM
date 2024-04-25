@@ -140,18 +140,45 @@ public class _06_ContactDetailsSteps {
         }
     }
 
-    @Then("the contact information should be saved successfully")
-    public void the_contact_information_should_be_saved_successfully() {
+    @Then("the contact information should be saved and displayed successfully")
+    public void the_contact_information_should_be_saved_and_displayed_successfully() {
 
         Assert.assertTrue(dc.getSuccessMessage().getText().equalsIgnoreCase("Successfully Updated"));
 
         cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(),"value","221B Baker St"));
         Assert.assertEquals(cd.getStreet1().getAttribute("value"),"221B Baker St");
 
-        System.out.println(cd.getStreet1().getAttribute("value"));
+//        System.out.println("Here is the updated Street Name: " + cd.getStreet1().getAttribute("value"));
 
         DriverClass.quitDriver();
 
     }
 
+    @Then("the updated contact information should be displayed accurately")
+    public void the_updated_contact_information_should_be_displayed_accurately() {
+
+        cd.wait.until(ExpectedConditions.attributeToBe(cd.getWorkEmail(), "value", "sania1@osohrm.com"));
+
+        Assert.assertEquals(cd.getStreet1().getAttribute("value"),"221B Baker St");
+        System.out.println("cd.getStreet1().getAttribute(\"value\") = " + cd.getStreet1().getAttribute("value"));
+
+        Assert.assertEquals(cd.getStreet2().getAttribute("value"),"Coach House #2");
+        System.out.println("cd.getStreet2().getAttribute(\"value\") = " + cd.getStreet2().getAttribute("value"));
+
+        Assert.assertEquals(cd.getCity().getAttribute("value"),"Springfield");
+        System.out.println("cd.getCity().getAttribute(\"value\") = " + cd.getCity().getAttribute("value"));
+
+        Assert.assertEquals(cd.getState().getAttribute("value"),"Illinois");
+        System.out.println("cd.getState().getAttribute(\"value\") = " + cd.getState().getAttribute("value"));
+
+        Assert.assertEquals(cd.getZipCode().getAttribute("value"),"62629");
+        System.out.println("cd.getZipCode().getAttribute(\"value\") = " + cd.getZipCode().getAttribute("value"));
+
+        Assert.assertEquals(cd.getMobilePhone().getAttribute("value"),"+15586669931");
+        System.out.println("cd.getMobilePhone().getAttribute(\"value\") = " + cd.getMobilePhone().getAttribute("value"));
+
+        Assert.assertEquals(cd.getOtherEmail().getAttribute("value"),"sshaheen11@qa.com");
+        System.out.println("cd.getOtherEmail().getAttribute(\"value\") = " + cd.getOtherEmail().getAttribute("value"));
+
+    }
 }

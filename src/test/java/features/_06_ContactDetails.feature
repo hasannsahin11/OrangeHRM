@@ -19,4 +19,9 @@ Feature: Contact Details View and Update
     And I enter a valid home, mobile, and work phone numbers into the respective fields
     And I enter a valid alternative email address into the respective field
     And I click on the Save button
-    Then the contact information should be saved successfully
+    Then the contact information should be saved and displayed successfully
+
+    Scenario: Verify Contact Details displayed accurately
+      Given I'm on the My Info page
+      When I navigate to the Contact Details page
+      Then the updated contact information should be displayed accurately
