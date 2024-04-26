@@ -181,31 +181,25 @@ public class _06_ContactDetailsSteps {
         System.out.println("cd.getOtherEmail().getAttribute(\"value\") = " + cd.getOtherEmail().getAttribute("value"));
     }
 
-    @And("Enter an address with more than {int} characters.")
-    public void enter_an_address_with_more_than_characters(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("Enter an address with more than SEVENTY characters.")
+    public void enter_an_address_with_more_than_seventy_characters() {
+
     }
-    @And("Enter a zipcode with more than {int} characters.")
-    public void enter_a_zipcode_with_more_than_characters(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("Enter a zipcode with more than TEN characters.")
+    public void enter_a_zipcode_with_more_than_ten_characters() {
+
     }
-    @And("Enter a phone number with more than {int} characters.")
-    public void enter_a_phone_number_with_more_than_characters(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("Enter a phone number with more than TWENTY FIVE characters.")
+    public void enter_a_phone_number_with_more_than_twenty_five_characters() {
+
     }
-    @And("Enter an email address with more than {int} characters.")
-    public void enter_an_email_address_with_more_than_characters(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("Enter an email address with more than FIFTY characters.")
+    public void enter_an_email_address_with_more_than_fifty_characters() {
+
     }
     @Then("The system should prevent the user from entering more than required amounts and display a red error message under each field")
     public void the_system_should_prevent_the_user_from_entering_more_than_required_amounts_and_display_a_red_error_message_under_each_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
+    }
 
 }
