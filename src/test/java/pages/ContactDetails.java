@@ -52,6 +52,18 @@ public class ContactDetails extends MyMethods {
     @FindBy(xpath = "//button[contains(@type,'button') and contains(@class,'oxd-button')]")
     private WebElement addButton;
 
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 70 characters')]")
+    private WebElement shouldNotExceed70Msg;
+
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 10 characters')]")
+    private WebElement shouldNotExceed10Msg;
+
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 25 characters')]")
+    private WebElement shouldNotExceed25Msg;
+
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 50 characters')]")
+    private WebElement shouldNotExceed50Msg;
+
     public WebElement getContactDetailsBtn() {
         return contactDetailsBtn;
     }
@@ -102,5 +114,21 @@ public class ContactDetails extends MyMethods {
 
     public WebElement getAddButton() {
         return addButton;
+    }
+
+    public WebElement getShouldNotExceed70Msg() {
+        return shouldNotExceed70Msg;
+    }
+
+    public WebElement getShouldNotExceed10Msg() {
+        return shouldNotExceed10Msg;
+    }
+
+    public WebElement getShouldNotExceed25Msg() {
+        return shouldNotExceed25Msg;
+    }
+
+    public WebElement getShouldNotExceed50Msg() {
+        return shouldNotExceed50Msg;
     }
 }

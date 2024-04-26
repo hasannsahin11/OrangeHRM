@@ -145,8 +145,8 @@ public class _06_ContactDetailsSteps {
 
         Assert.assertTrue(dc.getSuccessMessage().getText().equalsIgnoreCase("Successfully Updated"));
 
-        cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(),"value","221B Baker St"));
-        Assert.assertEquals(cd.getStreet1().getAttribute("value"),"221B Baker St");
+        cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(), "value", "221B Baker St"));
+        Assert.assertEquals(cd.getStreet1().getAttribute("value"), "221B Baker St");
 
 //        System.out.println("Here is the updated Street Name: " + cd.getStreet1().getAttribute("value"));
 
@@ -159,47 +159,110 @@ public class _06_ContactDetailsSteps {
 
         cd.wait.until(ExpectedConditions.attributeToBe(cd.getWorkEmail(), "value", "sania1@osohrm.com"));
 
-        Assert.assertEquals(cd.getStreet1().getAttribute("value"),"221B Baker St");
+        Assert.assertEquals(cd.getStreet1().getAttribute("value"), "221B Baker St");
         System.out.println("cd.getStreet1().getAttribute(\"value\") = " + cd.getStreet1().getAttribute("value"));
 
-        Assert.assertEquals(cd.getStreet2().getAttribute("value"),"Coach House #2");
+        Assert.assertEquals(cd.getStreet2().getAttribute("value"), "Coach House #2");
         System.out.println("cd.getStreet2().getAttribute(\"value\") = " + cd.getStreet2().getAttribute("value"));
 
-        Assert.assertEquals(cd.getCity().getAttribute("value"),"Springfield");
+        Assert.assertEquals(cd.getCity().getAttribute("value"), "Springfield");
         System.out.println("cd.getCity().getAttribute(\"value\") = " + cd.getCity().getAttribute("value"));
 
-        Assert.assertEquals(cd.getState().getAttribute("value"),"Illinois");
+        Assert.assertEquals(cd.getState().getAttribute("value"), "Illinois");
         System.out.println("cd.getState().getAttribute(\"value\") = " + cd.getState().getAttribute("value"));
 
-        Assert.assertEquals(cd.getZipCode().getAttribute("value"),"62629");
+        Assert.assertEquals(cd.getZipCode().getAttribute("value"), "62629");
         System.out.println("cd.getZipCode().getAttribute(\"value\") = " + cd.getZipCode().getAttribute("value"));
 
-        Assert.assertEquals(cd.getMobilePhone().getAttribute("value"),"+15586669931");
+        Assert.assertEquals(cd.getMobilePhone().getAttribute("value"), "+15586669931");
         System.out.println("cd.getMobilePhone().getAttribute(\"value\") = " + cd.getMobilePhone().getAttribute("value"));
 
-        Assert.assertEquals(cd.getOtherEmail().getAttribute("value"),"sshaheen11@qa.com");
+        Assert.assertEquals(cd.getOtherEmail().getAttribute("value"), "sshaheen11@qa.com");
         System.out.println("cd.getOtherEmail().getAttribute(\"value\") = " + cd.getOtherEmail().getAttribute("value"));
+
+        DriverClass.quitDriver();
     }
 
     @Given("Enter an address with more than SEVENTY characters.")
     public void enter_an_address_with_more_than_seventy_characters() {
 
+        cd.wait.until(ExpectedConditions.attributeToBe(cd.getWorkEmail(), "value", "sania1@osohrm.com"));
+
+        cd.sendKeysMethod(cd.getStreet1(), "221B Baker St Coach House #2 Springfield Illinois 62629 United States of America");
+
     }
+
     @Given("Enter a zipcode with more than TEN characters.")
     public void enter_a_zipcode_with_more_than_ten_characters() {
 
-    }
-    @Given("Enter a phone number with more than TWENTY FIVE characters.")
-    public void enter_a_phone_number_with_more_than_twenty_five_characters() {
+        cd.waitUntilClickable(cd.getZipCode());
+        cd.clickMethod(cd.getZipCode());
+        cd.sendKeysMethod(cd.getZipCode(),"62629626291");
+
 
     }
+
+    @Given("Enter a home phone number with more than TWENTY FIVE characters.")
+    public void enter_a_home_phone_number_with_more_than_twenty_five_characters() {
+
+        cd.waitUntilClickable(cd.getHomePhone());
+        cd.clickMethod(cd.getHomePhone());
+        cd.sendKeysMethod(cd.getHomePhone(),"+1234567891011121314151617");
+
+
+    }
+
     @Given("Enter an email address with more than FIFTY characters.")
     public void enter_an_email_address_with_more_than_fifty_characters() {
 
+        String exceededEmail = "sshaheen11qa.comsshaheen11qa.comsshaheen1111@qa.com";
+
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        StringSelection stringSelection = new StringSelection(exceededEmail);
+        clipboard.setContents(stringSelection, null);
+
+        try {
+            Robot robot = new Robot();
+
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            robot.delay(1000);
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     @Then("The system should prevent the user from entering more than required amounts and display a red error message under each field")
     public void the_system_should_prevent_the_user_from_entering_more_than_required_amounts_and_display_a_red_error_message_under_each_field() {
 
+        dc.clickMethod(dc.getSaveBtn());
+
+        Assert.assertTrue(cd.getShouldNotExceed70Msg().getText().contains("Should not exceed 70 characters"));
+        System.out.println(cd.getShouldNotExceed70Msg().getText());
+
+        Assert.assertTrue(cd.getShouldNotExceed10Msg().getText().contains("Should not exceed 10 characters"));
+        System.out.println(cd.getShouldNotExceed10Msg().getText());
+
+        Assert.assertTrue(cd.getShouldNotExceed25Msg().getText().contains("Should not exceed 25 characters"));
+        System.out.println(cd.getShouldNotExceed25Msg().getText());
+
+        Assert.assertTrue(cd.getShouldNotExceed50Msg().getText().contains("Should not exceed 50 characters"));
+        System.out.println(cd.getShouldNotExceed50Msg().getText());
+
+        DriverClass.quitDriver();
     }
 
 }
