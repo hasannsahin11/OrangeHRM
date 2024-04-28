@@ -26,12 +26,13 @@ Feature: Contact Details View and Update
     When I navigate to the Contact Details page
     Then the updated contact information should be displayed accurately
 
+
     Scenario: Verify Contact Details deleted
       Given I'm on the My Info page
       When I navigate to the Contact Details page
       And I remove all the contact details
       And I click on the Save button
-      Then the changes should be saved and there is no information displayed
+      Then the changes should be saved and no information  displayed
 
 
   Scenario: Verify that the address, zipcode, phone number, and email fields have the correct character limits.
