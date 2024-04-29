@@ -265,4 +265,13 @@ public class _06_ContactDetailsSteps {
         DriverClass.quitDriver();
     }
 
+    @And("I remove all the contact details")
+    public void i_remove_all_the_contact_details() {
+
+    }
+    @Then("the changes should be saved and there is no contact information displayed")
+    public void the_changes_should_be_saved_and_there_is_no_contact_information_displayed() {
+
+    }
+
 }
