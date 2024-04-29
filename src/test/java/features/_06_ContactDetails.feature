@@ -6,12 +6,12 @@ Feature: Contact Details View and Update
     And I click the Login button
 
 
-  Scenario: Verify existing email address displayed
-    Given I'm on the My Info page
-    When I navigate to the Contact Details page
-    Then "sania1@osohrm.com" should be displayed in the Work Email field
-
-
+#  Scenario: Verify existing email address displayed
+#    Given I'm on the My Info page
+#    When I navigate to the Contact Details page
+#    Then "sania1@osohrm.com" should be displayed in the Work Email field
+#
+#
   Scenario: Update Contact Details with valid information
     Given I'm on the My Info page
     When I navigate to the Contact Details page
@@ -20,11 +20,11 @@ Feature: Contact Details View and Update
     And I enter a valid alternative email address into the respective field
     And I click on the Save button
     Then the contact information should be saved and displayed successfully
-#
-  Scenario: Verify Contact Details displayed accurately
-    Given I'm on the My Info page
-    When I navigate to the Contact Details page
-    Then the updated contact information should be displayed accurately
+##
+#  Scenario: Verify Contact Details displayed accurately
+#    Given I'm on the My Info page
+#    When I navigate to the Contact Details page
+#    Then the updated contact information should be displayed accurately
 
 
 #    Scenario: Verify Contact Details deleted

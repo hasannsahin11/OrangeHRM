@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +15,7 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
 public class _06_ContactDetailsSteps {
 
@@ -197,7 +200,7 @@ public class _06_ContactDetailsSteps {
 
         cd.waitUntilClickable(cd.getZipCode());
         cd.clickMethod(cd.getZipCode());
-        cd.sendKeysMethod(cd.getZipCode(),"62629626291");
+        cd.sendKeysMethod(cd.getZipCode(), "62629626291");
 
 
     }
@@ -207,7 +210,7 @@ public class _06_ContactDetailsSteps {
 
         cd.waitUntilClickable(cd.getHomePhone());
         cd.clickMethod(cd.getHomePhone());
-        cd.sendKeysMethod(cd.getHomePhone(),"+1234567891011121314151617");
+        cd.sendKeysMethod(cd.getHomePhone(), "+1234567891011121314151617");
 
 
     }
@@ -266,11 +269,58 @@ public class _06_ContactDetailsSteps {
     }
 
     @And("I remove all the contact details")
-    public void i_remove_all_the_contact_details() {
+    public void i_remove_all_the_contact_details() throws InterruptedException {
+
+        Actions actions = new Actions(DriverClass.getDriver());
+
+        cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(), "value", "221B Baker St"));
+
+        cd.getStreet1().click();
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
+        js.executeScript("var dropdown = document.querySelector('.oxd-select-text-input'); dropdown.innerText = '-- Select --';");
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
 
     }
     @Then("the changes should be saved and there is no contact information displayed")
     public void the_changes_should_be_saved_and_there_is_no_contact_information_displayed() {
+
+        Assert.assertEquals(cd.getStreet1().getAttribute("value"),"");
+
+        System.out.println("This is the value in Street 1 field: " + cd.getStreet1().getAttribute("value"));
+
 
     }
 

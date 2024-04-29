@@ -64,6 +64,7 @@ public class ContactDetails extends MyMethods {
     @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 50 characters')]")
     private WebElement shouldNotExceed50Msg;
 
+
     public WebElement getContactDetailsBtn() {
         return contactDetailsBtn;
     }
@@ -131,4 +132,6 @@ public class ContactDetails extends MyMethods {
     public WebElement getShouldNotExceed50Msg() {
         return shouldNotExceed50Msg;
     }
+
+
 }
