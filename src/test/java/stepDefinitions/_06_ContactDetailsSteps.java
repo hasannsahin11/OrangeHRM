@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -186,12 +187,88 @@ public class _06_ContactDetailsSteps {
         DriverClass.quitDriver();
     }
 
+    @And("I remove all the contact details")
+    public void i_remove_all_the_contact_details() throws InterruptedException {
+
+        Actions actions = new Actions(DriverClass.getDriver());
+
+        cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(), "value", "221B Baker St"));
+
+        cd.getStreet1().click();
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Address 1 details has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Address 2 details has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("City name has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("State name has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("ZipCode has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
+        js.executeScript("var dropdown = document.querySelector('.oxd-select-text-input'); dropdown.innerText = '-- Select --';");
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Country name has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Home Phone number has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Mobile Phone number has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Work Phone number has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Work Email Address has been removed.");
+        actions.sendKeys(Keys.TAB).perform();
+
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        System.out.println("Other Email Address has been removed.");
+    }
+
+    @Then("the changes should be saved and there is no contact information displayed")
+    public void the_changes_should_be_saved_and_there_is_no_contact_information_displayed() {
+
+        Assert.assertEquals(cd.getStreet1().getAttribute("value"), "");
+        System.out.println("This is the value in Street 1 field: " + "\"" + cd.getStreet1().getAttribute("value") + "\"");
+        DriverClass.quitDriver();
+    }
+
     @Given("Enter an address with more than SEVENTY characters.")
     public void enter_an_address_with_more_than_seventy_characters() {
 
-        cd.wait.until(ExpectedConditions.attributeToBe(cd.getWorkEmail(), "value", "sania1@osohrm.com"));
+        cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
 
         cd.sendKeysMethod(cd.getStreet1(), "221B Baker St Coach House #2 Springfield Illinois 62629 United States of America");
+
 
     }
 
@@ -254,74 +331,18 @@ public class _06_ContactDetailsSteps {
         dc.clickMethod(dc.getSaveBtn());
 
         Assert.assertTrue(cd.getShouldNotExceed70Msg().getText().contains("Should not exceed 70 characters"));
-        System.out.println(cd.getShouldNotExceed70Msg().getText());
+        System.out.println("Address 1 Field :" + cd.getShouldNotExceed70Msg().getText());
 
         Assert.assertTrue(cd.getShouldNotExceed10Msg().getText().contains("Should not exceed 10 characters"));
-        System.out.println(cd.getShouldNotExceed10Msg().getText());
+        System.out.println("Zipcode Field :" + cd.getShouldNotExceed10Msg().getText());
 
         Assert.assertTrue(cd.getShouldNotExceed25Msg().getText().contains("Should not exceed 25 characters"));
-        System.out.println(cd.getShouldNotExceed25Msg().getText());
+        System.out.println("Home Phone Number Field :" + cd.getShouldNotExceed25Msg().getText());
 
         Assert.assertTrue(cd.getShouldNotExceed50Msg().getText().contains("Should not exceed 50 characters"));
-        System.out.println(cd.getShouldNotExceed50Msg().getText());
+        System.out.println("Other Email Field :" + cd.getShouldNotExceed50Msg().getText());
 
         DriverClass.quitDriver();
-    }
-
-    @And("I remove all the contact details")
-    public void i_remove_all_the_contact_details() throws InterruptedException {
-
-        Actions actions = new Actions(DriverClass.getDriver());
-
-        cd.wait.until(ExpectedConditions.attributeToBe(cd.getStreet1(), "value", "221B Baker St"));
-
-        cd.getStreet1().click();
-        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-
-        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
-        js.executeScript("var dropdown = document.querySelector('.oxd-select-text-input'); dropdown.innerText = '-- Select --';");
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-        actions.sendKeys(Keys.TAB).perform();
-
-        actions.sendKeys(Keys.BACK_SPACE).perform();
-
-    }
-    @Then("the changes should be saved and there is no contact information displayed")
-    public void the_changes_should_be_saved_and_there_is_no_contact_information_displayed() {
-
-        Assert.assertEquals(cd.getStreet1().getAttribute("value"),"");
-
-        System.out.println("This is the value in Street 1 field: " + cd.getStreet1().getAttribute("value"));
-
-
     }
 
 }
