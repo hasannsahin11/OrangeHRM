@@ -43,3 +43,10 @@ Feature: Contact Details View and Update
     And Enter a home phone number with more than TWENTY FIVE characters.
     And Enter an email address with more than FIFTY characters.
     Then The system should prevent the user from entering more than required amounts and display a red error message under each field
+
+    Scenario: Verify Work Email Address added
+      Given I'm on the My Info page
+      When I navigate to the Contact Details page
+      And I enter a new Work Email address
+      Then The email address successfully saved and displayed
+
