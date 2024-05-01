@@ -345,4 +345,25 @@ public class _06_ContactDetailsSteps {
         DriverClass.quitDriver();
     }
 
+    @When("I enter a new Work Email address")
+    public void i_enter_a_new_work_email_address() {
+        cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        cd.getWorkEmail().sendKeys("sania1@osohrm.com");
+
+        dc.getSaveBtn().click();
+
+        cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+    }
+
+    @Then("The new email address successfully saved and displayed")
+    public void the_new_email_address_successfully_saved_and_displayed() {
+
+        System.out.println(cd.getWorkEmail().getAttribute("value"));
+        Assert.assertEquals(cd.getWorkEmail().getAttribute("value"), "sania1@osohrm.com");
+
+    }
+
+
 }
