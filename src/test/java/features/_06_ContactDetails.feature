@@ -51,7 +51,7 @@ Feature: Contact Details View and Update
       Then The new email address successfully saved and displayed
 
 
-      Scenario: Verify same email address can't be added
+      Scenario: Verify same email address can't be added as the Other Email
         Given I'm on the My Info page
         When I navigate to the Contact Details page
         And I enter same Work Email address into the Other Email field
