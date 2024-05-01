@@ -50,3 +50,11 @@ Feature: Contact Details View and Update
       And I enter a new Work Email address
       Then The new email address successfully saved and displayed
 
+
+      Scenario: Verify same email address can't be added
+        Given I'm on the My Info page
+        When I navigate to the Contact Details page
+        And I enter same Work Email address into the Other Email field
+        Then "Already exists" message displays in red under the corresponding field
+
+

@@ -345,7 +345,7 @@ public class _06_ContactDetailsSteps {
         DriverClass.quitDriver();
     }
 
-    @When("I enter a new Work Email address")
+    @And("I enter a new Work Email address")
     public void i_enter_a_new_work_email_address() {
         cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
@@ -362,6 +362,15 @@ public class _06_ContactDetailsSteps {
 
         System.out.println(cd.getWorkEmail().getAttribute("value"));
         Assert.assertEquals(cd.getWorkEmail().getAttribute("value"), "sania1@osohrm.com");
+
+    }
+
+    @And("I enter same Work Email address into the Other Email field")
+    public void i_enter_same_work_email_address_into_the_other_email_field() {
+
+    }
+    @Then("{string} message displays in red under the corresponding field")
+    public void message_displays_in_red_under_the_corresponding_field(String string) {
 
     }
 
