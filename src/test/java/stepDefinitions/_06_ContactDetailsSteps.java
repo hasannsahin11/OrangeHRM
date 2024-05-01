@@ -363,16 +363,34 @@ public class _06_ContactDetailsSteps {
         System.out.println(cd.getWorkEmail().getAttribute("value"));
         Assert.assertEquals(cd.getWorkEmail().getAttribute("value"), "sania1@osohrm.com");
 
+        DriverClass.quitDriver();
+
     }
 
     @And("I enter same Work Email address into the Other Email field")
     public void i_enter_same_work_email_address_into_the_other_email_field() {
 
+        cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        cd.getOtherEmail().sendKeys("sania1@osohrm.com");
+
     }
     @Then("{string} message displays in red under the corresponding field")
     public void message_displays_in_red_under_the_corresponding_field(String string) {
 
+        System.out.println("Displayed message after adding the same email address into the Other Email address: " + "\"" + cd.getAlreadyExistsMsg().getText()+ "\"");
+        Assert.assertEquals(cd.getAlreadyExistsMsg().getText(),string);
+
     }
 
+    @Then("{string} message displays under existing Work Email address' field once I click save")
+    public void message_displays_under_existing_work_email_address_field_once_i_click_save(String string) {
+
+        dc.getSaveBtn().click();
+
+        System.out.println("Displayed message after trying to save the same email address under the existing email address' field: " + "\"" + cd.getEmailsCantBeSameMsg().getText()+ "\"");
+        Assert.assertEquals(cd.getEmailsCantBeSameMsg().getText(),string);
+
+    }
 
 }

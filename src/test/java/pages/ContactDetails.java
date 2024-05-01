@@ -64,6 +64,12 @@ public class ContactDetails extends MyMethods {
     @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 50 characters')]")
     private WebElement shouldNotExceed50Msg;
 
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Already exists')]")
+    private WebElement alreadyExistsMsg;
+
+    @FindBy(xpath = "//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Work Email and Other Email cannot be the same')]")
+    private WebElement emailsCantBeSameMsg;
+
 
     public WebElement getContactDetailsBtn() {
         return contactDetailsBtn;
@@ -133,5 +139,11 @@ public class ContactDetails extends MyMethods {
         return shouldNotExceed50Msg;
     }
 
+    public WebElement getAlreadyExistsMsg() {
+        return alreadyExistsMsg;
+    }
 
+    public WebElement getEmailsCantBeSameMsg() {
+        return emailsCantBeSameMsg;
+    }
 }
