@@ -118,11 +118,12 @@ public class _03_PersonalDetailsSteps {
         dc.clickMethod(dc.getSaveBtn());
         System.out.println("Clicked the " + dc.getSaveBtn().getText() + " button.");
 
-
         mi.clickMethod(mi.getMyInfoBtn());
-        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
+        mi.wait.until(ExpectedConditions.attributeToBe(mi.getLastName(),"value","Shaheen"));
         System.out.println("Value in the Last Name field after refreshing the page: " + "\"" + mi.getLastName().getAttribute("value") + "\"");
+
+        DriverClass.quitDriver();
 
     }
 
@@ -146,11 +147,12 @@ public class _03_PersonalDetailsSteps {
         dc.clickMethod(dc.getSaveBtn());
         System.out.println("Clicked the " + dc.getSaveBtn().getText() + " button.");
 
-
         mi.clickMethod(mi.getMyInfoBtn());
-        mi.wait.until(ExpectedConditions.attributeToBe(mi.getFirstName(),"value","Sania"));
 
+        mi.wait.until(ExpectedConditions.attributeToBe(mi.getFirstName(),"value","Sania"));
         System.out.println("Value in the First Name field after refreshing the page: " + "\"" + mi.getFirstName().getAttribute("value") + "\"");
+
+        DriverClass.quitDriver();
 
     }
 
@@ -187,14 +189,14 @@ public class _03_PersonalDetailsSteps {
         System.out.println("Marital Status before update: " + "\"" + mi.getMaritalStatus().getText() + "\"");
         mi.getMaritalStatus().click();
 
-        actions.sendKeys("s").sendKeys(Keys.ENTER).build().perform();
+        actions.sendKeys("o").sendKeys(Keys.ENTER).build().perform();
     }
 
     @Then("The updated Marital Status should be successfully saved and displayed")
     public void theUpdatedMaritalStatusShouldBeSuccessfullySavedAndDisplayed() {
-        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]"), "Single"));
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]"), "Other"));
 
-        Assert.assertEquals(mi.getMaritalStatus().getText(), "Single");
+        Assert.assertEquals(mi.getMaritalStatus().getText(), "Other");
         System.out.println("Updated Marital Status: " + "\"" + mi.getMaritalStatus().getText() + "\"");
 
         DriverClass.quitDriver();
