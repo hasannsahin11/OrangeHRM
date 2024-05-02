@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import pages.DialogContent;
 import pages.MyInfo;
 import utils.DriverClass;
 
@@ -16,6 +17,7 @@ import java.util.List;
 public class _03_PersonalDetailsSteps {
 
     MyInfo mi = new MyInfo();
+    DialogContent dc = new DialogContent();
 
     @When("I navigate to the My Info page")
     public void i_navigate_to_my_ifo_page() {
@@ -95,6 +97,24 @@ public class _03_PersonalDetailsSteps {
         DriverClass.quitDriver();
     }
 
+    @When("I delete the value from Last Name field")
+    public void i_delete_the_value_from_last_name_field() {
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+        mi.getLastName().click();
+        while (!mi.getLastName().getAttribute("value").isEmpty()) {
+            mi.getLastName().sendKeys(Keys.BACK_SPACE);
+        }
+    }
+
+    @Then("{string} message in red should display under the field and the change shouldn't be saved")
+    public void message_in_red_should_display_under_the_field_and_the_change_shouldn_t_be_saved(String requiredMsg) {
+
+        System.out.println("Displayed Error Message: " + mi.getRequiredMsg().getText());
+        Assert.assertEquals(mi.getRequiredMsg().getText(), requiredMsg);
+
+    }
+
 
     @When("I update the Nationality to American")
     public void iUpdateTheNationalityToAmerican() {
@@ -110,11 +130,11 @@ public class _03_PersonalDetailsSteps {
     }
 
     @Then("The updated Nationality should be successfully saved and displayed")
-    public void theUpdatedNationalityShouldBeSuccessfullySavedAndDisplayed(){
+    public void theUpdatedNationalityShouldBeSuccessfullySavedAndDisplayed() {
 
-        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"),"Dutch"));
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"), "Dutch"));
 
-        Assert.assertEquals(mi.getNationality().getText(),"Dutch");
+        Assert.assertEquals(mi.getNationality().getText(), "Dutch");
         System.out.println("Updated Nationality: " + "\"" + mi.getNationality().getText() + "\"");
 
         DriverClass.quitDriver();
@@ -133,9 +153,9 @@ public class _03_PersonalDetailsSteps {
 
     @Then("The updated Marital Status should be successfully saved and displayed")
     public void theUpdatedMaritalStatusShouldBeSuccessfullySavedAndDisplayed() {
-        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]"),"Single"));
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]"), "Single"));
 
-        Assert.assertEquals(mi.getMaritalStatus().getText(),"Single");
+        Assert.assertEquals(mi.getMaritalStatus().getText(), "Single");
         System.out.println("Updated Marital Status: " + "\"" + mi.getMaritalStatus().getText() + "\"");
 
         DriverClass.quitDriver();

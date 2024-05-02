@@ -26,8 +26,14 @@ public class MyInfo extends MyMethods {
     @FindBy(name = "firstName")
     private WebElement firstName;
 
+    @FindBy(name = "lastName")
+    private WebElement lastName;
+
     @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
     private WebElement successfullyUpdatedMsg;
+
+    @FindBy(xpath = "//span[contains(.,'Required')]")
+    private WebElement requiredMsg;
 
     @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
     private WebElement profilePic;
@@ -61,8 +67,12 @@ public class MyInfo extends MyMethods {
         return firstName;
     }
 
-    public WebElement getSuccessfullyUpdatedMsg() {
-        return successfullyUpdatedMsg;
+    public WebElement getLastName() {
+        return lastName;
+    }
+
+    public WebElement getRequiredMsg() {
+        return requiredMsg;
     }
 
     public WebElement getProfilePic() {
