@@ -35,6 +35,12 @@ public class MyInfo extends MyMethods {
     @FindBy(css = "button.oxd-icon-button.oxd-icon-button--solid-main.employee-image-action")
     private WebElement uploadBtn;
 
+    @FindBy(xpath = "(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]")
+    private WebElement nationality;
+
+    @FindBy(xpath = "(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]")
+    private WebElement maritalStatus;
+
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
     }

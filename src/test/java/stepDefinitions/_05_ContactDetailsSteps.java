@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -16,9 +15,8 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.security.Key;
 
-public class _06_ContactDetailsSteps {
+public class _05_ContactDetailsSteps {
 
     ContactDetails cd = new ContactDetails();
     DialogContent dc = new DialogContent();

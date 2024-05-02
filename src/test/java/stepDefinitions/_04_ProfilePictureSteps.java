@@ -13,7 +13,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class _05_UploadProfilePictureSteps {
+public class _04_ProfilePictureSteps {
 
     DialogContent dc = new DialogContent();
     MyInfo mi = new MyInfo();
