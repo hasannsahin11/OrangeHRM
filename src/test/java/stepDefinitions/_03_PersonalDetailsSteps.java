@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import pages.ContactDetails;
 import pages.DialogContent;
 import pages.MyInfo;
 import utils.DriverClass;
@@ -18,6 +19,7 @@ public class _03_PersonalDetailsSteps {
 
     MyInfo mi = new MyInfo();
     DialogContent dc = new DialogContent();
+
 
     @When("I navigate to the My Info page")
     public void i_navigate_to_my_ifo_page() {
@@ -107,11 +109,48 @@ public class _03_PersonalDetailsSteps {
         }
     }
 
-    @Then("{string} message in red should display under the field and the change shouldn't be saved")
-    public void message_in_red_should_display_under_the_field_and_the_change_shouldn_t_be_saved(String requiredMsg) {
+    @Then("{string} message in red should display under the Last Name field and the change shouldn't be saved")
+    public void message_in_red_should_display_under_the_last_name_field_and_the_change_shouldn_t_be_saved(String requiredMsg) {
 
-        System.out.println("Displayed Error Message: " + mi.getRequiredMsg().getText());
+        System.out.println("Displayed Error Message When Deleted Last Name: " + mi.getRequiredMsg().getText());
         Assert.assertEquals(mi.getRequiredMsg().getText(), requiredMsg);
+
+        dc.clickMethod(dc.getSaveBtn());
+        System.out.println("Clicked the " + dc.getSaveBtn().getText() + " button.");
+
+
+        mi.clickMethod(mi.getMyInfoBtn());
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        System.out.println("Value in the Last Name field after refreshing the page: " + "\"" + mi.getLastName().getAttribute("value") + "\"");
+
+    }
+
+    @When("I delete the value from First Name field")
+    public void iDeleteTheValueFromFirstNameField() {
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        mi.getFirstName().click();
+        while (!mi.getFirstName().getAttribute("value").isEmpty()) {
+            mi.getFirstName().sendKeys(Keys.BACK_SPACE);
+        }
+    }
+
+    @Then("{string} message in red should display under the First Name field and the change shouldn't be saved")
+    public void messageInRedShouldDisplayUnderTheFirstNameFieldAndTheChangeShouldnTBeSaved(String requiredMsg) {
+
+        System.out.println("Displayed Error Message When Deleted First Name: " + mi.getRequiredMsg().getText());
+        Assert.assertEquals(mi.getRequiredMsg().getText(), requiredMsg);
+
+        dc.clickMethod(dc.getSaveBtn());
+        System.out.println("Clicked the " + dc.getSaveBtn().getText() + " button.");
+
+
+        mi.clickMethod(mi.getMyInfoBtn());
+        mi.wait.until(ExpectedConditions.attributeToBe(mi.getFirstName(),"value","Sania"));
+
+        System.out.println("Value in the First Name field after refreshing the page: " + "\"" + mi.getFirstName().getAttribute("value") + "\"");
 
     }
 
@@ -160,4 +199,5 @@ public class _03_PersonalDetailsSteps {
 
         DriverClass.quitDriver();
     }
+
 }
