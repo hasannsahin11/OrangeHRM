@@ -1,9 +1,9 @@
 Feature: Verify Disabled Fields on Personal Information Page
 
-#  Background:Login with ESS credentials
-#    Given I am on the OrangeHRM login page
-#    When I enter the ESS credentials
-#    And I click the Login button
+  Background:Login with ESS credentials
+    Given I am on the OrangeHRM login page
+    When I enter the ESS credentials
+    And I click the Login button
 #
 #  Scenario: Login and Verify Disabled Fields
 #    When I navigate to the My Info page
@@ -19,8 +19,8 @@ Feature: Verify Disabled Fields on Personal Information Page
 #    And I click on the Save button
 #    Then the updated first name should be displayed
 
-  Scenario: Update Nationality and Marital Status with a valid option
+  Scenario: Update Nationality a valid option
     Given I'm on the My Info page
-    When I update the Nationality to American and the Marital Status to Single
+    When I update the Nationality to American
     And I click on the Save button
-    Then Changes should be successfully saved and displayed
+    Then The updated Nationality should be successfully saved and displayed

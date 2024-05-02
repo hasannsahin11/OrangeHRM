@@ -73,4 +73,11 @@ public class MyInfo extends MyMethods {
         return uploadBtn;
     }
 
+    public WebElement getNationality() {
+        return nationality;
+    }
+
+    public WebElement getMaritalStatus() {
+        return maritalStatus;
+    }
 }

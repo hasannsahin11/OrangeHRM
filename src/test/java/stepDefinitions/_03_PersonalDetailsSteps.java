@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +10,7 @@ import org.testng.Assert;
 import pages.MyInfo;
 import utils.DriverClass;
 
+import java.security.Key;
 import java.util.List;
 
 public class _03_PersonalDetailsSteps {
@@ -71,8 +73,8 @@ public class _03_PersonalDetailsSteps {
     Actions actions = new Actions(DriverClass.getDriver());
 
     @When("I change the First Name field to {string}")
-    public void i_change_the_field_to(String firstName) throws InterruptedException {
-//        mi.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='firstName']")));
+    public void i_change_the_field_to(String firstName) {
+
         mi.wait.until(ExpectedConditions.elementToBeClickable(mi.getFirstName()));
         mi.getFirstName().click();
         while (!mi.getFirstName().getAttribute("value").isEmpty()) {
@@ -94,15 +96,28 @@ public class _03_PersonalDetailsSteps {
     }
 
 
-    @When("I update the Nationality to American and the Marital Status to Single")
-    public void iUpdateTheNationalityToAmericanAndTheMaritalStatusToSingle() {
+    @When("I update the Nationality to American")
+    public void iUpdateTheNationalityToAmerican() {
 
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        System.out.println("Nationality before update :" + "\"" + mi.getNationality().getText() + "\"");
+
+        mi.getNationality().click();
+
+        actions.sendKeys("d").sendKeys("d").sendKeys("d").sendKeys(Keys.ENTER).build().perform();
 
     }
 
-    @Then("Changes should be successfully saved and displayed")
-    public void changesShouldBeSuccessfullySavedAndDisplayed() {
+    @Then("The updated Nationality should be successfully saved and displayed")
+    public void theUpdatedNationalityShouldBeSuccessfullySavedAndDisplayed(){
 
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"),"Dutch"));
+
+        Assert.assertEquals(mi.getNationality().getText(),"Dutch");
+        System.out.println("Updated Nationality :" + "\"" + mi.getNationality().getText() + "\"");
+
+        DriverClass.quitDriver();
 
     }
 }
