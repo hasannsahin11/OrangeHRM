@@ -101,7 +101,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        System.out.println("Nationality before update :" + "\"" + mi.getNationality().getText() + "\"");
+        System.out.println("Nationality before update: " + "\"" + mi.getNationality().getText() + "\"");
 
         mi.getNationality().click();
 
@@ -115,7 +115,7 @@ public class _03_PersonalDetailsSteps {
         mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"),"Dutch"));
 
         Assert.assertEquals(mi.getNationality().getText(),"Dutch");
-        System.out.println("Updated Nationality :" + "\"" + mi.getNationality().getText() + "\"");
+        System.out.println("Updated Nationality: " + "\"" + mi.getNationality().getText() + "\"");
 
         DriverClass.quitDriver();
 
@@ -123,9 +123,21 @@ public class _03_PersonalDetailsSteps {
 
     @When("I update the Marital Status to Single")
     public void iUpdateTheMaritalStatusToSingle() {
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        System.out.println("Marital Status before update: " + "\"" + mi.getMaritalStatus().getText() + "\"");
+        mi.getMaritalStatus().click();
+
+        actions.sendKeys("s").sendKeys(Keys.ENTER).build().perform();
     }
 
     @Then("The updated Marital Status should be successfully saved and displayed")
     public void theUpdatedMaritalStatusShouldBeSuccessfullySavedAndDisplayed() {
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]"),"Single"));
+
+        Assert.assertEquals(mi.getMaritalStatus().getText(),"Single");
+        System.out.println("Updated Marital Status: " + "\"" + mi.getMaritalStatus().getText() + "\"");
+
+        DriverClass.quitDriver();
     }
 }
