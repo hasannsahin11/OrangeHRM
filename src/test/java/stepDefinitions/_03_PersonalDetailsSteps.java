@@ -120,4 +120,12 @@ public class _03_PersonalDetailsSteps {
         DriverClass.quitDriver();
 
     }
+
+    @When("I update the Marital Status to Single")
+    public void iUpdateTheMaritalStatusToSingle() {
+    }
+
+    @Then("The updated Marital Status should be successfully saved and displayed")
+    public void theUpdatedMaritalStatusShouldBeSuccessfullySavedAndDisplayed() {
+    }
 }

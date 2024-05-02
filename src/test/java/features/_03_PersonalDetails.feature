@@ -19,8 +19,14 @@ Feature: Verify Disabled Fields on Personal Information Page
 #    And I click on the Save button
 #    Then the updated first name should be displayed
 
-  Scenario: Update Nationality a valid option
+  Scenario: Update Nationality with a valid option
     Given I'm on the My Info page
     When I update the Nationality to American
     And I click on the Save button
     Then The updated Nationality should be successfully saved and displayed
+
+  Scenario: Update Marital Status with a valid option
+    Given I'm on the My Info page
+    When I update the Marital Status to Single
+    And I click on the Save button
+    Then The updated Marital Status should be successfully saved and displayed
