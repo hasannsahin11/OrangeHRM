@@ -166,7 +166,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.getNationality().click();
 
-        actions.sendKeys("d").sendKeys("d").sendKeys("d").sendKeys(Keys.ENTER).build().perform();
+        actions.sendKeys("d").sendKeys("d").sendKeys("d").sendKeys("d").sendKeys(Keys.ENTER).build().perform();
 
     }
 
