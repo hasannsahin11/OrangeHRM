@@ -211,13 +211,9 @@ public class _03_PersonalDetailsSteps {
 
     @Then("The Gender should be successfully saved and displayed")
     public void theGenderShouldBeSuccessfullySavedAndDisplayed() throws InterruptedException {
-//        mi.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")));
 
         Thread.sleep(5000);
 
-//        while (!mi.getMaleRadioBtn().isSelected()) {
-//            mi.wait.until(ExpectedConditions.elementToBeSelected(By.cssSelector(".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")));
-//        }
         Assert.assertTrue(mi.getMaleRadioBtn().isSelected());
     }
 }

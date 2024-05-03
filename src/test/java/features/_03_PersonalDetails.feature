@@ -44,4 +44,4 @@ Feature: Verify Disabled Fields on Personal Information Page
       Given I'm on the My Info page
       When I click on Male radio button
       And I click on the Save button
-      Then The Gender should be successfully saved and displayedChange
+      Then The Gender should be successfully saved and displayed
