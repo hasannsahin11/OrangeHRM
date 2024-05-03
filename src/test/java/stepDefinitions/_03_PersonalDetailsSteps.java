@@ -120,7 +120,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.clickMethod(mi.getMyInfoBtn());
 
-        mi.wait.until(ExpectedConditions.attributeToBe(mi.getLastName(),"value","Shaheen"));
+        mi.wait.until(ExpectedConditions.attributeToBe(mi.getLastName(), "value", "Shaheen"));
         System.out.println("Value in the Last Name field after refreshing the page: " + "\"" + mi.getLastName().getAttribute("value") + "\"");
 
         DriverClass.quitDriver();
@@ -149,7 +149,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.clickMethod(mi.getMyInfoBtn());
 
-        mi.wait.until(ExpectedConditions.attributeToBe(mi.getFirstName(),"value","Sania"));
+        mi.wait.until(ExpectedConditions.attributeToBe(mi.getFirstName(), "value", "Sania"));
         System.out.println("Value in the First Name field after refreshing the page: " + "\"" + mi.getFirstName().getAttribute("value") + "\"");
 
         DriverClass.quitDriver();
@@ -157,25 +157,24 @@ public class _03_PersonalDetailsSteps {
     }
 
 
-    @When("I update the Nationality to American")
-    public void iUpdateTheNationalityToAmerican() {
+    @When("I update the Nationality to French")
+    public void iUpdateTheNationalityToFrench() {
 
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        System.out.println("Nationality before update: " + "\"" + mi.getNationality().getText() + "\"");
-
+        System.out.println("Nationality before the update: " + "\"" + mi.getNationality().getText() + "\"");
         mi.getNationality().click();
 
-        actions.sendKeys("d").sendKeys("d").sendKeys("d").sendKeys("d").sendKeys(Keys.ENTER).build().perform();
+        actions.sendKeys("f").sendKeys("f").sendKeys("f").sendKeys("f").sendKeys(Keys.ENTER).build().perform();
 
     }
 
     @Then("The updated Nationality should be successfully saved and displayed")
     public void theUpdatedNationalityShouldBeSuccessfullySavedAndDisplayed() {
 
-        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"), "Dutch"));
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[1]"), "French"));
 
-        Assert.assertEquals(mi.getNationality().getText(), "Dutch");
+        Assert.assertEquals(mi.getNationality().getText(), "French");
         System.out.println("Updated Nationality: " + "\"" + mi.getNationality().getText() + "\"");
 
         DriverClass.quitDriver();
@@ -186,7 +185,7 @@ public class _03_PersonalDetailsSteps {
     public void iUpdateTheMaritalStatusToSingle() {
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        System.out.println("Marital Status before update: " + "\"" + mi.getMaritalStatus().getText() + "\"");
+        System.out.println("Marital Status before the update: " + "\"" + mi.getMaritalStatus().getText() + "\"");
         mi.getMaritalStatus().click();
 
         actions.sendKeys("o").sendKeys(Keys.ENTER).build().perform();
@@ -202,4 +201,23 @@ public class _03_PersonalDetailsSteps {
         DriverClass.quitDriver();
     }
 
+    @When("I click on Male radio button")
+    public void iClickOnMaleRadioButton() {
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        mi.waitUntilClickable(mi.getMaleRadioBtn());
+        mi.getMaleRadioBtn().click();
+    }
+
+    @Then("The Gender should be successfully saved and displayed")
+    public void theGenderShouldBeSuccessfullySavedAndDisplayed() throws InterruptedException {
+//        mi.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")));
+
+        Thread.sleep(5000);
+
+//        while (!mi.getMaleRadioBtn().isSelected()) {
+//            mi.wait.until(ExpectedConditions.elementToBeSelected(By.cssSelector(".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")));
+//        }
+        Assert.assertTrue(mi.getMaleRadioBtn().isSelected());
+    }
 }

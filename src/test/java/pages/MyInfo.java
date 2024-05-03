@@ -29,8 +29,8 @@ public class MyInfo extends MyMethods {
     @FindBy(name = "lastName")
     private WebElement lastName;
 
-    @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
-    private WebElement successfullyUpdatedMsg;
+//    @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
+//    private WebElement successfullyUpdatedMsg;
 
     @FindBy(xpath = "//span[contains(.,'Required')]")
     private WebElement requiredMsg;
@@ -46,6 +46,9 @@ public class MyInfo extends MyMethods {
 
     @FindBy(xpath = "(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active')])[2]")
     private WebElement maritalStatus;
+
+    @FindBy(css = ".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")
+    private WebElement maleRadioBtn;
 
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
@@ -89,5 +92,9 @@ public class MyInfo extends MyMethods {
 
     public WebElement getMaritalStatus() {
         return maritalStatus;
+    }
+
+    public WebElement getMaleRadioBtn() {
+        return maleRadioBtn;
     }
 }

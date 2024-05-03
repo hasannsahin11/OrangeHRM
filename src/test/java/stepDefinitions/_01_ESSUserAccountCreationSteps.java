@@ -128,7 +128,7 @@ public class _01_ESSUserAccountCreationSteps {
 
         dc.waitUntilVisible(dc.getSuccessMessage());
 
-        System.out.println(dc.getSuccessMessage().getText());
+//        System.out.println(dc.getSuccessMessage().getText());
         Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
 
         System.out.println("An ESS account has been successfully created!");
