@@ -245,4 +245,27 @@ public class _03_PersonalDetailsSteps {
     }
 
 
+    @When("I enter a First Name with more than forty characters")
+    public void iEnterAFirstNameWithMoreThanFortyCharacters() {
+    }
+
+    @And("I enter a Middle Name with more than forty characters")
+    public void iEnterAMiddleNameWithMoreThanFortyCharacters() {
+    }
+
+    @And("I enter a Last Name with more than forty characters")
+    public void iEnterALastNameWithMoreThanFortyCharacters() {
+    }
+
+    @And("I enter an Other Id with more than forty characters")
+    public void iEnterAnOtherIdWithMoreThanFortyCharacters() {
+    }
+
+    @And("I enter a valid value in the Test_Field with more than two hundred and fifty characters")
+    public void iEnterAValidValueInTheTest_FieldWithMoreThanTwoHundredAndFiftyCharacters() {
+    }
+
+    @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")
+    public void theSystemShouldPreventMeFromEnteringMoreThanRequiredAmountsAndDisplayARedErrorMessageUnderEachField() {
+    }
 }
