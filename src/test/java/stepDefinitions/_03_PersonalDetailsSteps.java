@@ -218,4 +218,27 @@ public class _03_PersonalDetailsSteps {
 
         System.out.println("Gender has been modified as \"Male\"");
     }
+
+    @When("I select AB+ from the blood type dropdown")
+    public void iSelectABFromTheBloodTypeDropdown() {
+
+        mi.waitUntilClickable(mi.getBloodType());
+        mi.getBloodType().click();
+
+        actions.sendKeys("a").sendKeys("a").sendKeys("a").sendKeys(Keys.ENTER).build().perform();
+
+
+    }
+
+    @Then("the selected blood type should be successfully saved and displayed")
+    public void theSelectedBloodTypeShouldBeSuccessfullySavedAndDisplayed() {
+
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[@class='oxd-select-text-input'])[3]"),"AB+"));
+        Assert.assertEquals(mi.getBloodType().getText(),"AB+");
+
+        System.out.println("Updated Blood Type: " + "\"" + mi.getBloodType().getText() + "\"");
+
+    }
+
+
 }

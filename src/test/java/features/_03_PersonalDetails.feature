@@ -28,20 +28,26 @@ Feature: Verify Disabled Fields on Personal Information Page
 #    And I click on the Save button
 #    Then the updated first name should be displayed
 
-#  Scenario: Update Nationality with a valid option
-#    Given I'm on the My Info page
-#    When I update the Nationality to French
-#    And I click on the Save button
-#    Then The updated Nationality should be successfully saved and displayed
-#
-#  Scenario: Update Marital Status with a valid option
-#    Given I'm on the My Info page
-#    When I update the Marital Status to Single
-#    And I click on the Save button
-#    Then The updated Marital Status should be successfully saved and displayed
+  Scenario: Update Nationality with a valid option
+    Given I'm on the My Info page
+    When I update the Nationality to French
+    And I click on the Save button
+    Then The updated Nationality should be successfully saved and displayed
 
-    Scenario: Change Gender by using radio button
+  Scenario: Update Marital Status with a valid option
+    Given I'm on the My Info page
+    When I update the Marital Status to Single
+    And I click on the Save button
+    Then The updated Marital Status should be successfully saved and displayed
+
+    Scenario: Selecting Gender
       Given I'm on the My Info page
       When I click on Male radio button
       And I click on the Save button
       Then The Gender should be successfully saved and displayed
+
+  Scenario: Selecting a Blood Type
+    Given I'm on the My Info page
+    When I select AB+ from the blood type dropdown
+    And  I click on the Save button
+    Then the selected blood type should be successfully saved and displayed

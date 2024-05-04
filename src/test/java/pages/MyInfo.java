@@ -53,6 +53,10 @@ public class MyInfo extends MyMethods {
     @FindBy(css = "input[type='radio']")
     private WebElement maleOuterRadioBtn;
 
+
+    @FindBy(xpath = "(//div[@class='oxd-select-text-input'])[3]")
+    private WebElement bloodType;
+
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
     }
@@ -102,5 +106,9 @@ public class MyInfo extends MyMethods {
     }
     public WebElement getMaleOuterRadioBtn() {
         return maleOuterRadioBtn;
+    }
+
+    public WebElement getBloodType() {
+        return bloodType;
     }
 }
