@@ -50,6 +50,9 @@ public class MyInfo extends MyMethods {
     @FindBy(css = ".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")
     private WebElement maleRadioBtn;
 
+    @FindBy(css = "input[type='radio']")
+    private WebElement maleOuterRadioBtn;
+
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
     }
@@ -96,5 +99,8 @@ public class MyInfo extends MyMethods {
 
     public WebElement getMaleRadioBtn() {
         return maleRadioBtn;
+    }
+    public WebElement getMaleOuterRadioBtn() {
+        return maleOuterRadioBtn;
     }
 }

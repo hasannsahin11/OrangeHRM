@@ -210,10 +210,12 @@ public class _03_PersonalDetailsSteps {
     }
 
     @Then("The Gender should be successfully saved and displayed")
-    public void theGenderShouldBeSuccessfullySavedAndDisplayed() throws InterruptedException {
+    public void theGenderShouldBeSuccessfullySavedAndDisplayed() {
 
-        Thread.sleep(5000);
+        mi.wait.until(ExpectedConditions.elementToBeSelected(mi.getMaleOuterRadioBtn()));
 
-        Assert.assertTrue(mi.getMaleRadioBtn().isSelected());
+        Assert.assertTrue(mi.getMaleOuterRadioBtn().isSelected(),"It is not selected.");
+
+        System.out.println("Gender has been modified as \"Male\"");
     }
 }
