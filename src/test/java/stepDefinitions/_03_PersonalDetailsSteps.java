@@ -217,6 +217,8 @@ public class _03_PersonalDetailsSteps {
         Assert.assertTrue(mi.getMaleOuterRadioBtn().isSelected(),"It is not selected.");
 
         System.out.println("Gender has been modified as \"Male\"");
+
+        DriverClass.quitDriver();
     }
 
     @When("I select AB+ from the blood type dropdown")
@@ -237,6 +239,8 @@ public class _03_PersonalDetailsSteps {
         Assert.assertEquals(mi.getBloodType().getText(),"AB+");
 
         System.out.println("Updated Blood Type: " + "\"" + mi.getBloodType().getText() + "\"");
+
+        DriverClass.quitDriver();
 
     }
 
