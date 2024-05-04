@@ -51,3 +51,14 @@ Feature: Verify Disabled Fields on Personal Information Page
     When I select AB+ from the blood type dropdown
     And  I click on the Save button
     Then the selected blood type should be successfully saved and displayed
+
+
+  Scenario: Verify character limits for user information fields
+    Given I'm on the My Info page
+    When I enter a First Name with more than forty characters
+    And I enter a Middle Name with more than forty characters
+    And I enter a Last Name with more than forty characters
+    And I enter an Other Id with more than forty characters
+    And I enter a valid value in the Test_Field with more than two-fifty characters
+    Then the system should prevent me from entering more than the allowed characters
+    And it should display a red error message under each respective field
