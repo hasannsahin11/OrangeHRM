@@ -247,25 +247,31 @@ public class _03_PersonalDetailsSteps {
 
     @When("I enter a First Name with more than forty characters")
     public void iEnterAFirstNameWithMoreThanFortyCharacters() {
+        System.out.println("First name");
     }
 
     @And("I enter a Middle Name with more than forty characters")
     public void iEnterAMiddleNameWithMoreThanFortyCharacters() {
+        System.out.println("Middle name");
     }
 
     @And("I enter a Last Name with more than forty characters")
     public void iEnterALastNameWithMoreThanFortyCharacters() {
+        System.out.println("Last name");
     }
 
     @And("I enter an Other Id with more than forty characters")
     public void iEnterAnOtherIdWithMoreThanFortyCharacters() {
+        System.out.println("Last Id");
     }
 
     @And("I enter a valid value in the Test_Field with more than two hundred and fifty characters")
     public void iEnterAValidValueInTheTest_FieldWithMoreThanTwoHundredAndFiftyCharacters() {
+        System.out.println("Test Field");
     }
 
     @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")
     public void theSystemShouldPreventMeFromEnteringMoreThanRequiredAmountsAndDisplayARedErrorMessageUnderEachField() {
+        System.out.println("Can't be updated.");
     }
 }
