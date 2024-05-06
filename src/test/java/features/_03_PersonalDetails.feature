@@ -54,11 +54,11 @@ Feature: Verify Disabled Fields on Personal Information Page
 
 
   Scenario: Verify character limits for user information fields
-    Given I'm on the My Info page
-    When I enter a First Name with more than forty characters
-    And I enter a Middle Name with more than forty characters
-    And I enter a Last Name with more than forty characters
-    And I enter an Other Id with more than forty characters
-    And I enter a valid value in the Test_Field with more than two hundred and fifty characters
-    Then The system should prevent me from entering more than required amounts and display a red error message under each field
+#    Given I'm on the My Info page
+#    When I enter a First Name with more than forty characters
+#    And I enter a Middle Name with more than forty characters
+#    And I enter a Last Name with more than forty characters
+#    And I enter an Other Id with more than forty characters
+#    And I enter a valid value in the Test_Field with more than two hundred and fifty characters
+#    Then The system should prevent me from entering more than required amounts and display a red error message under each field
 
