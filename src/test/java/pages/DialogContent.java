@@ -15,6 +15,9 @@ public class DialogContent extends MyMethods {
     @FindBy(css = ".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")
     private WebElement saveBtn;
 
+    @FindBy (xpath = "(//button[@type='submit'])[2]")
+    private WebElement secondSaveBtn;
+
     @FindBy (xpath = "//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")
     private WebElement successMessage;
 
@@ -24,6 +27,10 @@ public class DialogContent extends MyMethods {
 
     public WebElement getSaveBtn() {
         return saveBtn;
+    }
+
+    public WebElement getSecondSaveBtn() {
+        return secondSaveBtn;
     }
 
     public WebElement getSuccessMessage() {

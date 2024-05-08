@@ -162,6 +162,7 @@ public class _03_PersonalDetailsSteps {
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
         System.out.println("Nationality before the update: " + "\"" + mi.getNationality().getText() + "\"");
+
         mi.getNationality().click();
 
         actions.sendKeys("f").sendKeys("f").sendKeys("f").sendKeys("f").sendKeys(Keys.ENTER).build().perform();
@@ -223,11 +224,24 @@ public class _03_PersonalDetailsSteps {
     @When("I select AB+ from the blood type dropdown")
     public void iSelectABFromTheBloodTypeDropdown() {
 
-        mi.waitUntilClickable(mi.getBloodType());
+//        mi.waitUntilClickable(mi.getBloodType());
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
         mi.getBloodType().click();
 
         actions.sendKeys("a").sendKeys("a").sendKeys("a").sendKeys(Keys.ENTER).build().perform();
 
+    }
+
+    @And("I click on the bottom Save button")
+    public void iClickOnTheBottomSaveButton() {
+
+        dc.waitUntilClickable(dc.getSecondSaveBtn());
+        dc.clickMethod(dc.getSecondSaveBtn());
+
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
+        System.out.println(dc.getSuccessMessage().getText());
 
     }
 
@@ -315,9 +329,11 @@ public class _03_PersonalDetailsSteps {
         mi.getMyInfoBtn().click();
         System.out.println("The page has been refreshed");
 
-        mi.wait.until(ExpectedConditions.attributeToBe(By.name("firstName"),"value","Sania"));
-        Assert.assertEquals(mi.getFirstName().getAttribute("value"),"Sania");
-        System.out.println("Value in the First Name Field after the refresh: " +"\""+mi.getFirstName().getAttribute("value")+"\""+" as expected." );
+        mi.wait.until(ExpectedConditions.attributeToBe(By.name("lastName"),"value","Shaheen"));
+        Assert.assertEquals(mi.getLastName().getAttribute("value"),"Shaheen");
+        System.out.println("Value in the Last Name Field after the refresh: " +"\""+mi.getLastName().getAttribute("value")+"\""+" as expected." );
+
+        DriverClass.quitDriver();
 
     }
 
@@ -325,4 +341,5 @@ public class _03_PersonalDetailsSteps {
         WebElement errorMessage = DriverClass.getDriver().findElement(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed "+characterNumber+" characters')])["+field+"]"));
         return errorMessage;
     }
+
 }
