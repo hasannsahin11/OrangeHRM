@@ -248,7 +248,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        mi.waitUntilClickable(mi.getFirstName());
+        mi.getFirstName().click();
         mi.getFirstName().sendKeys("FirstNameThatMoreThanThirtyCharacters");
     }
 
@@ -301,14 +301,28 @@ public class _03_PersonalDetailsSteps {
     @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")
     public void theSystemShouldPreventMeFromEnteringMoreThanRequiredAmountsAndDisplayARedErrorMessageUnderEachField() {
 
-        for (int i = 0; i <= 4; i++) {
-            Assert.assertTrue(getLocator(i).isDisplayed());
-            System.out.println(getLocator(i).getText());
+        for (int i = 1; i <= 4; i++) {
+            Assert.assertTrue(getLocator("30",i).isDisplayed());
+            System.out.println(getLocator("30",i).getText());
         }
+
+        Assert.assertTrue(getLocator("250",1).isDisplayed());
+        System.out.println(getLocator("250",1).getText());
+
+        dc.getSaveBtn().click();
+        System.out.println("Clicked on Save Button After Displayed Errors");
+
+        mi.getMyInfoBtn().click();
+        System.out.println("The page has been refreshed");
+
+        mi.wait.until(ExpectedConditions.attributeToBe(By.name("firstName"),"value","Sania"));
+        Assert.assertEquals(mi.getFirstName().getAttribute("value"),"Sania");
+        System.out.println("Value in the First Name Field after the refresh: " +"\""+mi.getFirstName().getAttribute("value")+"\""+" as expected." );
+
     }
 
-    private WebElement getLocator(int field) {
-        WebElement errorMessage = DriverClass.getDriver().findElement(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[" + field + "]"));
+    private WebElement getLocator(String characterNumber, int field) {
+        WebElement errorMessage = DriverClass.getDriver().findElement(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed "+characterNumber+" characters')])["+field+"]"));
         return errorMessage;
     }
 }
