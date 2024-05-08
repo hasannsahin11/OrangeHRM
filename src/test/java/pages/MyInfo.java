@@ -26,11 +26,20 @@ public class MyInfo extends MyMethods {
     @FindBy(name = "firstName")
     private WebElement firstName;
 
+    @FindBy(name = "middleName")
+    private WebElement middleName;
+
     @FindBy(name = "lastName")
     private WebElement lastName;
 
+    @FindBy(xpath = "(//input[contains(@class, 'oxd-input') and contains(@class, 'oxd-input--active')][@data-v-1f99f73c])[6]")
+    private WebElement otherId;
+
 //    @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
 //    private WebElement successfullyUpdatedMsg;
+
+    @FindBy(xpath = "(//input[contains(@class, 'oxd-input') and contains(@class, 'oxd-input--active')][@data-v-1f99f73c])[10]")
+    private WebElement testField;
 
     @FindBy(xpath = "//span[contains(.,'Required')]")
     private WebElement requiredMsg;
@@ -53,9 +62,9 @@ public class MyInfo extends MyMethods {
     @FindBy(css = "input[type='radio']")
     private WebElement maleOuterRadioBtn;
 
-
     @FindBy(xpath = "(//div[@class='oxd-select-text-input'])[3]")
     private WebElement bloodType;
+
 
     public WebElement getMyInfoBtn() {
         return myInfoBtn;
@@ -77,8 +86,20 @@ public class MyInfo extends MyMethods {
         return firstName;
     }
 
+    public WebElement getMiddleName() {
+        return middleName;
+    }
+
     public WebElement getLastName() {
         return lastName;
+    }
+
+    public WebElement getOtherId() {
+        return otherId;
+    }
+
+    public WebElement getTestField() {
+        return testField;
     }
 
     public WebElement getRequiredMsg() {
@@ -107,8 +128,9 @@ public class MyInfo extends MyMethods {
     public WebElement getMaleOuterRadioBtn() {
         return maleOuterRadioBtn;
     }
-
     public WebElement getBloodType() {
         return bloodType;
     }
+
+
 }

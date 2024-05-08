@@ -7,12 +7,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.ContactDetails;
 import pages.DialogContent;
 import pages.MyInfo;
 import utils.DriverClass;
-
-import java.security.Key;
 import java.util.List;
 
 public class _03_PersonalDetailsSteps {
@@ -244,40 +241,58 @@ public class _03_PersonalDetailsSteps {
 
     }
 
+    @When("I enter a First Name with more than {string} characters")
+    public void iEnterAFirstNameWithMoreThanCharacters(String args) {
 
-    @When("I enter a First Name with more than forty characters")
-    public void iEnterAFirstNameWithMoreThanFortyCharacters() {
-        System.out.println("First name");
-        System.out.println("First name");
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        mi.waitUntilClickable(mi.getFirstName());
+        mi.getFirstName().sendKeys("FirstNameThatMoreThanThirtyCharacters");
     }
 
-    @And("I enter a Middle Name with more than forty characters")
-    public void iEnterAMiddleNameWithMoreThanFortyCharacters() {
-        System.out.println("Middle name");
-        System.out.println("Middle name");
+    @And("I enter a Middle Name with more than {string} characters")
+    public void iEnterAMiddleNameWithMoreThanCharacters(String args) {
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')]")));
+
+
+        mi.getMiddleName().click();
+        mi.getMiddleName().sendKeys("MiddleNameThatMoreThanThirtyCharacters");
+
     }
 
-    @And("I enter a Last Name with more than forty characters")
-    public void iEnterALastNameWithMoreThanFortyCharacters() {
-        System.out.println("Last name");
-        System.out.println("Last name");
+    @And("I enter a Last Name with more than {string} characters")
+    public void iEnterALastNameWithMoreThanCharacters(String args) {
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[2]")));
+
+        mi.getLastName().click();
+        mi.getLastName().sendKeys("LastNameThatMoreThanThirtyCharacters");
+
     }
 
-    @And("I enter an Other Id with more than forty characters")
-    public void iEnterAnOtherIdWithMoreThanFortyCharacters() {
-        System.out.println("Last Id");
-        System.out.println("Last Id");
+
+    @And("I enter an Other Id with more than {string} characters")
+    public void iEnterAnOtherIdWithMoreThanCharacters(String args) {
+
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[3]")));
+
+        mi.getOtherId().click();
+        mi.getOtherId().sendKeys("OtherIDThatMoreThanThirtyCharacters");
+
     }
 
-    @And("I enter a valid value in the Test_Field with more than two hundred and fifty characters")
-    public void iEnterAValidValueInTheTest_FieldWithMoreThanTwoHundredAndFiftyCharacters() {
-        System.out.println("Test Field");
-        System.out.println("Test Field");
-    }
+    @And("I enter a valid value in the Test_Field with more than two hundred and {string} characters")
+    public void iEnterAValidValueInTheTest_FieldWithMoreThanTwoHundredAndCharacters(String args) {
 
+        mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[4]")));
+
+        mi.scrollToElement(mi.getTestField());
+        mi.getTestField().click();
+        mi.getTestField().sendKeys("TestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharacters");
+
+    }
     @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")
     public void theSystemShouldPreventMeFromEnteringMoreThanRequiredAmountsAndDisplayARedErrorMessageUnderEachField() {
-        System.out.println("Can't be updated.");
-        System.out.println("Can't be updated.");
     }
 }
