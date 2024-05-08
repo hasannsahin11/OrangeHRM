@@ -4,12 +4,14 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
 import pages.MyInfo;
 import utils.DriverClass;
+
 import java.util.List;
 
 public class _03_PersonalDetailsSteps {
@@ -211,7 +213,7 @@ public class _03_PersonalDetailsSteps {
 
         mi.wait.until(ExpectedConditions.elementToBeSelected(mi.getMaleOuterRadioBtn()));
 
-        Assert.assertTrue(mi.getMaleOuterRadioBtn().isSelected(),"It is not selected.");
+        Assert.assertTrue(mi.getMaleOuterRadioBtn().isSelected(), "It is not selected.");
 
         System.out.println("Gender has been modified as \"Male\"");
 
@@ -232,8 +234,8 @@ public class _03_PersonalDetailsSteps {
     @Then("the selected blood type should be successfully saved and displayed")
     public void theSelectedBloodTypeShouldBeSuccessfullySavedAndDisplayed() {
 
-        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[@class='oxd-select-text-input'])[3]"),"AB+"));
-        Assert.assertEquals(mi.getBloodType().getText(),"AB+");
+        mi.wait.until(ExpectedConditions.textToBe(By.xpath("(//div[@class='oxd-select-text-input'])[3]"), "AB+"));
+        Assert.assertEquals(mi.getBloodType().getText(), "AB+");
 
         System.out.println("Updated Blood Type: " + "\"" + mi.getBloodType().getText() + "\"");
 
@@ -289,13 +291,24 @@ public class _03_PersonalDetailsSteps {
 
         mi.getTestField().click();
 
-        for (int i = 0; i <= 5 ; i++) {
+        for (int i = 0; i <= 5; i++) {
             actions.sendKeys("Test_Field_That_MoreThanTwoHundredAndFiftyCharacters");
         }
         actions.build().perform();
 
     }
+
     @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")
     public void theSystemShouldPreventMeFromEnteringMoreThanRequiredAmountsAndDisplayARedErrorMessageUnderEachField() {
+
+        for (int i = 0; i <= 4; i++) {
+            Assert.assertTrue(getLocator(i).isDisplayed());
+            System.out.println(getLocator(i).getText());
+        }
+    }
+
+    private WebElement getLocator(int field) {
+        WebElement errorMessage = DriverClass.getDriver().findElement(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[" + field + "]"));
+        return errorMessage;
     }
 }
