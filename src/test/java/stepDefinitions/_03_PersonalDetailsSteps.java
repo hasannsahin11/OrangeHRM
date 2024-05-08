@@ -287,9 +287,12 @@ public class _03_PersonalDetailsSteps {
 
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@class, 'oxd-input-field-error-message') and contains(., 'Should not exceed 30 characters')])[4]")));
 
-        mi.scrollToElement(mi.getTestField());
         mi.getTestField().click();
-        mi.getTestField().sendKeys("TestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharactersTestFieldThatMoreThanTwoHundredAndFiftyCharacters");
+
+        for (int i = 0; i <= 5 ; i++) {
+            actions.sendKeys("Test_Field_That_MoreThanTwoHundredAndFiftyCharacters");
+        }
+        actions.build().perform();
 
     }
     @Then("The system should prevent me from entering more than required amounts and display a red error message under each field")

@@ -38,7 +38,7 @@ public class MyInfo extends MyMethods {
 //    @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text")
 //    private WebElement successfullyUpdatedMsg;
 
-    @FindBy(xpath = "(//input[contains(@class, 'oxd-input') and contains(@class, 'oxd-input--active')][@data-v-1f99f73c])[10]")
+    @FindBy(xpath = "//input[contains(@class, 'oxd-input') and contains(@class, 'oxd-input--active')][@options]")
     private WebElement testField;
 
     @FindBy(xpath = "//span[contains(.,'Required')]")
