@@ -327,7 +327,7 @@ public class _03_PersonalDetailsSteps {
         System.out.println("Clicked on Save Button After Displayed Errors");
 
         mi.getMyInfoBtn().click();
-        System.out.println("The page has been refreshed");
+//        System.out.println("The page has been refreshed");
 
         mi.wait.until(ExpectedConditions.attributeToBe(By.name("lastName"),"value","Shaheen"));
         Assert.assertEquals(mi.getLastName().getAttribute("value"),"Shaheen");
