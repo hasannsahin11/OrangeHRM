@@ -1,4 +1,4 @@
-Feature: Verify Disabled Fields on Personal Information Page
+Feature: Personal Details
 
   Background:Login with ESS credentials
     Given I am on the OrangeHRM login page
