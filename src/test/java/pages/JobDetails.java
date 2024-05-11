@@ -14,6 +14,7 @@ public class JobDetails extends MyMethods {
     @FindBy(css = "a[href='/web/index.php/pim/viewJobDetails/empNumber/22']")
     private WebElement jobBtn;
 
-
-
+    public WebElement getJobBtn() {
+        return jobBtn;
+    }
 }
