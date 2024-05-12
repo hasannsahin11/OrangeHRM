@@ -14,7 +14,14 @@ public class JobDetails extends MyMethods {
     @FindBy(css = "a[href='/web/index.php/pim/viewJobDetails/empNumber/22']")
     private WebElement jobBtn;
 
+    @FindBy(xpath = "(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active') and contains(@class,'oxd-select-text--disabled')])[1]")
+    private WebElement jobTitleField;
+
     public WebElement getJobBtn() {
         return jobBtn;
+    }
+
+    public WebElement getJobTitleField() {
+        return jobTitleField;
     }
 }
