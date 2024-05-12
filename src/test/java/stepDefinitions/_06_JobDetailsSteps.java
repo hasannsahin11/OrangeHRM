@@ -39,15 +39,15 @@ public class _06_JobDetailsSteps {
         jd.wait.until(ExpectedConditions.textToBePresentInElement(jd.getJobTitleField(), fieldValues.get(0)));
 
         Assert.assertTrue(jd.getJoinedDateCalender().getAttribute("class").contains("disabled"));
-        System.out.println(joinedDate + "= " + jd.getJoinedDate().getAttribute("value"));
+        System.out.println("Value in the disabled " + joinedDate + " field: " + jd.getJoinedDate().getAttribute("value"));
 
         Assert.assertTrue(jd.getJobSpecificationTitle().getAttribute("class").contains("disabled"));
-        System.out.println(jobSpecification + " value as expected= " + jd.getJobSpecificationValue().getText());
+        System.out.println("Value in the disabled " +jobSpecification + " field: " + jd.getJobSpecificationValue().getText());
 
         for (int i = 1; i <= 5; i++) {
-            System.out.println(getField(i).getText());
             Assert.assertTrue(getField(i).getAttribute("class").contains("disabled"));
             Assert.assertEquals(getField(i).getText(), fieldValues.get(i - 1));
+            System.out.println("Value in the disabled field: " + getField(i).getText());
         }
     }
 
