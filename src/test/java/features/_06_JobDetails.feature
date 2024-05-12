@@ -8,4 +8,4 @@ Feature: Job Details
   Scenario: Verify disabled Job Details fields
     Given I'm on the My Info page
     When I navigate to Job Details section
-    Then "Joined Date," "Job Title," "Job Specification," "Job Category," "Sub Unit," "Location," and "Employment Status" fields should be displayed and disabled for modification.
+    Then "Joined Date", "Job Title", "Job Specification", "Job Category", "Sub Unit", "Location", and "Employment Status" fields should be displayed and disabled for modification.

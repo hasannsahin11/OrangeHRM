@@ -27,9 +27,8 @@ public class _06_JobDetailsSteps {
 
     }
 
-    @Then("{string} {string} {string} {string} {string} {string} and {string} fields should be displayed and disabled for modification.")
+    @Then("{string}, {string}, {string}, {string}, {string}, {string}, and {string} fields should be displayed and disabled for modification.")
     public void andFieldsShouldBeDisplayedAndDisabledForModification(String joinedDate, String jobTitle, String jobSpecification, String jobCategory, String subUnit, String location, String employmentStatus) {
-
         List<String> fieldValues = new ArrayList<>();
         fieldValues.add("Customer Success Manager");
         fieldValues.add("Professionals");
@@ -38,6 +37,12 @@ public class _06_JobDetailsSteps {
         fieldValues.add("Full-Time Permanent");
 
         jd.wait.until(ExpectedConditions.textToBePresentInElement(jd.getJobTitleField(), fieldValues.get(0)));
+
+        Assert.assertTrue(jd.getJoinedDateCalender().getAttribute("class").contains("disabled"));
+        System.out.println(joinedDate + "= " + jd.getJoinedDate().getAttribute("value"));
+
+        Assert.assertTrue(jd.getJobSpecificationTitle().getAttribute("class").contains("disabled"));
+        System.out.println(jobSpecification + " value as expected= " + jd.getJobSpecificationValue().getText());
 
         for (int i = 1; i <= 5; i++) {
             System.out.println(getField(i).getText());
@@ -52,5 +57,4 @@ public class _06_JobDetailsSteps {
         element = DriverClass.getDriver().findElement(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active') and contains(@class,'oxd-select-text--disabled')])[" + index + "]"));
         return element;
     }
-
 }
