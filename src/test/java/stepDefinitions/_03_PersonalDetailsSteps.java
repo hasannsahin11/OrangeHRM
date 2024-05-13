@@ -181,8 +181,8 @@ public class _03_PersonalDetailsSteps {
 
     }
 
-    @When("I update the Marital Status to Single")
-    public void iUpdateTheMaritalStatusToSingle() {
+    @When("I update the Marital Status to Other")
+    public void iUpdateTheMaritalStatusToOther() {
         mi.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
         System.out.println("Marital Status before the update: " + "\"" + mi.getMaritalStatus().getText() + "\"");

@@ -36,7 +36,7 @@ Feature: Personal Details
 
   Scenario: Update Marital Status with a valid option
     Given I'm on the My Info page
-    When I update the Marital Status to Single
+    When I update the Marital Status to Other
     And I click on the Save button
     Then The updated Marital Status should be successfully saved and displayed
 
