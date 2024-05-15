@@ -65,7 +65,7 @@ public class _06_JobDetailsSteps {
     }
 
     @And("I toggle the {string} switch to turn it on")
-    public void iToggleTheSwitchToTurnItOn(String arg0) {
+    public void iToggleTheSwitchToTurnItOn(String arg0) throws InterruptedException {
         jd.wait.until(ExpectedConditions.attributeToBe(By.cssSelector("input[type='checkbox']"), "type", "checkbox"));
         jd.getContractDetailsSwitchBtn().click();
     }
@@ -106,17 +106,35 @@ public class _06_JobDetailsSteps {
                     break;
             }
         }
+
+        DriverClass.quitDriver();
+
     }
 
-    @When("I toggle the Include Employment Contract Details switch to turn it on")
-    public void iToggleTheIncludeEmploymentContractDetailsSwitchToTurnItOn() {
-    }
+    String switchColorAfterItsOn;
+    String switchColorAfterItsOff;
 
     @And("I refresh the page")
     public void iRefreshThePage() {
+
+        jd.wait.until(ExpectedConditions.textToBe(By.cssSelector(".oxd-file-input-div"), "No file selected"));
+
+        System.out.println("Background Color of the Switch after it's ON: " + DriverClass.getDriver().findElement(By.cssSelector("span.oxd-switch-input")).getCssValue("background-color"));
+        switchColorAfterItsOn = DriverClass.getDriver().findElement(By.cssSelector("span.oxd-switch-input")).getCssValue("background-color");
+
+        DriverClass.getDriver().navigate().refresh();
+
     }
 
     @Then("the Include Employment Contract Details switch should be turned off")
     public void theIncludeEmploymentContractDetailsSwitchShouldBeTurnedOff() {
+
+        jd.wait.until(ExpectedConditions.attributeToBe(By.cssSelector("input[type='checkbox']"), "type", "checkbox"));
+
+        System.out.println("Background Color of the Switch after it's OFF: " + DriverClass.getDriver().findElement(By.cssSelector("span.oxd-switch-input")).getCssValue("background-color"));
+        switchColorAfterItsOff = DriverClass.getDriver().findElement(By.cssSelector("span.oxd-switch-input")).getCssValue("background-color");
+
+        Assert.assertFalse(switchColorAfterItsOn.equalsIgnoreCase(switchColorAfterItsOff));
+
     }
 }
