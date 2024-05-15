@@ -29,6 +29,9 @@ public class JobDetails extends MyMethods {
     @FindBy(css = ".oxd-text.oxd-text--p.input-container-filename")
     private WebElement jobSpecificationValue;
 
+    @FindBy(css = "input[type='checkbox']")
+    private WebElement contractDetailsSwitchBtn;
+
     public WebElement getJobBtn() {
         return jobBtn;
     }
@@ -51,5 +54,9 @@ public class JobDetails extends MyMethods {
 
     public WebElement getJobSpecificationValue() {
         return jobSpecificationValue;
+    }
+
+    public WebElement getContractDetailsSwitchBtn() {
+        return contractDetailsSwitchBtn;
     }
 }

@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -50,11 +51,21 @@ public class _06_JobDetailsSteps {
             System.out.println("Value in the disabled field: " + getField(i).getText());
         }
     }
-
     private WebElement getField(int index) {
 
         WebElement element;
         element = DriverClass.getDriver().findElement(By.xpath("(//div[contains(@class,'oxd-select-text') and contains(@class,'oxd-select-text--active') and contains(@class,'oxd-select-text--disabled')])[" + index + "]"));
         return element;
+    }
+
+    @And("I click on the Include Employment Contract Details switch button")
+    public void iClickOnTheIncludeEmploymentContractDetailsSwitchButton() {
+
+        jd.getContractDetailsSwitchBtn().click();
+
+    }
+
+    @Then("the following fields should be visible but disabled")
+    public void theFollowingFieldsShouldBeVisibleButDisabled() {
     }
 }

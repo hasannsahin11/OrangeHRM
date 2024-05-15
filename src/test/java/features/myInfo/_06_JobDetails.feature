@@ -10,4 +10,11 @@ Feature: Job Details
     When I navigate to Job Details section
     Then "Joined Date", "Job Title", "Job Specification", "Job Category", "Sub Unit", "Location", and "Employment Status" fields should be displayed and disabled for modification.
 
-    Scenario: Verify Include Employment Contract Details switch button works
+  Scenario: User clicks on Include Employment Contract Details switch button
+    Given I'm on the My Info page
+    When I navigate to Job Details section
+    And I click on the Include Employment Contract Details switch button
+    Then the following fields should be visible but disabled
+      | Contract Start Date |
+      | Contract End Date   |
+      | Contract Details    |
