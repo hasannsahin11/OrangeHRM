@@ -64,8 +64,8 @@ public class _06_JobDetailsSteps {
         return element;
     }
 
-    @And("I click on the {string} switch button")
-    public void iClickOnTheSwitchButton(String arg0) {
+    @And("I toggle the {string} switch to turn it on")
+    public void iToggleTheSwitchToTurnItOn(String arg0) {
         jd.wait.until(ExpectedConditions.attributeToBe(By.cssSelector("input[type='checkbox']"), "type", "checkbox"));
         jd.getContractDetailsSwitchBtn().click();
     }
