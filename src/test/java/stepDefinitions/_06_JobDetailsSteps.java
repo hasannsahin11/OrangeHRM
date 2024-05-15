@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -39,18 +40,23 @@ public class _06_JobDetailsSteps {
 
         jd.wait.until(ExpectedConditions.textToBePresentInElement(jd.getJobTitleField(), fieldValues.get(0)));
 
+        System.out.println(jd.getJoinedDateCalender().getAttribute("class"));
         Assert.assertTrue(jd.getJoinedDateCalender().getAttribute("class").contains("disabled"));
         System.out.println("Value in the disabled " + joinedDate + " field: " + jd.getJoinedDate().getAttribute("value"));
 
         Assert.assertTrue(jd.getJobSpecificationTitle().getAttribute("class").contains("disabled"));
-        System.out.println("Value in the disabled " +jobSpecification + " field: " + jd.getJobSpecificationValue().getText());
+        System.out.println("Value in the disabled " + jobSpecification + " field: " + jd.getJobSpecificationValue().getText());
 
         for (int i = 1; i <= 5; i++) {
             Assert.assertTrue(getField(i).getAttribute("class").contains("disabled"));
             Assert.assertEquals(getField(i).getText(), fieldValues.get(i - 1));
             System.out.println("Value in the disabled field: " + getField(i).getText());
         }
+
+        DriverClass.quitDriver();
+
     }
+
     private WebElement getField(int index) {
 
         WebElement element;
@@ -58,14 +64,47 @@ public class _06_JobDetailsSteps {
         return element;
     }
 
-    @And("I click on the Include Employment Contract Details switch button")
-    public void iClickOnTheIncludeEmploymentContractDetailsSwitchButton() {
-
+    @And("I click on the {string} switch button")
+    public void iClickOnTheSwitchButton(String arg0) {
+        jd.wait.until(ExpectedConditions.attributeToBe(By.cssSelector("input[type='checkbox']"), "type", "checkbox"));
         jd.getContractDetailsSwitchBtn().click();
-
     }
 
+
     @Then("the following fields should be visible but disabled")
-    public void theFollowingFieldsShouldBeVisibleButDisabled() {
+    public void theFollowingFieldsShouldBeVisibleButDisabled(DataTable table) {
+
+        List<String> disabledFields = table.asList(String.class);
+
+        for (String fields : disabledFields) {
+
+
+            switch (fields) {
+                case "Contract Start Date":
+
+                    Assert.assertTrue(jd.getContractStartDate().isDisplayed());
+                    Assert.assertFalse(jd.getContractStartDate().isEnabled());
+                    System.out.println(fields + " field is Disabled.");
+
+                    break;
+
+                case "Contract End Date":
+
+                    Assert.assertTrue(jd.getContractEndDate().isDisplayed());
+                    Assert.assertFalse(jd.getContractEndDate().isEnabled());
+                    System.out.println(fields + " field is Disabled.");
+
+                    break;
+
+
+                case "Contract Details":
+
+                    Assert.assertTrue(jd.getContractDetails().isDisplayed());
+                    Assert.assertTrue(jd.getContractDetails().getAttribute("class").contains("disabled"));
+                    System.out.println(fields + " field is Disabled.");
+
+                    break;
+            }
+        }
     }
 }

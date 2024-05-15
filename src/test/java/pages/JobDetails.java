@@ -7,8 +7,8 @@ import utils.DriverClass;
 import utils.MyMethods;
 
 public class JobDetails extends MyMethods {
-    public JobDetails(){
-        PageFactory.initElements(DriverClass.getDriver(),this);
+    public JobDetails() {
+        PageFactory.initElements(DriverClass.getDriver(), this);
     }
 
     @FindBy(css = "a[href='/web/index.php/pim/viewJobDetails/empNumber/22']")
@@ -29,8 +29,17 @@ public class JobDetails extends MyMethods {
     @FindBy(css = ".oxd-text.oxd-text--p.input-container-filename")
     private WebElement jobSpecificationValue;
 
-    @FindBy(css = "input[type='checkbox']")
+    @FindBy(css = ".oxd-switch-input.oxd-switch-input--active.--label-right")
     private WebElement contractDetailsSwitchBtn;
+
+    @FindBy(xpath = "(//input[@placeholder='yyyy-dd-mm'])[2]")
+    private WebElement contractStartDate;
+
+    @FindBy(xpath = "(//input[@placeholder='yyyy-dd-mm'])[3]")
+    private WebElement contractEndDate;
+
+    @FindBy(css = ".oxd-file-button.--disabled")
+    private WebElement contractDetails;
 
     public WebElement getJobBtn() {
         return jobBtn;
@@ -58,5 +67,17 @@ public class JobDetails extends MyMethods {
 
     public WebElement getContractDetailsSwitchBtn() {
         return contractDetailsSwitchBtn;
+    }
+
+    public WebElement getContractStartDate() {
+        return contractStartDate;
+    }
+
+    public WebElement getContractEndDate() {
+        return contractEndDate;
+    }
+
+    public WebElement getContractDetails() {
+        return contractDetails;
     }
 }

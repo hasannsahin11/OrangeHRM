@@ -13,7 +13,7 @@ Feature: Job Details
   Scenario: User clicks on Include Employment Contract Details switch button
     Given I'm on the My Info page
     When I navigate to Job Details section
-    And I click on the Include Employment Contract Details switch button
+    And I click on the "Include Employment Contract Details" switch button
     Then the following fields should be visible but disabled
       | Contract Start Date |
       | Contract End Date   |
