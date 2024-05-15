@@ -18,3 +18,10 @@ Feature: Job Details
       | Contract Start Date |
       | Contract End Date   |
       | Contract Details    |
+
+  Scenario: Verify Employment Contract Details Switch State After Page Refresh
+    Given I'm on the My Info page
+    And I navigate to Job Details section
+    When I toggle the Include Employment Contract Details switch to turn it on
+    And I refresh the page
+    Then the Include Employment Contract Details switch should be turned off
