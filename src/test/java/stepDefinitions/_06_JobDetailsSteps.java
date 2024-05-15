@@ -136,5 +136,7 @@ public class _06_JobDetailsSteps {
 
         Assert.assertFalse(switchColorAfterItsOn.equalsIgnoreCase(switchColorAfterItsOff));
 
+        DriverClass.quitDriver();
+
     }
 }
