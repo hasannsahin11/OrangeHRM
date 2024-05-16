@@ -25,5 +25,3 @@ Feature: Job Details
     When I toggle the "Include Employment Contract Details" switch to turn it on
     And I refresh the page
     Then the Include Employment Contract Details switch should be turned off
-
-  Scenario:
