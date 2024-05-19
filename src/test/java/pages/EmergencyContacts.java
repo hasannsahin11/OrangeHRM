@@ -28,4 +28,23 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")
     private WebElement mobileNumField;
 
+    public WebElement getEmergencyContactsBtn() {
+        return emergencyContactsBtn;
+    }
+
+    public WebElement getAddBtn() {
+        return addBtn;
+    }
+
+    public WebElement getNameField() {
+        return nameField;
+    }
+
+    public WebElement getRelationshipField() {
+        return relationshipField;
+    }
+
+    public WebElement getMobileNumField() {
+        return mobileNumField;
+    }
 }
