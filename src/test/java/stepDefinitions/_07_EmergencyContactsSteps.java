@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
 import pages.EmergencyContacts;
+import utils.DriverClass;
 
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class _07_EmergencyContactsSteps {
     @When("I fill out the following mandatory fields with the corresponding data:")
     public void i_fill_out_the_following_mandatory_fields_with_the_corresponding_data(List<Map<String, String>> dataTable) {
 
-        ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
+        ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
         for (Map<String, String> row : dataTable) {
             String field = row.get("Field");
@@ -80,6 +81,7 @@ public class _07_EmergencyContactsSteps {
         System.out.println("addedContactName = " + addedContactName);
         Assert.assertTrue(addedContactName.equalsIgnoreCase("John Doe"));
 
+        DriverClass.quitDriver();
     }
 
 
