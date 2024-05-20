@@ -21,6 +21,6 @@ Feature: Emergency Contacts
       Given I'm on the My Info page
       And I navigate to Emergency Contacts section
       When I click on the Add button
-      And I fill out the fields beside "Name"
+      And I fill out the fields besides "Name"
       And I click on the Save button
       Then "Required" error message should be displayed under the "Name" field and contact shouldn't be saved
