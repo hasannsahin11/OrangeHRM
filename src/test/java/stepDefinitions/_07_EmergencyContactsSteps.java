@@ -87,9 +87,35 @@ public class _07_EmergencyContactsSteps {
 
     @And("I fill out the fields besides {string}")
     public void iFillOutTheFieldsBesides(String arg0) {
+
+        ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        ec.wait.until(ExpectedConditions.visibilityOf(ec.getRelationshipField()));
+        ec.sendKeysMethod(ec.getRelationshipField(),"Cousin");
+
+        ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
+        ec.clickMethod(ec.getMobileNumField());
+        ec.sendKeysMethod(ec.getMobileNumField(), "3215859999");
+
+    }
+
+    @And("I click the Save button")
+    public void iClickTheSaveButton() {
+
+        dc.waitUntilClickable(dc.getSaveBtn());
+        dc.clickMethod(dc.getSaveBtn());
+
     }
 
     @Then("{string} error message should be displayed under the {string} field and contact shouldn't be saved")
-    public void errorMessageShouldBeDisplayedUnderTheFieldAndContactShouldnTBeSaved(String arg0, String arg1) {
+    public void errorMessageShouldBeDisplayedUnderTheFieldAndContactShouldnTBeSaved(String errorMessage, String arg1) {
+
+        ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        Assert.assertEquals(ec.getRequiredMessage().getText(), errorMessage);
+        System.out.println("requiredMessage= " + ec.getRequiredMessage().getText());
+
+        DriverClass.quitDriver();
     }
+
 }
