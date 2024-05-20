@@ -83,4 +83,11 @@ public class _07_EmergencyContactsSteps {
     }
 
 
+    @And("I fill out the fields beside {string}")
+    public void iFillOutTheFieldsBeside(String arg0) {
+    }
+
+    @Then("{string} error message should be displayed under the {string} field and contact shouldn't be saved")
+    public void errorMessageShouldBeDisplayedUnderTheFieldAndContactShouldnTBeSaved(String arg0, String arg1) {
+    }
 }
