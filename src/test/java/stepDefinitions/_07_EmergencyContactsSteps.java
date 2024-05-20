@@ -35,9 +35,9 @@ public class _07_EmergencyContactsSteps {
     }
 
     @When("I fill out the following mandatory fields with the corresponding data:")
-    public void i_fill_out_the_following_mandatory_fields_with_the_corresponding_data(List<Map<String, String>> dataTable) throws InterruptedException {
+    public void i_fill_out_the_following_mandatory_fields_with_the_corresponding_data(List<Map<String, String>> dataTable) {
 
-        Thread.sleep(3000);
+        ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
 
         for (Map<String, String> row : dataTable) {
             String field = row.get("Field");
