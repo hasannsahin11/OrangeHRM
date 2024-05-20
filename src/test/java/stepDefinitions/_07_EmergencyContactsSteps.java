@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import pages.DialogContent;
 import pages.EmergencyContacts;
 
@@ -27,7 +28,6 @@ public class _07_EmergencyContactsSteps {
 
     @When("I click on the Add button")
     public void i_click_on_the_add_button()  {
-
 
         ec.wait.until(ExpectedConditions.visibilityOf(ec.getAddBtn()));
         ec.getAddBtn().click();
@@ -75,6 +75,10 @@ public class _07_EmergencyContactsSteps {
 
     @Then("The new Emergency Contact should be successfully saved and displayed")
     public void the_new_emergency_contact_should_be_successfully_saved_and_displayed() {
+
+        String addedContactName = ec.getAddedContactName().getText();
+        System.out.println("addedContactName = " + addedContactName);
+        Assert.assertTrue(addedContactName.equalsIgnoreCase("John Doe"));
 
     }
 
