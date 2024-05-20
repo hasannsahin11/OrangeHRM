@@ -26,11 +26,10 @@ public class _07_EmergencyContactsSteps {
     }
 
     @When("I click on the Add button")
-    public void i_click_on_the_add_button() throws InterruptedException {
+    public void i_click_on_the_add_button()  {
 
-        Thread.sleep(3000);
 
-//        ec.wait.until(ExpectedConditions.visibilityOf(ec.getAddBtn()));
+        ec.wait.until(ExpectedConditions.visibilityOf(ec.getAddBtn()));
         ec.getAddBtn().click();
 
     }
@@ -48,32 +47,30 @@ public class _07_EmergencyContactsSteps {
 
                 case "Name":
 
-                    ec.clickMethod(ec.getNameField());
+                    ec.wait.until(ExpectedConditions.visibilityOf(ec.getNameField()));
                     ec.sendKeysMethod(ec.getNameField(), row.get("Value"));
-
                     break;
-
 
                 case "Relationship":
 
+                    ec.wait.until(ExpectedConditions.visibilityOf(ec.getRelationshipField()));
                     ec.clickMethod(ec.getRelationshipField());
                     ec.sendKeysMethod(ec.getRelationshipField(), row.get("Value"));
-
                     break;
 
                 case "Mobile Number":
 
+                    ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
                     ec.clickMethod(ec.getMobileNumField());
                     ec.sendKeysMethod(ec.getMobileNumField(), row.get("Value"));
+                    break;
 
                 default:
+
                     System.out.println("Unknown field: " + field);
                     break;
             }
-
         }
-
-
     }
 
     @Then("The new Emergency Contact should be successfully saved and displayed")

@@ -16,7 +16,7 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(css = "a[href='/web/index.php/pim/viewEmergencyContacts/empNumber/22']")
     private WebElement emergencyContactsBtn;
 
-    @FindBy(xpath = "(//button[@type='button'])[3]")
+    @FindBy(xpath = "(//button[contains(@class,'oxd-button') and contains(@class,'oxd-button--medium') and contains(@class,'oxd-button--text')])[1]")
     private WebElement addBtn;
 
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[2]")
@@ -27,6 +27,9 @@ public class EmergencyContacts extends MyMethods {
 
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")
     private WebElement mobileNumField;
+
+    @FindBy(xpath = "//div[contains(text(),'John Doe')]")
+    private WebElement addedContactName;
 
     public WebElement getEmergencyContactsBtn() {
         return emergencyContactsBtn;
@@ -46,5 +49,9 @@ public class EmergencyContacts extends MyMethods {
 
     public WebElement getMobileNumField() {
         return mobileNumField;
+    }
+
+    public WebElement getAddedContactName() {
+        return addedContactName;
     }
 }
