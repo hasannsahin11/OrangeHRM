@@ -25,4 +25,10 @@ Feature: Emergency Contacts
       And I click the Save button
       Then "Required" error message should be displayed under the "Name" field and contact shouldn't be saved
 
-      Scenario:
+      Scenario: Verify when updating an Emergency Contact can't be saved after removing phone number
+        Given I'm on the My Info page
+        And I navigate to Emergency Contacts section
+        When I click on the Edit icon of an existing Emergency Contact
+        And I remove the phone number
+        And I click the Save button
+        Then "At least one phone number is required" error message should display under the Home Phone field and the update can't be saved
