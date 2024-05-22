@@ -37,6 +37,9 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "//span[contains(.,'At least one phone number is required')]")
     private WebElement oneNumberRequiredMsg;
 
+    @FindBy(xpath = "(//button[@type='button'])[5]")
+    private WebElement editContactBtn;
+
 
     public WebElement getEmergencyContactsBtn() {
         return emergencyContactsBtn;
