@@ -38,7 +38,7 @@ public class EmergencyContacts extends MyMethods {
     private WebElement oneNumberRequiredMsg;
 
     @FindBy(xpath = "(//button[@type='button'])[5]")
-    private WebElement editContactBtn;
+    private WebElement editEmgContactBtn;
 
 
     public WebElement getEmergencyContactsBtn() {
@@ -73,7 +73,7 @@ public class EmergencyContacts extends MyMethods {
         return oneNumberRequiredMsg;
     }
 
-    public WebElement getEditContactBtn() {
-        return editContactBtn;
+    public WebElement getEditEmgContactBtn() {
+        return editEmgContactBtn;
     }
 }

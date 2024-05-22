@@ -2,7 +2,10 @@ package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
@@ -123,15 +126,32 @@ public class _07_EmergencyContactsSteps {
 
         ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        ec.getEditContactBtn();
+        ec.clickMethod(ec.getEditEmgContactBtn());
 
     }
 
     @And("I remove the phone number")
     public void iRemoveThePhoneNumber() {
+
+        ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
+
+        ec.clickMethod(ec.getMobileNumField());
+
+        Actions actions = new Actions(DriverClass.getDriver());
+
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+
     }
 
     @Then("{string} error message should display under the Home Phone field and the update can't be saved")
-    public void errorMessageShouldDisplayUnderTheHomePhoneFieldAndTheUpdateCanTBeSaved(String arg0) {
+    public void errorMessageShouldDisplayUnderTheHomePhoneFieldAndTheUpdateCanTBeSaved(String errorMsg) {
+
+        ec.wait.until(ExpectedConditions.textToBePresentInElement(ec.getOneNumberRequiredMsg(),errorMsg));
+
+        System.out.println("ec.getOneNumberRequiredMsg().getText() = " + ec.getOneNumberRequiredMsg().getText());
+        Assert.assertEquals(ec.getOneNumberRequiredMsg().getText(), errorMsg);
+
+        DriverClass.quitDriver();
+
     }
 }
