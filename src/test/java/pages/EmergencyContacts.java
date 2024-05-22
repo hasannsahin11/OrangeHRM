@@ -72,4 +72,8 @@ public class EmergencyContacts extends MyMethods {
     public WebElement getOneNumberRequiredMsg() {
         return oneNumberRequiredMsg;
     }
+
+    public WebElement getEditContactBtn() {
+        return editContactBtn;
+    }
 }
