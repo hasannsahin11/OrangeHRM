@@ -118,4 +118,15 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
     }
 
+    @When("I click on the Edit icon of an existing Emergency Contact")
+    public void iClickOnTheEditIconOfAnExistingEmergencyContact() {
+    }
+
+    @And("I remove the phone number")
+    public void iRemoveThePhoneNumber() {
+    }
+
+    @Then("{string} error message should display under the Home Phone field and the update can't be saved")
+    public void errorMessageShouldDisplayUnderTheHomePhoneFieldAndTheUpdateCanTBeSaved(String arg0) {
+    }
 }
