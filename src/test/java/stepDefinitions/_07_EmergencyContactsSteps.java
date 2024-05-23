@@ -31,7 +31,7 @@ public class _07_EmergencyContactsSteps {
     }
 
     @When("I click on the Add button")
-    public void i_click_on_the_add_button()  {
+    public void i_click_on_the_add_button() {
 
         ec.wait.until(ExpectedConditions.visibilityOf(ec.getAddBtn()));
         ec.getAddBtn().click();
@@ -94,7 +94,7 @@ public class _07_EmergencyContactsSteps {
         ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
         ec.wait.until(ExpectedConditions.visibilityOf(ec.getRelationshipField()));
-        ec.sendKeysMethod(ec.getRelationshipField(),"Cousin");
+        ec.sendKeysMethod(ec.getRelationshipField(), "Cousin");
 
         ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
         ec.clickMethod(ec.getMobileNumField());
@@ -121,6 +121,16 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
     }
 
+
+    @And("I type letters into phone number {string}")
+    public void iTypeLettersIntoPhoneNumber(String arg0) {
+    }
+
+    @Then("{string} error message should display under the corresponding field")
+    public void errorMessageShouldDisplayUnderTheCorrespondingField(String arg0) {
+    }
+
+
     @When("I click on the Edit icon of an existing Emergency Contact")
     public void iClickOnTheEditIconOfAnExistingEmergencyContact() {
 
@@ -143,10 +153,10 @@ public class _07_EmergencyContactsSteps {
 
     }
 
-    @Then("{string} error message should display under the Home Phone field and the update can't be saved")
-    public void errorMessageShouldDisplayUnderTheHomePhoneFieldAndTheUpdateCanTBeSaved(String errorMsg) {
+    @Then("{string} error message should be displayed under the Home Phone field and the update can't be saved")
+    public void errorMessageShouldBeDisplayedUnderTheHomePhoneFieldAndTheUpdateCanTBeSaved(String errorMsg) {
 
-        ec.wait.until(ExpectedConditions.textToBePresentInElement(ec.getOneNumberRequiredMsg(),errorMsg));
+        ec.wait.until(ExpectedConditions.textToBePresentInElement(ec.getOneNumberRequiredMsg(), errorMsg));
 
         System.out.println("ec.getOneNumberRequiredMsg().getText() = " + ec.getOneNumberRequiredMsg().getText());
         Assert.assertEquals(ec.getOneNumberRequiredMsg().getText(), errorMsg);
@@ -154,4 +164,5 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
 
     }
+
 }
