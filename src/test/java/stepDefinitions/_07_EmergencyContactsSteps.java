@@ -209,7 +209,7 @@ public class _07_EmergencyContactsSteps {
     public void messageDisplaysUnderTheCorrespondingField(String errorMsg) {
 
         System.out.println(ec.getShouldntExceedErrorMsg().getText());
-        Assert.assertTrue(ec.getShouldntExceedErrorMsg().getText().contains("Should not exceed"));
+        Assert.assertTrue(ec.getShouldntExceedErrorMsg().getText().contains(errorMsg));
 
         DriverClass.quitDriver();
 
