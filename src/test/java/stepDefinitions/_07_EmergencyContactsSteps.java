@@ -106,7 +106,7 @@ public class _07_EmergencyContactsSteps {
     public void iClickTheSaveButton() {
 
         dc.waitUntilClickable(dc.getSaveBtn());
-        dc.clickMethod(dc.getSaveBtn());
+        dc.getSaveBtn().click();
 
     }
 
@@ -237,7 +237,7 @@ public class _07_EmergencyContactsSteps {
 
         ec.wait.until(ExpectedConditions.visibilityOf(ec.getMobileNumField()));
 
-        ec.clickMethod(ec.getMobileNumField());
+        ec.getMobileNumField().click();
 
         Actions actions = new Actions(DriverClass.getDriver());
 
