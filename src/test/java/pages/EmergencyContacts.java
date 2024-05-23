@@ -25,8 +25,14 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[3]")
     private WebElement relationshipField;
 
+    @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[4]")
+    private WebElement homeNumField;
+
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")
     private WebElement mobileNumField;
+
+    @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[6]")
+    private WebElement workNumField;
 
     @FindBy(xpath = "//div[contains(text(),'John Doe')]")
     private WebElement addedContactName;
@@ -39,6 +45,9 @@ public class EmergencyContacts extends MyMethods {
 
     @FindBy(xpath = "(//button[@type='button'])[5]")
     private WebElement editEmgContactBtn;
+
+    @FindBy (xpath = "//span[contains(.,'Allows numbers and only + - / ( )')]")
+    private WebElement allowsNumbersAndOnlySpecialCharactersErrorMsg;
 
 
     public WebElement getEmergencyContactsBtn() {
@@ -57,8 +66,16 @@ public class EmergencyContacts extends MyMethods {
         return relationshipField;
     }
 
+    public WebElement getHomeNumField() {
+        return homeNumField;
+    }
+
     public WebElement getMobileNumField() {
         return mobileNumField;
+    }
+
+    public WebElement getWorkNumField() {
+        return workNumField;
     }
 
     public WebElement getAddedContactName() {
@@ -75,5 +92,9 @@ public class EmergencyContacts extends MyMethods {
 
     public WebElement getEditEmgContactBtn() {
         return editEmgContactBtn;
+    }
+
+    public WebElement getAllowsNumbersAndOnlySpecialCharactersErrorMsg() {
+        return allowsNumbersAndOnlySpecialCharactersErrorMsg;
     }
 }
