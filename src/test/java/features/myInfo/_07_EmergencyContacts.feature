@@ -43,7 +43,7 @@ Feature: Emergency Contacts
     And I navigate to Emergency Contacts section
     When I click on the Add button
     And I enter invalid amount of characters into the following "<field>"
-    Then "Should not exceed * characters" message displays under the corresponding field
+    Then "Should not exceed characters" message displays under the corresponding field
 
     Examples:
       | field          |

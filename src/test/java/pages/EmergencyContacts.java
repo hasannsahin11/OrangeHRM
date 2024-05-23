@@ -46,8 +46,11 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "(//button[@type='button'])[5]")
     private WebElement editEmgContactBtn;
 
-    @FindBy (xpath = "//span[contains(.,'Allows numbers and only + - / ( )')]")
+    @FindBy(xpath = "//span[contains(.,'Allows numbers and only + - / ( )')]")
     private WebElement allowsNumbersAndOnlySpecialCharactersErrorMsg;
+
+    @FindBy(xpath = "//span[contains(.,'Should not exceed')]")
+    private WebElement shouldntExceedErrorMsg;
 
 
     public WebElement getEmergencyContactsBtn() {
@@ -96,5 +99,8 @@ public class EmergencyContacts extends MyMethods {
 
     public WebElement getAllowsNumbersAndOnlySpecialCharactersErrorMsg() {
         return allowsNumbersAndOnlySpecialCharactersErrorMsg;
+    }
+    public WebElement getShouldntExceedErrorMsg() {
+        return shouldntExceedErrorMsg;
     }
 }

@@ -165,17 +165,54 @@ public class _07_EmergencyContactsSteps {
     @And("I enter invalid amount of characters into the following {string}")
     public void iEnterInvalidAmountOfCharactersIntoTheFollowing(String field) {
 
-        switch (field){
+        switch (field) {
             case "Name":
 
-                ec.sendKeysMethod(ec.getNameField(),"Alexander Benjamin Christopher Davidson Eisenhower Fitzgerald Goldstein Harrington Islington Jamesons");
+                ec.sendKeysMethod(ec.getNameField(), "Alexander Benjamin Christopher Davidson Eisenhower Fitzgerald Goldstein Harrington Islington Jamesons");
+
+                break;
+
+            case "Relationship":
+
+                ec.sendKeysMethod(ec.getRelationshipField(), "Long-time domestic partner and primary caregiver with fully legal and medical decision-making rights.");
+
+                break;
+
+            case "Home Telephone":
+
+                ec.sendKeysMethod(ec.getHomeNumField(), "+123456789112345678921234567893");
+
+                break;
+
+            case "Mobile":
+
+                ec.sendKeysMethod(ec.getMobileNumField(), "+123456789112345678921234567893");
+
+                break;
+
+            case "Work Telephone":
+
+                ec.sendKeysMethod(ec.getWorkNumField(), "+123456789112345678921234567893");
+
+                break;
+
+            default:
+
+                System.out.println("Unknown field: " + field);
+                break;
         }
 
 
     }
 
     @Then("{string} message displays under the corresponding field")
-    public void messageDisplaysUnderTheCorrespondingField(String arg0) {
+    public void messageDisplaysUnderTheCorrespondingField(String errorMsg) {
+
+        System.out.println(ec.getShouldntExceedErrorMsg().getText());
+        Assert.assertTrue(ec.getShouldntExceedErrorMsg().getText().contains("Should not exceed"));
+
+        DriverClass.quitDriver();
+
     }
 
 
