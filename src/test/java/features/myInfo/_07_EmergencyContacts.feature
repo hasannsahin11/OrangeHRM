@@ -38,10 +38,20 @@ Feature: Emergency Contacts
       | Mobile         |
       | Work Telephone |
 
-  Scenario: Verify that the address, zipcode, phone number, and email fields have the correct character limits.
+  Scenario Outline: Verify error message displays after exceeding character limits
     Given I'm on the My Info page
     And I navigate to Emergency Contacts section
     When I click on the Add button
+    And I enter invalid amount of characters into the following "<field>"
+    Then "Should not exceed * characters" message displays under the corresponding field
+
+    Examples:
+      | field          |
+      | Name           |
+      | Relationship   |
+      | Home Telephone |
+      | Mobile         |
+      | Work Telephone |
 
 
   Scenario: Verify when updating an Emergency Contact can't be saved after removing phone number

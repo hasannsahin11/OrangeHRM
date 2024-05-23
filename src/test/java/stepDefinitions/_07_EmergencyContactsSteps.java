@@ -162,6 +162,14 @@ public class _07_EmergencyContactsSteps {
 
     }
 
+    @And("I enter invalid amount of characters into the following {string}")
+    public void iEnterInvalidAmountOfCharactersIntoTheFollowing(String arg0) {
+    }
+
+    @Then("{string} message displays under the corresponding field")
+    public void messageDisplaysUnderTheCorrespondingField(String arg0) {
+    }
+
 
     @When("I click on the Edit icon of an existing Emergency Contact")
     public void iClickOnTheEditIconOfAnExistingEmergencyContact() {
@@ -196,5 +204,4 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
 
     }
-
 }
