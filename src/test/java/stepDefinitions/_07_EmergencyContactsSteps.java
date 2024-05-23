@@ -123,11 +123,43 @@ public class _07_EmergencyContactsSteps {
 
 
     @And("I type letters into phone number {string}")
-    public void iTypeLettersIntoPhoneNumber(String arg0) {
+    public void iTypeLettersIntoPhoneNumber(String fields) {
+
+        switch (fields) {
+            case "Home Telephone":
+
+                ec.sendKeysMethod(ec.getHomeNumField(), fields);
+
+                break;
+
+            case "Mobile":
+
+                ec.sendKeysMethod(ec.getMobileNumField(), fields);
+
+                break;
+
+            case "Work Telephone":
+
+                ec.sendKeysMethod(ec.getWorkNumField(), fields);
+
+                break;
+
+            default:
+
+                System.out.println("Unknown field: " + fields);
+                break;
+        }
+
     }
 
     @Then("{string} error message should display under the corresponding field")
-    public void errorMessageShouldDisplayUnderTheCorrespondingField(String arg0) {
+    public void errorMessageShouldDisplayUnderTheCorrespondingField(String errorMessage) {
+
+        System.out.println("ec.getAllowsNumbersAndOnlySpecialCharactersErrorMsg().getText() = " + ec.getAllowsNumbersAndOnlySpecialCharactersErrorMsg().getText());
+        Assert.assertEquals(ec.getAllowsNumbersAndOnlySpecialCharactersErrorMsg().getText(), errorMessage);
+
+        DriverClass.quitDriver();
+
     }
 
 
