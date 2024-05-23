@@ -259,29 +259,26 @@ public class _05_ContactDetailsSteps {
         DriverClass.quitDriver();
     }
 
-    @Given("Enter an address with more than SEVENTY characters.")
-    public void enter_an_address_with_more_than_seventy_characters() {
 
+    @And("Enter an address with more than {string} characters.")
+    public void enterAnAddressWithMoreThanCharacters(String arg0) {
         cd.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
 
         cd.sendKeysMethod(cd.getStreet1(), "221B Baker St Coach House #2 Springfield Illinois 62629 United States of America");
-
-
     }
 
-    @Given("Enter a zipcode with more than TEN characters.")
-    public void enter_a_zipcode_with_more_than_ten_characters() {
+    @And("Enter a zipcode with more than {string} characters.")
+    public void enterAZipcodeWithMoreThanCharacters(String arg0) {
 
         cd.waitUntilClickable(cd.getZipCode());
         cd.clickMethod(cd.getZipCode());
         cd.sendKeysMethod(cd.getZipCode(), "62629626291");
 
-
     }
 
-    @Given("Enter a home phone number with more than TWENTY FIVE characters.")
-    public void enter_a_home_phone_number_with_more_than_twenty_five_characters() {
+    @And("Enter a home phone number with more than {string} characters.")
+    public void enterAHomePhoneNumberWithMoreThanCharacters(String arg0) {
 
         cd.waitUntilClickable(cd.getHomePhone());
         cd.clickMethod(cd.getHomePhone());
@@ -290,8 +287,8 @@ public class _05_ContactDetailsSteps {
 
     }
 
-    @Given("Enter an email address with more than FIFTY characters.")
-    public void enter_an_email_address_with_more_than_fifty_characters() {
+    @And("Enter an email address with more than {string} characters.")
+    public void enterAnEmailAddressWithMoreThanCharacters(String arg0) {
 
         String exceededEmail = "sshaheen11qa.comsshaheen11qa.comsshaheen1111@qa.com";
 

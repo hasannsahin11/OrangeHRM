@@ -38,10 +38,10 @@ Feature: Contact Details View and Update
   Scenario: Verify that the address, zipcode, phone number, and email fields have the correct character limits.
     Given I'm on the My Info page
     When I navigate to the Contact Details page
-    And Enter an address with more than SEVENTY characters.
-    And Enter a zipcode with more than TEN characters.
-    And Enter a home phone number with more than TWENTY FIVE characters.
-    And Enter an email address with more than FIFTY characters.
+    And Enter an address with more than "70" characters.
+    And Enter a zipcode with more than "10" characters.
+    And Enter a home phone number with more than "25" characters.
+    And Enter an email address with more than "50" characters.
     Then The system should prevent the user from entering more than required amounts and display a red error message under each field
 
   Scenario: Verify new Work Email Address added
