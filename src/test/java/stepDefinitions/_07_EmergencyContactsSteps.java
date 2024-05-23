@@ -212,7 +212,14 @@ public class _07_EmergencyContactsSteps {
         Assert.assertTrue(ec.getShouldntExceedErrorMsg().getText().contains(errorMsg));
 
         DriverClass.quitDriver();
+    }
 
+    @And("I edit the following fields with corresponding values")
+    public void iEditTheFollowingFieldsWithCorrespondingValues() {
+    }
+
+    @Then("The Emergency Contact should be successfully updated and displayed")
+    public void theEmergencyContactShouldBeSuccessfullyUpdatedAndDisplayed() {
     }
 
 

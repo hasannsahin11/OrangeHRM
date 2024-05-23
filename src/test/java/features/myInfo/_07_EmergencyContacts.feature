@@ -4,10 +4,10 @@ Feature: Emergency Contacts
     Given I am on the OrangeHRM login page
     When I enter the ESS credentials
     And I click the Login button
+    Given I'm on the My Info page
 
   Scenario: Add a new Emergency Contact
-    Given I'm on the My Info page
-    And I navigate to Emergency Contacts section
+    Given I navigate to Emergency Contacts section
     When I click on the Add button
     And I fill out the following mandatory fields with the corresponding data:
       | Field         | Value      |
@@ -18,16 +18,14 @@ Feature: Emergency Contacts
     Then The new Emergency Contact should be successfully saved and displayed
 
   Scenario: Verify a new Emergency Contact can't be added without a Name
-    Given I'm on the My Info page
-    And I navigate to Emergency Contacts section
+    Given I navigate to Emergency Contacts section
     When I click on the Add button
     And I fill out the fields besides "Name"
     And I click the Save button
     Then "Required" error message should be displayed under the "Name" field and contact shouldn't be saved
 
   Scenario Outline: Verify phone number fields Allows numbers and only + - / ( ) characters
-    Given I'm on the My Info page
-    And I navigate to Emergency Contacts section
+    Given I navigate to Emergency Contacts section
     When I click on the Add button
     And I type letters into phone number "<fields>"
     Then "Allows numbers and only + - / ( )" error message should display under the corresponding field
@@ -39,8 +37,7 @@ Feature: Emergency Contacts
       | Work Telephone |
 
   Scenario Outline: Verify error message displays after exceeding character limits
-    Given I'm on the My Info page
-    And I navigate to Emergency Contacts section
+    Given I navigate to Emergency Contacts section
     When I click on the Add button
     And I enter invalid amount of characters into the following "<field>"
     Then "Should not exceed" message displays under the corresponding field
@@ -52,6 +49,17 @@ Feature: Emergency Contacts
       | Home Telephone |
       | Mobile         |
       | Work Telephone |
+
+  Scenario: Edit an existing emergency contact with valid values
+    Given I navigate to Emergency Contacts section
+    When I click on the Edit icon of an existing Emergency Contact
+    And I edit the following fields with corresponding values
+      | Field         | Value      |
+      | Name          | Johny Doe  |
+      | Relationship  | Friend     |
+      | Mobile Number | 7735556677 |
+    And I click the Save button
+    Then The Emergency Contact should be successfully updated and displayed
 
 
   Scenario: Verify when updating an Emergency Contact can't be saved after removing phone number
