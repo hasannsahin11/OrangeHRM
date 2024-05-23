@@ -163,7 +163,15 @@ public class _07_EmergencyContactsSteps {
     }
 
     @And("I enter invalid amount of characters into the following {string}")
-    public void iEnterInvalidAmountOfCharactersIntoTheFollowing(String arg0) {
+    public void iEnterInvalidAmountOfCharactersIntoTheFollowing(String field) {
+
+        switch (field){
+            case "Name":
+
+                ec.sendKeysMethod(ec.getNameField(),"Alexander Benjamin Christopher Davidson Eisenhower Fitzgerald Goldstein Harrington Islington Jamesons");
+        }
+
+
     }
 
     @Then("{string} message displays under the corresponding field")
