@@ -217,29 +217,37 @@ public class _07_EmergencyContactsSteps {
     @And("I edit the following fields with corresponding values:")
     public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) {
 
+        Actions actions = new Actions(DriverClass.getDriver());
+
         for (Map<String, String> row : editData) {
             String field = row.get("Field");
             String value = row.get("Value");
 
             switch (field){
                 case "Name":
+
+                    ec.wait.until(ExpectedConditions.attributeContains(ec.getNameField(),"value","John Doe"));
+                    ec.getNameField().click();
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
 
                     break;
 
                 case "Relationship":
 
+                    ec.wait.until(ExpectedConditions.attributeContains(ec.getRelationshipField(),"value","Cousin"));
+                    ec.getRelationshipField().click();
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
 
                     break;
 
                 case "Mobile Number":
 
+                    ec.wait.until(ExpectedConditions.attributeContains(ec.getMobileNumField(),"value","3215859999"));
                     ec.getMobileNumField().click();
-
-                    Actions actions = new Actions(DriverClass.getDriver());
-
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    ec.sendKeysMethod(ec.getMobileNumField(),value);
 
                     break;
 
