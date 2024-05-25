@@ -214,8 +214,21 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
     }
 
-    @And("I edit the following fields with corresponding values")
-    public void iEditTheFollowingFieldsWithCorrespondingValues() {
+    @And("I edit the following fields with corresponding values:")
+    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) {
+
+        for (Map<String, String> row : editData) {
+            String field = row.get("Field");
+            String value = row.get("Value");
+
+            switch (field){
+                case "Name":
+                    ec.sendKeysMethod(ec.getNameField(), value);
+
+                    break;
+            }
+
+        }
 
 
     }
@@ -258,4 +271,5 @@ public class _07_EmergencyContactsSteps {
         DriverClass.quitDriver();
 
     }
+
 }
