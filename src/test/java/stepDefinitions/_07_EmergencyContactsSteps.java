@@ -226,10 +226,25 @@ public class _07_EmergencyContactsSteps {
                     ec.sendKeysMethod(ec.getNameField(), value);
 
                     break;
+
+                case "Relationship":
+
+                    ec.sendKeysMethod(ec.getRelationshipField(), value);
+
+                    break;
+
+                case "Mobile Number":
+
+                    ec.sendKeysMethod(ec.getMobileNumField(), value);
+
+                    break;
+
+                default:
+                    System.out.println("Unknown field: " + field);
+                    break;
             }
 
         }
-
 
     }
 
