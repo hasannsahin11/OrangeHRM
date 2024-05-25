@@ -235,7 +235,11 @@ public class _07_EmergencyContactsSteps {
 
                 case "Mobile Number":
 
-                    ec.sendKeysMethod(ec.getMobileNumField(), value);
+                    ec.getMobileNumField().click();
+
+                    Actions actions = new Actions(DriverClass.getDriver());
+
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
 
                     break;
 
