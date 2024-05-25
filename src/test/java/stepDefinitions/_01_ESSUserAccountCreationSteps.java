@@ -67,7 +67,7 @@ public class _01_ESSUserAccountCreationSteps {
     }
 
     @And("I fill out the necessary fields with:")
-    public void i_fill_out_the_necessary_fields_with(List<Map<String, String>> dataTable) throws AWTException, InterruptedException {
+    public void i_fill_out_the_necessary_fields_with(List<Map<String, String>> dataTable) throws AWTException {
 
         Robot robot = new Robot();
 

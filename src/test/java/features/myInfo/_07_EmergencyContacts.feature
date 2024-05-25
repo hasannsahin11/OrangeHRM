@@ -50,16 +50,16 @@ Feature: Emergency Contacts
       | Mobile         |
       | Work Telephone |
 
-#  Scenario: Edit an existing emergency contact with valid values
-#    Given I navigate to Emergency Contacts section
-#    When I click on the Edit icon of an existing Emergency Contact
-#    And I edit the following fields with corresponding values
-#      | Field         | Value      |
-#      | Name          | Johny Doe  |
-#      | Relationship  | Friend     |
-#      | Mobile Number | 7735556677 |
-#    And I click the Save button
-#    Then The Emergency Contact should be successfully updated and displayed
+  Scenario: Edit an existing emergency contact with valid values
+    Given I navigate to Emergency Contacts section
+    When I click on the Edit icon of an existing Emergency Contact
+    And I edit the following fields with corresponding values
+      | Field         | Value      |
+      | Name          | Johny Doe  |
+      | Relationship  | Friend     |
+      | Mobile Number | 7735556677 |
+    And I click the Save button
+    Then The Emergency Contact should be successfully updated and displayed
 
 
   Scenario: Verify when updating an Emergency Contact can't be saved after removing phone number
