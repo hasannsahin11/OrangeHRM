@@ -223,10 +223,10 @@ public class _07_EmergencyContactsSteps {
             String field = row.get("Field");
             String value = row.get("Value");
 
-            switch (field){
+            switch (field) {
                 case "Name":
 
-                    ec.wait.until(ExpectedConditions.attributeContains(ec.getNameField(),"value","John Doe"));
+                    ec.wait.until(ExpectedConditions.attributeContains(ec.getNameField(), "value", "John Doe"));
                     ec.getNameField().click();
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
@@ -235,8 +235,8 @@ public class _07_EmergencyContactsSteps {
 
                 case "Relationship":
 
-                    ec.wait.until(ExpectedConditions.attributeContains(ec.getRelationshipField(),"value","Cousin"));
-                    ec.getRelationshipField().click();
+//                    ec.wait.until(ExpectedConditions.attributeContains(ec.getRelationshipField(),"value","Cousin"));
+                    ec.clickMethod(ec.getRelationshipField());
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
 
@@ -244,10 +244,10 @@ public class _07_EmergencyContactsSteps {
 
                 case "Mobile Number":
 
-                    ec.wait.until(ExpectedConditions.attributeContains(ec.getMobileNumField(),"value","3215859999"));
-                    ec.getMobileNumField().click();
+//                    ec.wait.until(ExpectedConditions.attributeContains(ec.getMobileNumField(),"value","3215859999"));
+                    ec.clickMethod(ec.getMobileNumField());
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    ec.sendKeysMethod(ec.getMobileNumField(),value);
+                    ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
 
