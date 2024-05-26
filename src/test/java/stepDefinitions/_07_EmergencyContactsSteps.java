@@ -226,31 +226,28 @@ public class _07_EmergencyContactsSteps {
             switch (field) {
                 case "Name":
 
-                    ec.wait.until(ExpectedConditions.attributeContains(ec.getNameField(), "value", "John Doe"));
+                    ec.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
                     ec.getNameField().click();
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
+
+                    actions.keyDown(Keys.TAB).keyUp(Keys.TAB).build().perform();
 
                     break;
 
                 case "Relationship":
 
-//                    ec.wait.until(ExpectedConditions.attributeContains(ec.getRelationshipField(),"value","Cousin"));
-//                    ec.clickMethod(ec.getRelationshipField());
-                    actions.moveToElement(ec.getRelationshipField());
-                    actions.click(ec.getRelationshipField());
-                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
+
+                    actions.keyDown(Keys.TAB).keyUp(Keys.TAB).keyDown(Keys.TAB).keyUp(Keys.TAB).build().perform();
 
                     break;
 
                 case "Mobile Number":
 
-//                    ec.wait.until(ExpectedConditions.attributeContains(ec.getMobileNumField(),"value","3215859999"));
-//                    ec.clickMethod(ec.getMobileNumField());
-                    actions.moveToElement(ec.getMobileNumField());
-                    actions.click(ec.getMobileNumField());
-                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
