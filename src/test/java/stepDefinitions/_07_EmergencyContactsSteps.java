@@ -12,6 +12,9 @@ import pages.DialogContent;
 import pages.EmergencyContacts;
 import utils.DriverClass;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.security.Key;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -216,8 +219,9 @@ public class _07_EmergencyContactsSteps {
     }
 
     @And("I edit the following fields with corresponding values:")
-    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) {
+    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) throws AWTException {
 
+        Robot robot = new Robot();
         Actions actions = new Actions(DriverClass.getDriver());
 
         for (Map<String, String> row : editData) {
@@ -232,23 +236,35 @@ public class _07_EmergencyContactsSteps {
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
 
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
 
                     break;
 
                 case "Relationship":
 
-                    DriverClass.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-                    ec.getRelationshipField().click();
-                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    robot.delay(1500);
+
+                    robot.keyPress(KeyEvent.VK_BACK_SPACE);
+                    robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
+
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
 
                     break;
 
                 case "Mobile Number":
 
-                    DriverClass.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-                    ec.getMobileNumField().click();
-                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    robot.delay(2000);
+
+                    robot.keyPress(KeyEvent.VK_BACK_SPACE);
+                    robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+
+//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
