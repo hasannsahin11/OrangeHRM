@@ -12,6 +12,7 @@ import pages.DialogContent;
 import pages.EmergencyContacts;
 import utils.DriverClass;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -231,23 +232,23 @@ public class _07_EmergencyContactsSteps {
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
 
-                    actions.keyDown(Keys.TAB).keyUp(Keys.TAB).build().perform();
 
                     break;
 
                 case "Relationship":
 
-                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-
+                    DriverClass.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    ec.getRelationshipField().click();
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
-
-                    actions.keyDown(Keys.TAB).keyUp(Keys.TAB).keyDown(Keys.TAB).keyUp(Keys.TAB).build().perform();
 
                     break;
 
                 case "Mobile Number":
 
-                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    DriverClass.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    ec.getMobileNumField().click();
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
