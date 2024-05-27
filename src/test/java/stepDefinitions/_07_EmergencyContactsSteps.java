@@ -219,9 +219,9 @@ public class _07_EmergencyContactsSteps {
     }
 
     @And("I edit the following fields with corresponding values:")
-    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) throws AWTException {
+    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) {
 
-        Robot robot = new Robot();
+
         Actions actions = new Actions(DriverClass.getDriver());
 
         for (Map<String, String> row : editData) {
@@ -236,35 +236,29 @@ public class _07_EmergencyContactsSteps {
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getNameField(), value);
 
-                    robot.keyPress(KeyEvent.VK_TAB);
-                    robot.keyRelease(KeyEvent.VK_TAB);
-
                     break;
 
                 case "Relationship":
 
-                    robot.delay(1500);
 
-                    robot.keyPress(KeyEvent.VK_BACK_SPACE);
-                    robot.keyRelease(KeyEvent.VK_BACK_SPACE);
-//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    if (ec.getRelationshipField().isDisplayed() && ec.getRelationshipField().isEnabled()) {
+//                        ec.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[3]")));
+                        ec.getRelationshipField().click();
+                        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    }
+
                     ec.sendKeysMethod(ec.getRelationshipField(), value);
-
-                    robot.keyPress(KeyEvent.VK_TAB);
-                    robot.keyRelease(KeyEvent.VK_TAB);
-                    robot.keyPress(KeyEvent.VK_TAB);
-                    robot.keyRelease(KeyEvent.VK_TAB);
 
                     break;
 
                 case "Mobile Number":
 
-                    robot.delay(2000);
+                    if (ec.getMobileNumField().isDisplayed() && ec.getMobileNumField().isEnabled()) {
+//                        ec.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")));
+                        ec.getMobileNumField().click();
+                        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    }
 
-                    robot.keyPress(KeyEvent.VK_BACK_SPACE);
-                    robot.keyRelease(KeyEvent.VK_BACK_SPACE);
-
-//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
                     ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
