@@ -232,7 +232,9 @@ public class _07_EmergencyContactsSteps {
             switch (field) {
                 case "Name":
 
-                    ec.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
+//                    ec.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
+
+                    ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
                     js.executeScript("arguments[0].value='" + value + "';", ec.getNameField());
                     js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getNameField());
