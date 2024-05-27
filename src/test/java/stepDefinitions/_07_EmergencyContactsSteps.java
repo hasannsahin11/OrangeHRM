@@ -244,7 +244,7 @@ public class _07_EmergencyContactsSteps {
                     robot.keyPress(KeyEvent.VK_TAB);
                     robot.keyRelease(KeyEvent.VK_TAB);
 
-                    robot.delay(1500);
+                    actions.scrollToElement(ec.getRelationshipField());
 
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
 
