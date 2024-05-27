@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -219,9 +220,9 @@ public class _07_EmergencyContactsSteps {
     }
 
     @And("I edit the following fields with corresponding values:")
-    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) {
+    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) throws InterruptedException {
 
-
+        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
         Actions actions = new Actions(DriverClass.getDriver());
 
         for (Map<String, String> row : editData) {
@@ -232,34 +233,30 @@ public class _07_EmergencyContactsSteps {
                 case "Name":
 
                     ec.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
-                    ec.getNameField().click();
-                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    ec.sendKeysMethod(ec.getNameField(), value);
+
+                    js.executeScript("arguments[0].value='" + value + "';", ec.getNameField());
+                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getNameField());
+//                    ec.getNameField().click();
+//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+//                    ec.sendKeysMethod(ec.getNameField(), value);
 
                     break;
 
                 case "Relationship":
 
-
-                    if (ec.getRelationshipField().isDisplayed() && ec.getRelationshipField().isEnabled()) {
-//                        ec.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[3]")));
-                        ec.getRelationshipField().click();
-                        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    }
-
-                    ec.sendKeysMethod(ec.getRelationshipField(), value);
+//                    ec.getRelationshipField().click();
+//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    js.executeScript("arguments[0].value='" + value + "';", ec.getRelationshipField());
+                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getRelationshipField());
 
                     break;
 
                 case "Mobile Number":
 
-                    if (ec.getMobileNumField().isDisplayed() && ec.getMobileNumField().isEnabled()) {
-//                        ec.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")));
-                        ec.getMobileNumField().click();
-                        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    }
-
-                    ec.sendKeysMethod(ec.getMobileNumField(), value);
+//                    ec.getMobileNumField().click();
+//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    js.executeScript("arguments[0].value='" + value + "';", ec.getMobileNumField());
+                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getMobileNumField());
 
                     break;
 
