@@ -220,9 +220,9 @@ public class _07_EmergencyContactsSteps {
     }
 
     @And("I edit the following fields with corresponding values:")
-    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) throws InterruptedException {
+    public void iEditTheFollowingFieldsWithCorrespondingValues(List<Map<String, String>> editData) throws AWTException {
 
-        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
+        Robot robot = new Robot();
         Actions actions = new Actions(DriverClass.getDriver());
 
         for (Map<String, String> row : editData) {
@@ -232,33 +232,34 @@ public class _07_EmergencyContactsSteps {
             switch (field) {
                 case "Name":
 
-//                    ec.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
-
                     ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
-
-                    js.executeScript("arguments[0].value='" + value + "';", ec.getNameField());
-                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getNameField());
-//                    ec.getNameField().click();
-//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-//                    ec.sendKeysMethod(ec.getNameField(), value);
+                    ec.getNameField().click();
+                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+                    ec.sendKeysMethod(ec.getNameField(),value);
 
                     break;
 
                 case "Relationship":
 
-//                    ec.getRelationshipField().click();
-//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    js.executeScript("arguments[0].value='" + value + "';", ec.getRelationshipField());
-                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getRelationshipField());
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
+
+                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+
+                   ec.getRelationshipField().sendKeys(value);
 
                     break;
 
                 case "Mobile Number":
 
-//                    ec.getMobileNumField().click();
-//                    actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    js.executeScript("arguments[0].value='" + value + "';", ec.getMobileNumField());
-                    js.executeScript("var event = new Event('change'); arguments[0].dispatchEvent(event);", ec.getMobileNumField());
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
+                    robot.keyPress(KeyEvent.VK_TAB);
+                    robot.keyRelease(KeyEvent.VK_TAB);
+
+                    actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
+
+                    ec.getMobileNumField().sendKeys(value);
 
                     break;
 
