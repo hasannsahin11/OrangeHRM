@@ -22,7 +22,7 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[2]")
     private WebElement nameField;
 
-    @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[3]")
+    @FindBy(xpath = "(//input[@data-v-1f99f73c])[3]")
     private WebElement relationshipField;
 
     @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[4]")
