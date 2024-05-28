@@ -52,6 +52,8 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "//span[contains(.,'Should not exceed')]")
     private WebElement shouldntExceedErrorMsg;
 
+    @FindBy(xpath = "//div[contains(text(),'Johny Doe')]")
+    private WebElement existingEmergencyContactName;
 
     public WebElement getEmergencyContactsBtn() {
         return emergencyContactsBtn;
@@ -102,5 +104,9 @@ public class EmergencyContacts extends MyMethods {
     }
     public WebElement getShouldntExceedErrorMsg() {
         return shouldntExceedErrorMsg;
+    }
+
+    public WebElement getExistingEmergencyContactName() {
+        return existingEmergencyContactName;
     }
 }

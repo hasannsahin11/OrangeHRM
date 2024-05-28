@@ -243,9 +243,7 @@ public class _07_EmergencyContactsSteps {
 
                     robot.keyPress(KeyEvent.VK_TAB);
                     robot.keyRelease(KeyEvent.VK_TAB);
-
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-
                    ec.sendKeysMethod(ec.getRelationshipField(),value);
 
                     break;
@@ -256,9 +254,7 @@ public class _07_EmergencyContactsSteps {
                     robot.keyRelease(KeyEvent.VK_TAB);
                     robot.keyPress(KeyEvent.VK_TAB);
                     robot.keyRelease(KeyEvent.VK_TAB);
-
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-
                     ec.sendKeysMethod(ec.getMobileNumField(),value);
 
                     break;
@@ -267,13 +263,15 @@ public class _07_EmergencyContactsSteps {
                     System.out.println("Unknown field: " + field);
                     break;
             }
-
         }
-
     }
 
     @Then("The Emergency Contact should be successfully updated and displayed")
     public void theEmergencyContactShouldBeSuccessfullyUpdatedAndDisplayed() {
+
+        System.out.println("Updated Emergency Contact Name: " + ec.getExistingEmergencyContactName().getText());
+        Assert.assertEquals(ec.getExistingEmergencyContactName().getText(),"Johny Doe");
+
     }
 
 
