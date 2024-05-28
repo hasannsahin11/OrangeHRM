@@ -246,7 +246,7 @@ public class _07_EmergencyContactsSteps {
 
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
 
-                   ec.getRelationshipField().sendKeys(value);
+                   ec.sendKeysMethod(ec.getRelationshipField(),value);
 
                     break;
 
