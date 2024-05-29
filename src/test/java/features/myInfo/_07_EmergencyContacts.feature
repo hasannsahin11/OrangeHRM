@@ -69,3 +69,6 @@ Feature: Emergency Contacts
     And I click the Save button
     Then "At least one phone number is required" error message should be displayed under the Home Phone field and the update can't be saved
 
+Scenario: Delete the existing emergency contact
+  Given I navigate to Emergency Contacts section
+  When I click on the Delete icon of an existing Emergency Contact
