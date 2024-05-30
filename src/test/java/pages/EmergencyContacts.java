@@ -55,6 +55,9 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "//div[contains(text(),'Johny Doe')]")
     private WebElement existingEmergencyContactName;
 
+    @FindBy(xpath = "(//button[@type='button'])[4]")
+    private WebElement deleteEmgContactBtn;
+
     public WebElement getEmergencyContactsBtn() {
         return emergencyContactsBtn;
     }
@@ -108,5 +111,9 @@ public class EmergencyContacts extends MyMethods {
 
     public WebElement getExistingEmergencyContactName() {
         return existingEmergencyContactName;
+    }
+
+    public WebElement getDeleteEmgContactBtn() {
+        return deleteEmgContactBtn;
     }
 }
