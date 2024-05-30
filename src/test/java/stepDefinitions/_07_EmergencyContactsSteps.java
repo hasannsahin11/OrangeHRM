@@ -311,9 +311,14 @@ public class _07_EmergencyContactsSteps {
 
     @When("I click on the Delete icon of an existing Emergency Contact")
     public void iClickOnTheDeleteIconOfAnExistingEmergencyContact() {
+
+        ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+        ec.clickMethod(ec.getDeleteEmgContactBtn());
     }
 
     @Then("The Emergency Contact should be successfully deleted")
     public void theEmergencyContactShouldBeSuccessfullyDeleted() {
+
+//        ec.getAddedContactName();
     }
 }
