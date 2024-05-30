@@ -72,5 +72,5 @@ Feature: Emergency Contacts
 Scenario: Delete the existing emergency contact
   Given I navigate to Emergency Contacts section
   When I click on the Delete icon of an existing Emergency Contact
-  And I click on the Save button
+  And I click the Save button
   Then The Emergency Contact should be successfully deleted
