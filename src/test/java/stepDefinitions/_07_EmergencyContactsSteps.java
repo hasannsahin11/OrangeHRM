@@ -314,6 +314,7 @@ public class _07_EmergencyContactsSteps {
 
         ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
         ec.clickMethod(ec.getDeleteEmgContactBtn());
+        ec.clickMethod(ec.getConfirmDeleteBtn());
     }
 
     @Then("The Emergency Contact should be successfully deleted")
