@@ -58,6 +58,9 @@ public class EmergencyContacts extends MyMethods {
     @FindBy(xpath = "(//button[@type='button'])[4]")
     private WebElement deleteEmgContactBtn;
 
+    @FindBy(xpath = "//button[contains(.,' Yes, Delete ')]")
+    private WebElement confirmDeleteBtn;
+
     public WebElement getEmergencyContactsBtn() {
         return emergencyContactsBtn;
     }
@@ -115,5 +118,9 @@ public class EmergencyContacts extends MyMethods {
 
     public WebElement getDeleteEmgContactBtn() {
         return deleteEmgContactBtn;
+    }
+
+    public WebElement getConfirmDeleteBtn() {
+        return confirmDeleteBtn;
     }
 }
