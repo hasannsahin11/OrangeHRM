@@ -328,6 +328,7 @@ public class _07_EmergencyContactsSteps {
     public void theEmergencyContactShouldBeSuccessfullyDeleted() {
 
         System.out.println(dc.getSuccessMessage().getText());
+Assert.assertEquals(dc.getSuccessMessage().getText(),"Successfully Deleted");
 
     }
 
