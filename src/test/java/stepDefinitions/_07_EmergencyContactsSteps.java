@@ -235,7 +235,7 @@ public class _07_EmergencyContactsSteps {
                     ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
                     ec.getNameField().click();
                     actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    ec.sendKeysMethod(ec.getNameField(),value);
+                    ec.sendKeysMethod(ec.getNameField(), value);
 
                     break;
 
@@ -244,7 +244,7 @@ public class _07_EmergencyContactsSteps {
                     robot.keyPress(KeyEvent.VK_TAB);
                     robot.keyRelease(KeyEvent.VK_TAB);
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                   ec.sendKeysMethod(ec.getRelationshipField(),value);
+                    ec.sendKeysMethod(ec.getRelationshipField(), value);
 
                     break;
 
@@ -255,7 +255,7 @@ public class _07_EmergencyContactsSteps {
                     robot.keyPress(KeyEvent.VK_TAB);
                     robot.keyRelease(KeyEvent.VK_TAB);
                     actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).build().perform();
-                    ec.sendKeysMethod(ec.getMobileNumField(),value);
+                    ec.sendKeysMethod(ec.getMobileNumField(), value);
 
                     break;
 
@@ -270,7 +270,9 @@ public class _07_EmergencyContactsSteps {
     public void theEmergencyContactShouldBeSuccessfullyUpdatedAndDisplayed() {
 
         System.out.println("Updated Emergency Contact Name: " + ec.getExistingEmergencyContactName().getText());
-        Assert.assertEquals(ec.getExistingEmergencyContactName().getText(),"Johny Doe");
+        Assert.assertEquals(ec.getExistingEmergencyContactName().getText(), "Johny Doe");
+
+        DriverClass.quitDriver();
 
     }
 
@@ -328,8 +330,9 @@ public class _07_EmergencyContactsSteps {
     public void theEmergencyContactShouldBeSuccessfullyDeleted() {
 
         System.out.println(dc.getSuccessMessage().getText());
-Assert.assertEquals(dc.getSuccessMessage().getText(),"Successfully Deleted");
+        Assert.assertEquals(dc.getSuccessMessage().getText(), "Successfully Deleted");
 
+        DriverClass.quitDriver();
     }
 
 
