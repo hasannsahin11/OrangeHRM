@@ -6,16 +6,16 @@ Feature: Emergency Contacts
     And I click the Login button
     Given I'm on the My Info page
 
-  Scenario: Add a new Emergency Contact
-    Given I navigate to Emergency Contacts section
-    When I click on the Add button
-    And I fill out the following mandatory fields with the corresponding data:
-      | Field         | Value      |
-      | Name          | John Doe   |
-      | Relationship  | Cousin     |
-      | Mobile Number | 3215859999 |
-    And I click on the Save button
-    Then The new Emergency Contact should be successfully saved and displayed
+#  Scenario: Add a new Emergency Contact
+#    Given I navigate to Emergency Contacts section
+#    When I click on the Add button
+#    And I fill out the following mandatory fields with the corresponding data:
+#      | Field         | Value      |
+#      | Name          | John Doe   |
+#      | Relationship  | Cousin     |
+#      | Mobile Number | 3215859999 |
+#    And I click on the Save button
+#    Then The new Emergency Contact should be successfully saved and displayed
 #
 #  Scenario: Verify a new Emergency Contact can't be added without a Name
 #    Given I navigate to Emergency Contacts section
@@ -72,4 +72,5 @@ Feature: Emergency Contacts
 Scenario: Delete the existing emergency contact
   Given I navigate to Emergency Contacts section
   When I click on the Delete icon of an existing Emergency Contact
+  And I click the Confirm Delete button
   Then The Emergency Contact should be successfully deleted

@@ -314,12 +314,22 @@ public class _07_EmergencyContactsSteps {
 
         ec.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
         ec.clickMethod(ec.getDeleteEmgContactBtn());
+
+    }
+
+    @And("I click the Confirm Delete button")
+    public void iClickTheConfirmDeleteButton() {
+
         ec.clickMethod(ec.getConfirmDeleteBtn());
+
     }
 
     @Then("The Emergency Contact should be successfully deleted")
     public void theEmergencyContactShouldBeSuccessfullyDeleted() {
 
-//        ec.getAddedContactName();
+        System.out.println(dc.getSuccessMessage().getText());
+
     }
+
+
 }
