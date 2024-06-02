@@ -15,7 +15,7 @@ import utils.DriverClass;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _06_JobDetailsSteps {
+public class MI_04_JobDetailsSteps {
 
     MyInfo mi = new MyInfo();
     JobDetails jd = new JobDetails();

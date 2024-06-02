@@ -1,10 +1,7 @@
 package stepDefinitions;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,12 +12,10 @@ import utils.DriverClass;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.security.Key;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class _07_EmergencyContactsSteps {
+public class MI_05_EmergencyContactsSteps {
 
     DialogContent dc = new DialogContent();
     EmergencyContacts ec = new EmergencyContacts();

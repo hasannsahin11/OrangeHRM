@@ -8,7 +8,7 @@ import org.testng.Assert;
 import pages.LoginPage;
 import utils.DriverClass;
 
-public class _02_LoginESSAccountSteps {
+public class LI_02_LoginESSAccountSteps {
 
     LoginPage lp = new LoginPage();
 

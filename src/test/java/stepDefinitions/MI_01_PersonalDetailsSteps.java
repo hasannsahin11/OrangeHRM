@@ -14,7 +14,7 @@ import utils.DriverClass;
 
 import java.util.List;
 
-public class _03_PersonalDetailsSteps {
+public class MI_01_PersonalDetailsSteps {
 
     MyInfo mi = new MyInfo();
     DialogContent dc = new DialogContent();

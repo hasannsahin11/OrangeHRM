@@ -16,7 +16,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class _05_ContactDetailsSteps {
+public class MI_03_ContactDetailsSteps {
 
     ContactDetails cd = new ContactDetails();
     DialogContent dc = new DialogContent();

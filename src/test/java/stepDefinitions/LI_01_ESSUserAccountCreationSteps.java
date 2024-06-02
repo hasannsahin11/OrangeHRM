@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Map;
 
-public class _01_ESSUserAccountCreationSteps {
+public class LI_01_ESSUserAccountCreationSteps {
     DialogContent dc = new DialogContent();
     AdminPanel ap = new AdminPanel();
 
