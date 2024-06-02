@@ -7,5 +7,5 @@ import io.cucumber.testng.CucumberOptions;
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features\\myInfo\\MI_04_JobDetails.feature"},
         glue = {"stepDefinitions"}
 )
-public class _06_JobDetailsRunner extends AbstractTestNGCucumberTests {
+public class MI_04_JobDetailsRunner extends AbstractTestNGCucumberTests {
 }

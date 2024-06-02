@@ -9,5 +9,5 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"stepDefinitions"}
 )
 
-public class _03_PersonalDetailsRunner extends AbstractTestNGCucumberTests {
+public class MI_01_PersonalDetailsRunner extends AbstractTestNGCucumberTests {
 }

@@ -7,5 +7,5 @@ import io.cucumber.testng.CucumberOptions;
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features\\login\\LI_01_ESSUserAccountCreation.feature"},
         glue = {"stepDefinitions"}
 )
-public class _01_ESSUserAccountCreationRunner extends AbstractTestNGCucumberTests {
+public class LI_01_ESSUserAccountCreationRunner extends AbstractTestNGCucumberTests {
 }

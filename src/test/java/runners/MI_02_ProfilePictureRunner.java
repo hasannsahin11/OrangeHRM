@@ -8,5 +8,5 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"stepDefinitions"}
 )
 
-public class _04_ProfilePictureRunner extends AbstractTestNGCucumberTests {
+public class MI_02_ProfilePictureRunner extends AbstractTestNGCucumberTests {
 }
