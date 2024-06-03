@@ -4,7 +4,7 @@ Feature: Emergency Contacts
     Given I am on the OrangeHRM login page
     When I enter the ESS credentials
     And I click the Login button
-    Given I'm on the My Info page
+    And I'm on the My Info page
 
   Scenario: Add a new Emergency Contact
     Given I navigate to Emergency Contacts section
