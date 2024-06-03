@@ -8,7 +8,7 @@ Feature: Qualifications
 
   Scenario: Verify Qualifications Headers
     Given I navigate to Qualifications Sections
-    When I scroll all the way bottom of the page
+    When I scroll down to bottom of the page
     Then I should see below Qualification headers:
       | Work Experience |
       | Education       |
