@@ -8,17 +8,20 @@ import utils.MyMethods;
 
 public class Qualifications extends MyMethods {
 
-    public Qualifications(){
+    public Qualifications() {
         PageFactory.initElements(DriverClass.getDriver(), this);
     }
+
+    @FindBy(xpath = "//a[contains(.,'Qualifications')]")
+    private WebElement qualificationsBtn;
 
     @FindBy(xpath = "//h6[contains(.,'Work Experience')]")
     private WebElement workExperience;
 
-@FindBy(xpath = "//h6[contains(.,'Education')]")
+    @FindBy(xpath = "//h6[contains(.,'Education')]")
     private WebElement education;
 
-@FindBy(xpath = "//h6[contains(.,'Skills')]")
+    @FindBy(xpath = "//h6[contains(.,'Skills')]")
     private WebElement skills;
 
     @FindBy(xpath = "//h6[contains(.,'Languages')]")
@@ -30,4 +33,31 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "//h6[contains(.,'Attachments')]")
     private WebElement attachments;
 
+    public WebElement getQualificationsBtn() {
+        return qualificationsBtn;
+    }
+
+    public WebElement getWorkExperience() {
+        return workExperience;
+    }
+
+    public WebElement getEducation() {
+        return education;
+    }
+
+    public WebElement getSkills() {
+        return skills;
+    }
+
+    public WebElement getLanguages() {
+        return languages;
+    }
+
+    public WebElement getLicense() {
+        return license;
+    }
+
+    public WebElement getAttachments() {
+        return attachments;
+    }
 }
