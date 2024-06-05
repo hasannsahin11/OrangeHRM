@@ -66,17 +66,15 @@ public class MI_06_QualificationsSteps {
 
     @Then("I should see the following Qualification headers:")
     public void i_should_see_the_following_qualification_headers(DataTable dataTable) {
-//        List<String> headers = dataTable.asList();
-//
-//        for (String qHeaders : headers) {
-//            Assert.assertTrue(getHeader(qHeaders).isDisplayed());
-//            System.out.println("Displayed Qualifications Header: " + getHeader(qHeaders).getText());
-//        }
+        List<String> headers = dataTable.asList();
+
+        for (String qHeaders : headers) {
+            Assert.assertTrue(getHeader(qHeaders).isDisplayed());
+            System.out.println("Displayed Qualifications Header: " + getHeader(qHeaders).getText());
+        }
     }
-
-//    public WebElement getHeader(String headerName) {
-//        WebElement header = DriverClass.getDriver().findElement(By.xpath("//h6[contains(.,'" + headerName + "')]"));
-//        return header;
-//    }
-
+    public WebElement getHeader(String headerName) {
+        WebElement header = DriverClass.getDriver().findElement(By.xpath("//h6[contains(.,'" + headerName + "')]"));
+        return header;
+    }
 }
