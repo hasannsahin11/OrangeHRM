@@ -1,9 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -11,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.Qualifications;
 import utils.DriverClass;
-
 import java.util.List;
 
 public class MI_06_QualificationsSteps {
@@ -72,7 +69,11 @@ public class MI_06_QualificationsSteps {
             Assert.assertTrue(getHeader(qHeaders).isDisplayed());
             System.out.println("Displayed Qualifications Header: " + getHeader(qHeaders).getText());
         }
+
+        DriverClass.quitDriver();
+
     }
+
     public WebElement getHeader(String headerName) {
         WebElement header = DriverClass.getDriver().findElement(By.xpath("//h6[contains(.,'" + headerName + "')]"));
         return header;
