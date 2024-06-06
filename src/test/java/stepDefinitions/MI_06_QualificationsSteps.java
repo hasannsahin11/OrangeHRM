@@ -84,6 +84,8 @@ public class MI_06_QualificationsSteps {
     public void iClickOnTheButton(String arg0) {
 
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+        q.getWorkExpAddBtn().click();
+
 
     }
 
