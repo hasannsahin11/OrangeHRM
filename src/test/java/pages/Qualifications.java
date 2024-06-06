@@ -33,6 +33,9 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "//h6[contains(.,'Attachments')]")
     private WebElement attachments;
 
+    @FindBy (xpath = "(//button[@type='button' and contains(@class, 'oxd-button--text')])[1]")
+    private WebElement workExpAddBtn;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
@@ -59,5 +62,9 @@ public class Qualifications extends MyMethods {
 
     public WebElement getAttachments() {
         return attachments;
+    }
+
+    public WebElement getWorkExpAddBtn() {
+        return workExpAddBtn;
     }
 }
