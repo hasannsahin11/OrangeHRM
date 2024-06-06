@@ -16,3 +16,11 @@ Feature: Qualifications
       | Languages       |
       | License         |
       | Attachments     |
+
+    Scenario: Add a new Work Experience
+      Given I navigate to the Qualifications Section
+    When I click the Add button for Work Experience
+      And I fill out "Company" and "Job Title" fields
+      And I select "From" and "To" dates
+      And I click the Save button for Work Experience
+      Then the new Work Experience should be successfully saved and displayed
