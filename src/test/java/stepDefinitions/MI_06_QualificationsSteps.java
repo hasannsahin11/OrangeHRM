@@ -78,4 +78,21 @@ public class MI_06_QualificationsSteps {
         WebElement header = DriverClass.getDriver().findElement(By.xpath("//h6[contains(.,'" + headerName + "')]"));
         return header;
     }
+
+
+    @When("I click on the {string} button")
+    public void iClickOnTheButton(String arg0) {
+    }
+
+    @And("I fill in the {string} field with {string}")
+    public void iFillInTheFieldWith(String arg0, String arg1) {
+    }
+
+    @And("I select {string} as {string}")
+    public void iSelectAs(String arg0, String arg1) {
+    }
+
+    @Then("I should see the new Work Experience listed with {string} and {string}")
+    public void iShouldSeeTheNewWorkExperienceListedWithAnd(String arg0, String arg1) {
+    }
 }
