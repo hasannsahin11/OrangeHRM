@@ -82,6 +82,9 @@ public class MI_06_QualificationsSteps {
 
     @When("I click on the {string} button")
     public void iClickOnTheButton(String arg0) {
+
+        q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
     }
 
     @And("I fill in the {string} field with {string}")
