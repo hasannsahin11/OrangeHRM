@@ -36,6 +36,9 @@ public class Qualifications extends MyMethods {
     @FindBy (xpath = "(//button[@type='button' and contains(@class, 'oxd-button--text')])[1]")
     private WebElement workExpAddBtn;
 
+    @FindBy(xpath = "(//input[@data-v-1f99f73c])[2]")
+    private WebElement companyField;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
