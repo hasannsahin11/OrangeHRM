@@ -77,4 +77,8 @@ public class Qualifications extends MyMethods {
     public WebElement getCompanyField() {
         return companyField;
     }
+
+    public WebElement getJobTitleField() {
+        return jobTitleField;
+    }
 }
