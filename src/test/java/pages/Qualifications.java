@@ -70,4 +70,8 @@ public class Qualifications extends MyMethods {
     public WebElement getWorkExpAddBtn() {
         return workExpAddBtn;
     }
+
+    public WebElement getCompanyField() {
+        return companyField;
+    }
 }
