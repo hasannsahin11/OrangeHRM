@@ -42,10 +42,10 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "(//input[contains(@class,'oxd-input')])[3]")
     private WebElement jobTitleField;
 
-    @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[4]")
+    @FindBy(xpath = "//input[@placeholder='yyyy-dd-mm']")
     private WebElement fromDate;
 
-    @FindBy(xpath = "(//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[5]")
+    @FindBy(xpath = "//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[4]")
     private WebElement endDate;
 
     public WebElement getQualificationsBtn() {
