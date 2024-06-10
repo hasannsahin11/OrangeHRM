@@ -48,6 +48,9 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "(//input[@data-v-1f99f73c and @data-v-4a95a2e0])[2]")
     private WebElement endDate;
 
+    @FindBy(xpath = "//textarea[contains(@class, 'oxd-textarea--active')]")
+    private WebElement commentField;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
@@ -94,5 +97,9 @@ public class Qualifications extends MyMethods {
 
     public WebElement getEndDate() {
         return endDate;
+    }
+
+    public WebElement getCommentField() {
+        return commentField;
     }
 }
