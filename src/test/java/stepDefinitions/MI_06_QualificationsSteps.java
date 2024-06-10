@@ -10,7 +10,6 @@ import org.testng.Assert;
 import pages.DialogContent;
 import pages.Qualifications;
 import utils.DriverClass;
-
 import java.util.List;
 
 public class MI_06_QualificationsSteps {
@@ -130,6 +129,7 @@ public class MI_06_QualificationsSteps {
 
 //        q.getSaveQualificationButton().click();
         dc.getSaveBtn().click();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
         System.out.println(dc.getSuccessMessage().getText());
 
     }
@@ -143,7 +143,7 @@ public class MI_06_QualificationsSteps {
         Assert.assertEquals(q.getListedWorkExperienceCompanyName().getText(), listedCompanyName);
         Assert.assertEquals(q.getListedWorkExperienceJobTitle().getText(), listedJobTitle);
 
-
+        DriverClass.quitDriver();
     }
 
 }
