@@ -79,8 +79,47 @@ public class MI_06_QualificationsSteps {
         return header;
     }
 
-
 //     q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 //        q.getWorkExpAddBtn().click();
+@When("I click on the Add Work Experience button")
+public void i_click_on_the_add_work_experience_button() {
+
+}
+    @And("I fill in the Company field with {string}")
+    public void i_fill_in_the_company_field_with(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("I fill in the Job Title field with {string}")
+    public void i_fill_in_the_job_title_field_with(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("I select Start Date as {string}")
+    public void i_select_start_date_as(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("I select End Date as {string}")
+    public void i_select_end_date_as(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("I fill in the Comment field with {string}")
+    public void i_fill_in_the_comment_field_with(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @And("I click on the Save Work Experience button")
+    public void i_click_on_the_save_work_experience_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("I should see the new Work Experience listed with {string} and {string}")
+    public void i_should_see_the_new_work_experience_listed_with_and(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 }
