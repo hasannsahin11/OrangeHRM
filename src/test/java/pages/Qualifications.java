@@ -45,7 +45,7 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "//input[@placeholder='yyyy-dd-mm']")
     private WebElement fromDate;
 
-    @FindBy(xpath = "//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')])[4]")
+    @FindBy(xpath = "(//input[@data-v-1f99f73c and @data-v-4a95a2e0])[2]")
     private WebElement endDate;
 
     public WebElement getQualificationsBtn() {

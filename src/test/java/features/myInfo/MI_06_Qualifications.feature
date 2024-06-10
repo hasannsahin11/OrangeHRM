@@ -22,8 +22,8 @@ Feature: Qualifications
       When I click on the Add Work Experience button
       And I fill in the Company field with "Amazon"
       And I fill in the Job Title field with "SDET"
-      And I select Start Date as "01/01/2020"
-      And I select End Date as "12/31/2022"
+      And I select Start Date as "2020-01-01"
+      And I select End Date as "2022-31-12"
       And I fill in the Comment field with "Worked on various software development projects"
       And I click on the Save Work Experience button
       Then I should see the new Work Experience listed with "Amazon" and "SDET"
