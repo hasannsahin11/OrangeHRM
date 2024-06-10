@@ -2,23 +2,21 @@ package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import pages.DialogContent;
 import pages.Qualifications;
 import utils.DriverClass;
 
-import java.security.Key;
 import java.util.List;
 
 public class MI_06_QualificationsSteps {
 
     Qualifications q = new Qualifications();
+    DialogContent dc = new DialogContent();
 
     @Given("I navigate to the Qualifications Section")
     public void i_navigate_to_the_qualifications_section() {
@@ -102,7 +100,7 @@ public class MI_06_QualificationsSteps {
     @And("I fill in the Job Title field with {string}")
     public void i_fill_in_the_job_title_field_with(String jobTitle) {
 
-        q.sendKeysMethod(q.getJobTitleField(),jobTitle);
+        q.sendKeysMethod(q.getJobTitleField(), jobTitle);
 
     }
 
@@ -130,14 +128,22 @@ public class MI_06_QualificationsSteps {
     @And("I click on the Save Work Experience button")
     public void i_click_on_the_save_work_experience_button() {
 
-        q.getSaveQualificationButton().click();
+//        q.getSaveQualificationButton().click();
+        dc.getSaveBtn().click();
+        System.out.println(dc.getSuccessMessage().getText());
 
     }
 
     @Then("I should see the new Work Experience listed with {string} and {string}")
-    public void i_should_see_the_new_work_experience_listed_with_and(String string, String string2) {
+    public void i_should_see_the_new_work_experience_listed_with_and(String listedCompanyName, String listedJobTitle) {
+
+        System.out.println("q.getListedWorkExperienceCompanyName().getText() = " + q.getListedWorkExperienceCompanyName().getText());
+        System.out.println("q.getListedWorkExperienceJobTitle().getText() = " + q.getListedWorkExperienceJobTitle().getText());
+
+        Assert.assertEquals(q.getListedWorkExperienceCompanyName().getText(), listedCompanyName);
+        Assert.assertEquals(q.getListedWorkExperienceJobTitle().getText(), listedJobTitle);
+
 
     }
-
 
 }

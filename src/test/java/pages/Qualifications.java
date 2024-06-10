@@ -54,6 +54,12 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement saveQualificationButton;
 
+    @FindBy(xpath = "//div[contains(text(),'Amazon')]")
+    private WebElement listedWorkExperienceCompanyName;
+
+    @FindBy(xpath = "//div[contains(text(),'SDET')]")
+    private WebElement listedWorkExperienceJobTitle;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
@@ -90,6 +96,8 @@ public class Qualifications extends MyMethods {
         return companyField;
     }
 
+
+
     public WebElement getJobTitleField() {
         return jobTitleField;
     }
@@ -108,5 +116,13 @@ public class Qualifications extends MyMethods {
 
     public WebElement getSaveQualificationButton() {
         return saveQualificationButton;
+    }
+
+    public WebElement getListedWorkExperienceCompanyName() {
+        return listedWorkExperienceCompanyName;
+    }
+
+    public WebElement getListedWorkExperienceJobTitle() {
+        return listedWorkExperienceJobTitle;
     }
 }
