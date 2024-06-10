@@ -107,12 +107,16 @@ public class MI_06_QualificationsSteps {
     }
 
     @And("I select Start Date as {string}")
-    public void i_select_start_date_as(String string) {
+    public void i_select_start_date_as(String startDate) {
+
+        q.getFromDate().sendKeys(startDate);
 
     }
 
     @And("I select End Date as {string}")
-    public void i_select_end_date_as(String string) {
+    public void i_select_end_date_as(String endDate) {
+
+        q.getEndDate().sendKeys(endDate);
 
     }
 
