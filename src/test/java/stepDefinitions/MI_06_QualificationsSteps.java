@@ -80,24 +80,7 @@ public class MI_06_QualificationsSteps {
     }
 
 
-    @When("I click on the {string} button")
-    public void iClickOnTheButton(String arg0) {
+//     q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+//        q.getWorkExpAddBtn().click();
 
-        q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
-        q.getWorkExpAddBtn().click();
-
-
-    }
-
-    @And("I fill in the {string} field with {string}")
-    public void iFillInTheFieldWith(String arg0, String arg1) {
-    }
-
-    @And("I select {string} as {string}")
-    public void iSelectAs(String arg0, String arg1) {
-    }
-
-    @Then("I should see the new Work Experience listed with {string} and {string}")
-    public void iShouldSeeTheNewWorkExperienceListedWithAnd(String arg0, String arg1) {
-    }
 }
