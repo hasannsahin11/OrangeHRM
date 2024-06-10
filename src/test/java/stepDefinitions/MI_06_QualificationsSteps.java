@@ -121,12 +121,16 @@ public class MI_06_QualificationsSteps {
     }
 
     @And("I fill in the Comment field with {string}")
-    public void i_fill_in_the_comment_field_with(String string) {
+    public void i_fill_in_the_comment_field_with(String comment) {
+
+        q.getCommentField().sendKeys(comment);
 
     }
 
     @And("I click on the Save Work Experience button")
     public void i_click_on_the_save_work_experience_button() {
+
+        q.getSaveQualificationButton().click();
 
     }
 

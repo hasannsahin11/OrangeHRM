@@ -51,6 +51,9 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "//textarea[contains(@class, 'oxd-textarea--active')]")
     private WebElement commentField;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement saveQualificationButton;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
@@ -101,5 +104,9 @@ public class Qualifications extends MyMethods {
 
     public WebElement getCommentField() {
         return commentField;
+    }
+
+    public WebElement getSaveQualificationButton() {
+        return saveQualificationButton;
     }
 }
