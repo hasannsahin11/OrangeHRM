@@ -39,7 +39,7 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "(//input[@data-v-1f99f73c])[2]")
     private WebElement companyField;
 
-    @FindBy(xpath = "(//input[@data-v-1f99f73c])[2]")
+    @FindBy(xpath = "(//input[contains(@class,'oxd-input')])[3]")
     private WebElement jobTitleField;
 
     public WebElement getQualificationsBtn() {
