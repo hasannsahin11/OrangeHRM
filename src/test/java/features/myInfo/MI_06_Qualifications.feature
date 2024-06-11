@@ -27,3 +27,6 @@ Feature: Qualifications
     And I fill in the Comment field with "Worked on various software development projects"
     And I click on the Save Work Experience button
     Then I should see the new Work Experience listed with "Amazon" and "SDET"
+
+    Scenario: Edit an existing Work Experience
+      Given I navigate to the Qualifications Section
