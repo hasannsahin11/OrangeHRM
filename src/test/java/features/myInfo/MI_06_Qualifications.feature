@@ -29,4 +29,3 @@ Feature: Qualifications
     Then I should see the new Work Experience listed with "Amazon" and "SDET"
 
     Scenario: Edit an existing Work Experience
-      Given I navigate to the Qualifications Section
