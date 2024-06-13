@@ -28,4 +28,5 @@ Feature: Qualifications
     And I click on the Save Work Experience button
     Then I should see the new Work Experience listed with "Amazon" and "SDET"
 
-    Scenario:
+  Scenario: Edit an existing Work Experience
+    Given I navigate to the Qualifications Section
