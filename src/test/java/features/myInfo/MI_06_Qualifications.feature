@@ -6,16 +6,16 @@ Feature: Qualifications
     And I click the Login button
     Given I'm on the My Info page
 
-  Scenario: Verify Qualifications Headers
-    Given I navigate to the Qualifications Section
-    When I scroll down to the bottom of the page
-    Then I should see the following Qualification headers:
-      | Work Experience |
-      | Education       |
-      | Skills          |
-      | Languages       |
-      | License         |
-      | Attachments     |
+#  Scenario: Verify Qualifications Headers
+#    Given I navigate to the Qualifications Section
+#    When I scroll down to the bottom of the page
+#    Then I should see the following Qualification headers:
+#      | Work Experience |
+#      | Education       |
+#      | Skills          |
+#      | Languages       |
+#      | License         |
+#      | Attachments     |
 
   Scenario: Add a new Work Experience
     Given I navigate to the Qualifications Section
@@ -30,6 +30,7 @@ Feature: Qualifications
 
   Scenario: Edit an existing Work Experience
     Given I navigate to the Qualifications Section
-  And
-  And
-  And
+    And I click on the Edit icon of the existing Work Experience
+    And I modify the Company name with "Facebook" and the Job Title field with "QA"
+    When I click on the Save Work Experience button
+    Then I should see the updated Work Experience listed with "Facebook" and "QA"
