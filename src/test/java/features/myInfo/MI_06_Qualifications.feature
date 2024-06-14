@@ -30,3 +30,6 @@ Feature: Qualifications
 
   Scenario: Edit an existing Work Experience
     Given I navigate to the Qualifications Section
+  And
+  And
+  And
