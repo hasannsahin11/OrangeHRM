@@ -146,4 +146,15 @@ public class MI_06_QualificationsSteps {
         DriverClass.quitDriver();
     }
 
+    @And("I click on the Edit icon of the existing Work Experience")
+    public void iClickOnTheEditIconOfTheExistingWorkExperience() {
+    }
+
+    @And("I modify the Company name with {string} and the Job Title field with {string}")
+    public void iModifyTheCompanyNameWithAndTheJobTitleFieldWith(String arg0, String arg1) {
+    }
+
+    @Then("I should see the updated Work Experience listed with {string} and {string}")
+    public void iShouldSeeTheUpdatedWorkExperienceListedWithAnd(String arg0, String arg1) {
+    }
 }
