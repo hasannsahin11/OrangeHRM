@@ -4,18 +4,23 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
 import pages.Qualifications;
 import utils.DriverClass;
+
 import java.util.List;
 
 public class MI_06_QualificationsSteps {
 
     Qualifications q = new Qualifications();
     DialogContent dc = new DialogContent();
+
+    Actions actions = new Actions(DriverClass.getDriver());
 
     @Given("I navigate to the Qualifications Section")
     public void i_navigate_to_the_qualifications_section() {
@@ -151,16 +156,21 @@ public class MI_06_QualificationsSteps {
 
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 
-        q.clickMethod(q.getEditExistingWorkExpBtn());
+        q.getEditExistingWorkExpBtn().click();
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
     public void iModifyTheCompanyNameWithAndTheJobTitleFieldWith(String companyName, String jobTitle) {
 
         q.getCompanyField().click();
+
+        actions.keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
+
         q.getCompanyField().sendKeys(companyName);
 
-        q.sendKeysMethod(q.getJobTitleField(), jobTitle);
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.BACK_SPACE).build().perform();
+
+        q.getJobTitleField().sendKeys(jobTitle);
 
     }
 
