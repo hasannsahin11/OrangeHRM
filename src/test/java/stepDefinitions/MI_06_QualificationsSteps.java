@@ -148,10 +148,20 @@ public class MI_06_QualificationsSteps {
 
     @And("I click on the Edit icon of the existing Work Experience")
     public void iClickOnTheEditIconOfTheExistingWorkExperience() {
+
+        q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+
+        q.clickMethod(q.getEditExistingWorkExpBtn());
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
-    public void iModifyTheCompanyNameWithAndTheJobTitleFieldWith(String arg0, String arg1) {
+    public void iModifyTheCompanyNameWithAndTheJobTitleFieldWith(String companyName, String jobTitle) {
+
+        q.getCompanyField().click();
+        q.getCompanyField().sendKeys(companyName);
+
+        q.sendKeysMethod(q.getJobTitleField(), jobTitle);
+
     }
 
     @Then("I should see the updated Work Experience listed with {string} and {string}")

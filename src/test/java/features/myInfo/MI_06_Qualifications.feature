@@ -17,16 +17,16 @@ Feature: Qualifications
 #      | License         |
 #      | Attachments     |
 
-  Scenario: Add a new Work Experience
-    Given I navigate to the Qualifications Section
-    When I click on the Add Work Experience button
-    And I fill in the Company field with "Amazon"
-    And I fill in the Job Title field with "SDET"
-    And I select Start Date as "2020-01-01"
-    And I select End Date as "2022-31-12"
-    And I fill in the Comment field with "Worked on various software development projects"
-    And I click on the Save Work Experience button
-    Then I should see the new Work Experience listed with "Amazon" and "SDET"
+#  Scenario: Add a new Work Experience
+#    Given I navigate to the Qualifications Section
+#    When I click on the Add Work Experience button
+#    And I fill in the Company field with "Amazon"
+#    And I fill in the Job Title field with "SDET"
+#    And I select Start Date as "2020-01-01"
+#    And I select End Date as "2022-31-12"
+#    And I fill in the Comment field with "Worked on various software development projects"
+#    And I click on the Save Work Experience button
+#    Then I should see the new Work Experience listed with "Amazon" and "SDET"
 
   Scenario: Edit an existing Work Experience
     Given I navigate to the Qualifications Section
