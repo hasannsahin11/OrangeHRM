@@ -63,6 +63,12 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "(//button[@type='button'])[5]")
     private WebElement editExistingWorkExpBtn;
 
+    @FindBy(xpath = "//div[contains(text(),'Facebook')]")
+    private WebElement listedWorkExperienceCompanyNameAfterUpdate;
+
+    @FindBy(xpath = "//div[contains(text(),'QA')]")
+    private WebElement listedWorkExperienceJobTitleAfterUpdate;
+
     public WebElement getQualificationsBtn() {
         return qualificationsBtn;
     }
@@ -131,5 +137,13 @@ public class Qualifications extends MyMethods {
 
     public WebElement getEditExistingWorkExpBtn() {
         return editExistingWorkExpBtn;
+    }
+
+    public WebElement getListedWorkExperienceCompanyNameAfterUpdate() {
+        return listedWorkExperienceCompanyNameAfterUpdate;
+    }
+
+    public WebElement getListedWorkExperienceJobTitleAfterUpdate() {
+        return listedWorkExperienceJobTitleAfterUpdate;
     }
 }
