@@ -155,13 +155,15 @@ public class MI_06_QualificationsSteps {
     public void iClickOnTheEditIconOfTheExistingWorkExperience() {
 
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+//        q.wait.until((ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'])[5]"))));
 
-        q.getEditExistingWorkExpBtn().click();
+        q.clickMethod(q.getEditExistingWorkExpBtn());
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
     public void iModifyTheCompanyNameWithAndTheJobTitleFieldWith(String companyName, String jobTitle) {
 
+        q.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@data-v-1f99f73c])[2]")));
         q.getCompanyField().click();
 
         actions.keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
@@ -175,6 +177,14 @@ public class MI_06_QualificationsSteps {
     }
 
     @Then("I should see the updated Work Experience listed with {string} and {string}")
-    public void iShouldSeeTheUpdatedWorkExperienceListedWithAnd(String arg0, String arg1) {
+    public void iShouldSeeTheUpdatedWorkExperienceListedWithAnd(String listedCompanyNameAfterUpdate, String listedJobTitleAfterUpdate) {
+
+        System.out.println("q.getListedWorkExperienceCompanyNameAfterUpdate().getText() = " + q.getListedWorkExperienceCompanyNameAfterUpdate().getText());
+        System.out.println("q.getListedWorkExperienceJobTitleAfterUpdate().getText() = " + q.getListedWorkExperienceJobTitleAfterUpdate().getText());
+
+        Assert.assertEquals(q.getListedWorkExperienceCompanyNameAfterUpdate().getText(), listedCompanyNameAfterUpdate);
+        Assert.assertEquals(q.getListedWorkExperienceJobTitleAfterUpdate().getText(), listedJobTitleAfterUpdate);
+
+        DriverClass.quitDriver();
     }
 }
