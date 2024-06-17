@@ -186,5 +186,8 @@ public class MI_06_QualificationsSteps {
         Assert.assertEquals(q.getListedWorkExperienceJobTitleAfterUpdate().getText(), listedJobTitleAfterUpdate);
 
         DriverClass.quitDriver();
+
+
+
     }
 }
