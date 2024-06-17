@@ -157,7 +157,7 @@ public class MI_06_QualificationsSteps {
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 //        q.wait.until((ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'])[5]"))));
 
-        q.clickMethod(q.getEditExistingWorkExpBtn());
+       q.getEditExistingWorkExpBtn().click();
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
