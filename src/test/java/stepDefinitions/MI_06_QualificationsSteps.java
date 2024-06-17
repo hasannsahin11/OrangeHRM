@@ -187,7 +187,5 @@ public class MI_06_QualificationsSteps {
 
         DriverClass.quitDriver();
 
-
-
     }
 }
