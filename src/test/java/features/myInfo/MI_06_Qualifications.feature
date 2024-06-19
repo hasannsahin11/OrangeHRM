@@ -34,3 +34,5 @@ Feature: Qualifications
     And I modify the Company name with "Facebook" and the Job Title field with "QA"
     When I click on the Save Work Experience button
     Then I should see the updated Work Experience listed with "Facebook" and "QA"
+
+    Scenario: Delete an existing Work Experience
