@@ -192,12 +192,10 @@ public class MI_06_QualificationsSteps {
     @When("I click on the Delete icon of the created Work Experience")
     public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() {
 
-
     }
 
     @Then("The Work Experience should be successfully deleted and removed from the list")
     public void theWorkExperienceShouldBeSuccessfullyDeletedAndRemovedFromTheList() {
-
 
     }
 }
