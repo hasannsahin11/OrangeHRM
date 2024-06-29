@@ -199,6 +199,5 @@ public class MI_06_QualificationsSteps {
     public void theWorkExperienceShouldBeSuccessfullyDeletedAndRemovedFromTheList() {
 
 
-
     }
 }
