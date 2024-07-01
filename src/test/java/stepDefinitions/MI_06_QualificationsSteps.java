@@ -197,6 +197,5 @@ public class MI_06_QualificationsSteps {
     @Then("The Work Experience should be successfully deleted and removed from the list")
     public void theWorkExperienceShouldBeSuccessfullyDeletedAndRemovedFromTheList() {
 
-
     }
 }
