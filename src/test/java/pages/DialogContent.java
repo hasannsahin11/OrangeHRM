@@ -42,7 +42,6 @@ public class DialogContent extends MyMethods {
     public WebElement getSuccessMessage() {
         return successMessage;
     }
-
     public WebElement getImageErrorMsg() {
         return imageErrorMsg;
     }
@@ -50,7 +49,6 @@ public class DialogContent extends MyMethods {
     public WebElement getDeleteActionBtn() {
         return deleteActionBtn;
     }
-
     public WebElement getConfirmDeleteBtn() {
         return confirmDeleteBtn;
     }
