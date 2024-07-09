@@ -12,7 +12,6 @@ import org.testng.Assert;
 import pages.DialogContent;
 import pages.Qualifications;
 import utils.DriverClass;
-
 import java.util.List;
 
 public class MI_06_QualificationsSteps {
@@ -132,7 +131,6 @@ public class MI_06_QualificationsSteps {
     @And("I click on the Save Work Experience button")
     public void i_click_on_the_save_work_experience_button() {
 
-//        q.getSaveQualificationButton().click();
         dc.getSaveBtn().click();
         dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
         System.out.println(dc.getSuccessMessage().getText());
@@ -155,9 +153,8 @@ public class MI_06_QualificationsSteps {
     public void iClickOnTheEditIconOfTheExistingWorkExperience() {
 
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
-//        q.wait.until((ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'])[5]"))));
-
         q.getEditExistingWorkExpBtn().click();
+
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
