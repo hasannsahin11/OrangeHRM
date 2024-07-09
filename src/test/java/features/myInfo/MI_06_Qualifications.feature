@@ -39,4 +39,4 @@ Feature: Qualifications
       Given I navigate to the Qualifications Section
       When I click on the Delete icon of the created Work Experience
       And I click on the Save button
-      Then The Work Experience should be successfully deleted and removed from the list
+      Then The Work Experience should be successfully deleted

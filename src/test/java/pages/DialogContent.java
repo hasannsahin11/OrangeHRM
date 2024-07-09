@@ -24,6 +24,9 @@ public class DialogContent extends MyMethods {
     @FindBy(css = ".oxd-input-field-error-message")
     private WebElement imageErrorMsg;
 
+    @FindBy(xpath = "(//button[@type='button'])[4]")
+    private WebElement deleteActionBtn;
+
 
     public WebElement getSaveBtn() {
         return saveBtn;
@@ -39,5 +42,9 @@ public class DialogContent extends MyMethods {
 
     public WebElement getImageErrorMsg() {
         return imageErrorMsg;
+    }
+
+    public WebElement getDeleteActionBtn() {
+        return deleteActionBtn;
     }
 }

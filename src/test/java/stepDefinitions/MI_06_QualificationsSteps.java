@@ -191,9 +191,18 @@ public class MI_06_QualificationsSteps {
 
     @When("I click on the Delete icon of the created Work Experience")
     public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() {
+
+        dc.clickMethod(dc.getDeleteActionBtn());
+
     }
 
-    @Then("The Work Experience should be successfully deleted and removed from the list")
-    public void theWorkExperienceShouldBeSuccessfullyDeletedAndRemovedFromTheList() {
+
+    @Then("The Work Experience should be successfully deleted")
+    public void theWorkExperienceShouldBeSuccessfullyDeleted() {
+
+        System.out.println(dc.getSuccessMessage().getText());
+        Assert.assertEquals(dc.getSuccessMessage().getText(), "Successfully Deleted");
+
+        DriverClass.quitDriver();
     }
 }
