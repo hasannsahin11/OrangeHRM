@@ -190,11 +190,10 @@ public class MI_06_QualificationsSteps {
     }
 
     @When("I click on the Delete icon of the created Work Experience")
-    public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() {
+    public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() throws InterruptedException {
 
-        q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+        Thread.sleep(3000);
         dc.getDeleteActionBtn().click();
-
     }
 
 
