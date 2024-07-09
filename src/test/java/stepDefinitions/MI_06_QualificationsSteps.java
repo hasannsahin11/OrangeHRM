@@ -157,7 +157,7 @@ public class MI_06_QualificationsSteps {
         q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
 //        q.wait.until((ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'])[5]"))));
 
-       q.getEditExistingWorkExpBtn().click();
+        q.getEditExistingWorkExpBtn().click();
     }
 
     @And("I modify the Company name with {string} and the Job Title field with {string}")
@@ -192,7 +192,8 @@ public class MI_06_QualificationsSteps {
     @When("I click on the Delete icon of the created Work Experience")
     public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() {
 
-        dc.clickMethod(dc.getDeleteActionBtn());
+        q.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
+        dc.getDeleteActionBtn().click();
 
     }
 
