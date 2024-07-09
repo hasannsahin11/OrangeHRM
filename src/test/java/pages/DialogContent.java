@@ -27,6 +27,9 @@ public class DialogContent extends MyMethods {
     @FindBy(xpath = "(//button[@type='button'])[4]")
     private WebElement deleteActionBtn;
 
+    @FindBy(xpath = "//button[contains(.,' Yes, Delete ')]")
+    private WebElement confirmDeleteBtn;
+
 
     public WebElement getSaveBtn() {
         return saveBtn;
@@ -46,5 +49,9 @@ public class DialogContent extends MyMethods {
 
     public WebElement getDeleteActionBtn() {
         return deleteActionBtn;
+    }
+
+    public WebElement getConfirmDeleteBtn() {
+        return confirmDeleteBtn;
     }
 }

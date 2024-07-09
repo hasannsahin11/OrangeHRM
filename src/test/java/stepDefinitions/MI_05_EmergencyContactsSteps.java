@@ -317,7 +317,7 @@ public class MI_05_EmergencyContactsSteps {
     @And("I click the Confirm Delete button")
     public void iClickTheConfirmDeleteButton() {
 
-        ec.clickMethod(ec.getConfirmDeleteBtn());
+        dc.clickMethod(dc.getConfirmDeleteBtn());
 
     }
 

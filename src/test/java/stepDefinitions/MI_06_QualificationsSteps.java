@@ -192,7 +192,10 @@ public class MI_06_QualificationsSteps {
     @When("I click on the Delete icon of the created Work Experience")
     public void iClickOnTheDeleteIconOfTheCreatedWorkExperience() throws InterruptedException {
 
-        Thread.sleep(3000);
+//        dc.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'])[4]")));
+//        Thread.sleep(2000);
+//        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.getDeleteActionBtn()));
+        dc.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".employee-image")));
         dc.getDeleteActionBtn().click();
     }
 
@@ -200,6 +203,7 @@ public class MI_06_QualificationsSteps {
     @Then("The Work Experience should be successfully deleted")
     public void theWorkExperienceShouldBeSuccessfullyDeleted() {
 
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
         System.out.println(dc.getSuccessMessage().getText());
         Assert.assertEquals(dc.getSuccessMessage().getText(), "Successfully Deleted");
 
