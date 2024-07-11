@@ -7,7 +7,6 @@ public class Hooks {
     @Before // This method runs before every scenario
     public void beforeScenario() {
         System.out.println("Scenario has started!");
-
     }
 
     @After // This one runs after all the scenarios
