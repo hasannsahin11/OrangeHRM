@@ -23,19 +23,19 @@ Feature: Qualifications
     And I fill in the Company field with "Amazon"
     And I fill in the Job Title field with "SDET"
     And I select Start Date as "2020-01-01"
-    And I select End Date as "2022-31-12"
+    And I select End Date as "2022-12-31"
     And I fill in the Comment field with "Worked on various software development projects"
     And I click on the Save Work Experience button
     Then I should see the new Work Experience listed with "Amazon" and "SDET"
 
-  Scenario: Edit an existing Work Experience
+  Scenario: Edit the existing Work Experience
     Given I navigate to the Qualifications Section
     And I click on the Edit icon of the existing Work Experience
     And I modify the Company name with "Facebook" and the Job Title field with "QA"
     When I click on the Save Work Experience button
     Then I should see the updated Work Experience listed with "Facebook" and "QA"
 
-    Scenario: Delete an existing Work Experience
+    Scenario: Delete the existing Work Experience
       Given I navigate to the Qualifications Section
       When I click on the Delete icon of the created Work Experience
       And I click the Confirm Delete button
