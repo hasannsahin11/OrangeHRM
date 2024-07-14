@@ -42,7 +42,7 @@ public class Qualifications extends MyMethods {
     @FindBy(xpath = "(//input[contains(@class,'oxd-input')])[3]")
     private WebElement jobTitleField;
 
-    @FindBy(xpath = "//input[@placeholder='yyyy-dd-mm']")
+    @FindBy(xpath = "//input[@placeholder='yyyy-mm-dd']")
     private WebElement fromDate;
 
     @FindBy(xpath = "(//input[@data-v-1f99f73c and @data-v-4a95a2e0])[2]")
