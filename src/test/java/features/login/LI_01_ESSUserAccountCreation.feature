@@ -1,5 +1,6 @@
 Feature: ESS User Account Creation
 
+  @Smoke @Regression
   Scenario: Create an ESS User Account as Admin
     Given I am on the OrangeHRM login page
     When I enter the Admin credentials
