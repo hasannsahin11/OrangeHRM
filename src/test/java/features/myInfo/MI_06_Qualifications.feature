@@ -6,7 +6,7 @@ Feature: Qualifications
     And I click the Login button
     Given I'm on the My Info page
 
-    @Regression
+  @Regression
   Scenario: Verify Qualifications Headers
     Given I navigate to the Qualifications Section
     When I scroll down to the bottom of the page
@@ -18,6 +18,7 @@ Feature: Qualifications
       | License         |
       | Attachments     |
 
+  @Regression
   Scenario: Add a new Work Experience
     Given I navigate to the Qualifications Section
     When I click on the Add Work Experience button
@@ -29,6 +30,7 @@ Feature: Qualifications
     And I click on the Save Work Experience button
     Then I should see the new Work Experience listed with "Amazon" and "SDET"
 
+  @Regression
   Scenario: Edit the existing Work Experience
     Given I navigate to the Qualifications Section
     And I click on the Edit icon of the existing Work Experience
@@ -36,8 +38,9 @@ Feature: Qualifications
     When I click on the Save Work Experience button
     Then I should see the updated Work Experience listed with "Facebook" and "QA"
 
-    Scenario: Delete the existing Work Experience
-      Given I navigate to the Qualifications Section
-      When I click on the Delete icon of the created Work Experience
-      And I click the Confirm Delete button
-      Then The Work Experience should be successfully deleted
+  @Regression
+  Scenario: Delete the existing Work Experience
+    Given I navigate to the Qualifications Section
+    When I click on the Delete icon of the created Work Experience
+    And I click the Confirm Delete button
+    Then The Work Experience should be successfully deleted
