@@ -6,6 +6,7 @@ Feature: Emergency Contacts
     And I click the Login button
     And I'm on the My Info page
 
+    @Regression
   Scenario: Add a new Emergency Contact
     Given I navigate to Emergency Contacts section
     When I click on the Add button
@@ -50,6 +51,7 @@ Feature: Emergency Contacts
       | Mobile         |
       | Work Telephone |
 
+    @Regression
   Scenario: Edit an existing emergency contact with valid values
     Given I navigate to Emergency Contacts section
     When I click on the Edit icon of an existing Emergency Contact
@@ -69,6 +71,7 @@ Feature: Emergency Contacts
     And I click the Save button
     Then "At least one phone number is required" error message should be displayed under the Home Phone field and the update can't be saved
 
+    @Regression
 Scenario: Delete the existing emergency contact
   Given I navigate to Emergency Contacts section
   When I click on the Delete icon of an existing Emergency Contact

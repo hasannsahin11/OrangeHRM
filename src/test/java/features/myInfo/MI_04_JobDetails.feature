@@ -5,6 +5,7 @@ Feature: Job Details
     When I enter the ESS credentials
     And I click the Login button
 
+    @Regression
   Scenario: Verify disabled Job Details fields
     Given I'm on the My Info page
     When I navigate to Job Details section

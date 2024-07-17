@@ -6,6 +6,7 @@ Feature: Qualifications
     And I click the Login button
     Given I'm on the My Info page
 
+    @Regression
   Scenario: Verify Qualifications Headers
     Given I navigate to the Qualifications Section
     When I scroll down to the bottom of the page

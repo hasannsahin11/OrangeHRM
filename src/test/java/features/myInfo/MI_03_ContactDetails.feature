@@ -5,7 +5,7 @@ Feature: Contact Details View and Update
     When I enter the ESS credentials
     And I click the Login button
 
-
+@Regression
   Scenario: Verify existing email address displayed
     Given I'm on the My Info page
     When I navigate to the Contact Details page

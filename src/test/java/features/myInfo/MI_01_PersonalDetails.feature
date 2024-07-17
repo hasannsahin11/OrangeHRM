@@ -5,6 +5,7 @@ Feature: Personal Details
     When I enter the ESS credentials
     And I click the Login button
 
+    @Smoke
   Scenario: Login and Verify Disabled Fields
     When I navigate to the My Info page
     Then the following fields should be disabled in the Personal Details section:
@@ -22,6 +23,7 @@ Feature: Personal Details
     When I delete the value from First Name field
     Then "Required" message in red should display under the First Name field and the change shouldn't be saved
 
+    @Regression
   Scenario: Update First Name with a Valid Value
     Given I navigate to the My Info page
     When I change the First Name field to "Sonia"

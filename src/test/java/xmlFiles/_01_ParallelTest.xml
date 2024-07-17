@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke Suite">
-    <test name="C:/Users/hasan/IdeaProjects/OrangeHRM/src/test/java/xmlFiles">
-        <classes/>
+<suite name="Parallel Test">
+    <test name="Test with Chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+<!--            <class name=""></class>-->
+        </classes>
     </test>
 </suite>
