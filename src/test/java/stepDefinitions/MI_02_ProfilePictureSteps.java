@@ -47,7 +47,7 @@ public class MI_02_ProfilePictureSteps {
     @And("I select a JPG image file that is less than One MB")
     public void i_select_a_jpg_image_file_that_is_less_than_one_mb() {
 
-        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\ElonJPG.jpg\"";
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\OrangeHMRS 5.6.1\\ElonJPG.jpg\"";
 
         try {
             Robot robot = new Robot();
@@ -99,7 +99,7 @@ public class MI_02_ProfilePictureSteps {
     @And("I select a PNG image file that is less than One MB")
     public void i_select_a_png_image_file_that_is_less_than_one_mb() {
 
-        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\JeffPNG.png\"";
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\OrangeHMRS 5.6.1\\JeffJPG.jpg\"";
 
         try {
             Robot robot = new Robot();
@@ -130,7 +130,7 @@ public class MI_02_ProfilePictureSteps {
     @And("I select an Invalid .exe file that is less than One MB")
     public void i_select_an_invalid_exe_file_that_is_less_than_one_mb() {
 
-        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\helloWorld.exe\"";
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\OrangeHMRS 5.6.1\\helloWorld.exe\"";
 
         try {
             Robot robot = new Robot();
@@ -171,7 +171,7 @@ public class MI_02_ProfilePictureSteps {
     @And("I select a PNG image file that is more than One MB")
     public void i_select_a_png_image_file_that_is_more_than_one_mb() {
 
-        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\Jeff1MB.png\"";
+        String newPPPath = "\"C:\\Users\\hasan\\OneDrive\\Masaüstü\\OrangeHMRS 5.6.1\\Jeff1MB.png\"";
 
         try {
             Robot robot = new Robot();
