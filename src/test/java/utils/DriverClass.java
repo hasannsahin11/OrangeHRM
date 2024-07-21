@@ -36,4 +36,9 @@ public class DriverClass {
         driver.quit();
         driver = null;
     }
+
+    public static void setThreadDriverName(String browserName){
+
+    }
+
 }
