@@ -1,16 +1,24 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
-import java.time.Duration;
 
 public class DriverClass {
-    public static WebDriver driver;
 
+
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    private static ThreadLocal<String> threadDriverName = new ThreadLocal<>();
+
+
+    public static void setThreadDriverName(String browserName) {
+
+    }
+
+}
+
+// Old Driver
+
+//    public static WebDriver driver;
 //    @BeforeClass
 //    public static WebDriver getDriver() {
 //        if (driver == null) {
@@ -33,9 +41,3 @@ public class DriverClass {
 //        driver.quit();
 //        driver = null;
 //    }
-
-    public static void setThreadDriverName(String browserName){
-
-    }
-
-}
