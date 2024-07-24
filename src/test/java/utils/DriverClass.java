@@ -64,7 +64,6 @@ public class DriverClass {
     public static void setThreadDriverName(String browserName) {
         threadDriverName.set(browserName);
     }
-
 }
 
 // Old Driver

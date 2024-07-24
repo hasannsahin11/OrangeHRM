@@ -30,21 +30,20 @@ public class AdminPanel extends MyMethods {
     @FindBy(xpath = "//div[@class='oxd-select-text-input']")
     private WebElement userRoleSelect;
 
-    @FindBy(xpath ="(//div[@class='oxd-select-text-input'])[2]")
+    @FindBy(xpath = "(//div[@class='oxd-select-text-input'])[2]")
     private WebElement statusSelect;
 
-    @FindBy (css = "input[data-v-75e744cd][placeholder=\"Type for hints...\"]")
+    @FindBy(css = "input[data-v-75e744cd][placeholder=\"Type for hints...\"]")
     private WebElement employeeName;
 
     @FindBy(xpath = "(//input[contains(@class, 'oxd-input') and contains(@class, 'oxd-input--active')])[2]")
     private WebElement essUserName;
 
-    @FindBy (xpath = "(//input[@type='password'])[1]")
+    @FindBy(xpath = "(//input[@type='password'])[1]")
     private WebElement essPassword;
 
-    @FindBy (xpath = "(//input[@type='password'])[2]")
+    @FindBy(xpath = "(//input[@type='password'])[2]")
     private WebElement essConfPassword;
-
 
 
     public WebElement getUserName() {

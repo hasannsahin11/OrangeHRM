@@ -20,21 +20,21 @@ public class LoginTest extends DriverClass {
     @Test
     public void login() throws InterruptedException {
 
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-        WebElement username = driver.findElement(By.cssSelector("input[name='username']"));
+        WebElement username = DriverClass.getDriver().findElement(By.cssSelector("input[name='username']"));
 
         username.sendKeys("JButler6");
 
-        WebElement password = driver.findElement(By.cssSelector("input[name='password']"));
+        WebElement password = DriverClass.getDriver().findElement(By.cssSelector("input[name='password']"));
 
         password.sendKeys("JButler6");
 
-        WebElement loginBtn = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement loginBtn = DriverClass.getDriver().findElement(By.cssSelector("button[type='submit']"));
 
         loginBtn.click();
 
-        WebElement dashboard = driver.findElement(By.cssSelector("h6.oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module"));
+        WebElement dashboard = DriverClass.getDriver().findElement(By.cssSelector("h6.oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module"));
 
         Assert.assertTrue(dashboard.isDisplayed());
         Assert.assertEquals(dashboard.getText(),"Dashboard");
