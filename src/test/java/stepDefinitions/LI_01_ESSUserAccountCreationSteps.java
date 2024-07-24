@@ -19,6 +19,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I enter the Admin credentials")
     public void i_enter_the_admin_credentials() {
 
+        ap.wait.until(ExpectedConditions.visibilityOf(ap.getUserName()));
+
         ap.getUserName().sendKeys("Admin");
         ap.getPassword().sendKeys("admin123");
 
