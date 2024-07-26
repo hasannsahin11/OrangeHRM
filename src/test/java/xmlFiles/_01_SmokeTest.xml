@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/hasan/IdeaProjects/OrangeHRM/src/test/java/xmlFiles"><classes/></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite">
+
+    <test name="Smoke Test">
+        <classes>
+            <class name="C:\Users\hasan\IdeaProjects\OrangeHRM\src\test\java\runners\_01_SmokeTestRunner.java"></class>
+        </classes>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+    </test>
+</suite>
