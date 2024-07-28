@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/hasan/IdeaProjects/OrangeHRM/src/test/java/xmlFiles"><classes/></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Regression Test">
+        <classes>
+            <class name="runners._02_RegressionRunner"></class>
+        </classes>
+    </test>
+</suite>
