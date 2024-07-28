@@ -7,4 +7,12 @@
             <class name="runners._04_ParallelTestRunner"></class>
         </classes>
     </test>
+    
+    <test name="Test With Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="runners._04_ParallelTestRunner"></class>
+        </classes>
+    </test>
+    
 </suite>
