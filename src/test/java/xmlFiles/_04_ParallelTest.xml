@@ -4,7 +4,7 @@
     <test name="Test with Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-<!--            <class name=""></class>-->
+            <class name="runners._04_ParallelTestRunner"></class>
         </classes>
     </test>
 </suite>
