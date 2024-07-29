@@ -10,8 +10,8 @@ import utils.DriverClass;
 @CucumberOptions(
         tags = "@Smoke or @@Regression",
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features"},
-        glue = {"stepDefinitions"},
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+        glue = {"stepDefinitions"}
+//        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
 )
 public class _04_ParallelTestRunner extends AbstractTestNGCucumberTests {
