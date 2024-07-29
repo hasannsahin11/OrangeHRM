@@ -1,6 +1,6 @@
 Feature: Login to OrangeHRM ESS
 
-  @Smoke
+  @Smoke @Regression
   Scenario: Login with ESS credentials
     Given I am on the OrangeHRM login page
     When I enter the ESS credentials
