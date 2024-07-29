@@ -52,7 +52,7 @@ Feature: Emergency Contacts
       | Work Telephone |
 
     @Regression
-  Scenario: Edit an existing emergency contact with valid values
+  Scenario: Edit the existing emergency contact with valid values
     Given I navigate to Emergency Contacts section
     When I click on the Edit icon of an existing Emergency Contact
     And I edit the following fields with corresponding values:
