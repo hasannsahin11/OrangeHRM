@@ -10,7 +10,8 @@ import utils.DriverClass;
 @CucumberOptions(
         tags = "@Smoke or @@Regression",
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features"},
-        glue = {"stepDefinitions"}
+        glue = {"stepDefinitions"},
+        plugin = {"html:target/site/cucumber-pretty.html"}
 //        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
 )
