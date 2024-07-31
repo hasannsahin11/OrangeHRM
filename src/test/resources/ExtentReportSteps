@@ -1,0 +1,62 @@
+https://www.programsbuzz.com/article/cucumber-testng-generate-extent-report-using-extent-adapter-grasshopper
+
+1. Add following dependency to your pom.xml.
+
+<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.10.1</version>
+        </dependency>
+
+
+2. Add adapter as a Plugin to your Cucumber Options:
+
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+
+
+3. Add extent.properties to the resources package and add the following two lines in it
+
+            extent.reporter.spark.start=true
+            extent.reporter.spark.out=test-output/SparkReport/Spark.html
+
+
+4. https://www.programsbuzz.com/article/how-add-screenshot-cucumber-extent-report-every-step
+
+ To add screenshots in our report use following code
+
+          final byte[] byteImage = ((TakesScreenshot) BasicDriver.getDriver()).getScreenshotAs(OutputType.BYTES);
+                    scenario.attach(byteImage, "image/png", "screenShot name");
+
+
+
+        Add following lines to extent.properties
+
+        screenshot.dir=test-output/screenshots/
+        screenshot.rel.path=../screenshots/
+
+5. to add extent-config.xml file
+
+    add the following line in extent.properties file
+
+            extent.reporter.spark.config=src/test/resources/extent-config.xml
+
+    create extent-config.xml file in this path
+
+6. To add additional info to your report add following lines in Runner CLass
+
+@AfterClass
+    public static void writeExtentReport(){
+        ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));
+        ExtentService.getInstance().setSystemInfo("Time Zone",System.getProperty("user.timezone"));
+        ExtentService.getInstance().setSystemInfo("User Name","H.Sahin");
+        ExtentService.getInstance().setSystemInfo("Application Name","Campus");
+        ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
+        ExtentService.getInstance().setSystemInfo("Department","QA");
+        ExtentService.getInstance().setSystemInfo("Additional line","Additional Info");
+    }
+
+7. To get pdf version of the report add the following lines in extent.properties
+
+extent.reporter.pdf.start=true
+extent.reporter.pdf.out=PdfReport.pdf
