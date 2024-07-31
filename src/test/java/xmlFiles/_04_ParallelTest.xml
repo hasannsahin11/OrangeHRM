@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel Test">
+<suite name="Parallel Test" parallel="tests" thread-count="2">
     <test name="Test with Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="runners._04_ParallelTestRunner"></class>
         </classes>
     </test>
-    
-    <test name="Test With Firefox">
-        <parameter name="browser" value="firefox"></parameter>
+
+    <test name="Test With Edge">
+        <parameter name="browser" value="edge"></parameter>
         <classes>
             <class name="runners._04_ParallelTestRunner"></class>
         </classes>
     </test>
-    
+
 </suite>
