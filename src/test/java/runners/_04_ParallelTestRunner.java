@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 import utils.DriverClass;
 
 @CucumberOptions(
-        tags = "@Smoke or @@Regression",
+        tags = "@Regression",
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features"},
         glue = {"stepDefinitions"},
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
