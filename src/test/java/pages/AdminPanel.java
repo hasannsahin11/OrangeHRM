@@ -24,7 +24,7 @@ public class AdminPanel extends MyMethods {
     @FindBy(xpath = "//a[@href='/web/index.php/admin/viewAdminModule']")
     private WebElement adminBtn;
 
-    @FindBy(xpath = "(//button[@type='button'])[5]")
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     private WebElement addBtn;
 
     @FindBy(xpath = "//div[@class='oxd-select-text-input']")
