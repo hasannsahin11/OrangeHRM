@@ -15,7 +15,6 @@ public class _03_AllFeaturesRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass
     public static void writeExtentReport(){
-
         ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));
         ExtentService.getInstance().setSystemInfo("Time Zone",System.getProperty("user.timezone"));
         ExtentService.getInstance().setSystemInfo("User Name","H.Sahin");
