@@ -21,6 +21,8 @@ public class Hooks {
     @After // This one runs after all the scenarios
     public void afterScenario(Scenario scenario) {
 
+        System.out.println("Scenario has ended!");
+
         if(scenario.isFailed()){
             final byte[] byteImage = ((TakesScreenshot) DriverClass.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(byteImage, "image/png", scenario.getName());
@@ -36,9 +38,7 @@ public class Hooks {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
+            DriverClass.quitDriver();
         }
-
-        System.out.println("Scenario has ended!");
     }
 }
