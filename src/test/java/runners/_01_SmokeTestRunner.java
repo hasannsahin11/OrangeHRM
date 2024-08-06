@@ -19,7 +19,7 @@ public class _01_SmokeTestRunner extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Windows User Name", System.getProperty("user.name"));
         ExtentService.getInstance().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
         ExtentService.getInstance().setSystemInfo("User Name", "H.Sahin");
-        ExtentService.getInstance().setSystemInfo("Application Name", "Campus");
+        ExtentService.getInstance().setSystemInfo("Application Name", "Orange HRM");
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
         ExtentService.getInstance().setSystemInfo("Department", "QA");
         ExtentService.getInstance().setSystemInfo("Additional line", "Additional Info");
