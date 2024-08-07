@@ -13,7 +13,6 @@ import org.testng.annotations.AfterClass;
 )
 
 public class _01_SmokeTestRunner extends AbstractTestNGCucumberTests {
-
     @AfterClass
     public static void writeExtentReport() {
         ExtentService.getInstance().setSystemInfo("Windows User Name", System.getProperty("user.name"));
@@ -24,5 +23,4 @@ public class _01_SmokeTestRunner extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Department", "QA");
         ExtentService.getInstance().setSystemInfo("Additional line", "Additional Info");
     }
-
 }
