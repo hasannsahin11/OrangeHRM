@@ -9,10 +9,10 @@ import org.testng.annotations.AfterClass;
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features"},
         glue = {"stepDefinitions"},
         dryRun = true,
+        //        plugin = {"html:target/site/cucumber-pretty.html"}
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class _03_AllFeaturesRunner extends AbstractTestNGCucumberTests {
-
     @AfterClass
     public static void writeExtentReport(){
         ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));
@@ -23,5 +23,4 @@ public class _03_AllFeaturesRunner extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Department","QA");
         ExtentService.getInstance().setSystemInfo("Additional line","Additional Info");
     }
-
 }
