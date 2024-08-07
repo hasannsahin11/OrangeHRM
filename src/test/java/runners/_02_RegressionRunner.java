@@ -9,7 +9,8 @@ import org.testng.annotations.AfterClass;
         tags = "@Regression",
         features = {"C:\\Users\\hasan\\IdeaProjects\\OrangeHRM\\src\\test\\java\\features"},
         glue = {"stepDefinitions"},
-        plugin = {"html:target/site/cucumber-pretty.html"}
+//        plugin = {"html:target/site/cucumber-pretty.html"}
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class _02_RegressionRunner extends AbstractTestNGCucumberTests {
     @AfterClass
