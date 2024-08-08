@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DriverClass {
-
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> threadDriverName = new ThreadLocal<>();
 
@@ -55,7 +54,6 @@ public class DriverClass {
         String classPath = System.getProperty("java.class.path");
         return classPath.contains("idea_rt.jar");
     }
-
     public static void quitDriver() {
         try {
             Thread.sleep(3000);
