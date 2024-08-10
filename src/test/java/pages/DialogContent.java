@@ -24,7 +24,7 @@ public class DialogContent extends MyMethods {
     @FindBy(css = ".oxd-input-field-error-message")
     private WebElement imageErrorMsg;
 
-    @FindBy(xpath = "(//button[@type='button'])[4]")
+    @FindBy(xpath = "//button[contains(@class, 'oxd-icon-button') and contains(@class, 'oxd-table-cell-action-space')]")
     private WebElement deleteActionBtn;
 
     @FindBy(xpath = "//button[contains(.,' Yes, Delete ')]")
