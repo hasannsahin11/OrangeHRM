@@ -54,7 +54,7 @@ Feature: Personal Details
     And  I click on the bottom Save button
     Then the selected blood type should be successfully saved and displayed
 
-
+  @Regression
   Scenario: Verify character limits for user information fields
     Given I'm on the My Info page
     When I enter a First Name with more than "30" characters
