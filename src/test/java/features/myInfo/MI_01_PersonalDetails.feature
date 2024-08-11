@@ -5,25 +5,27 @@ Feature: Personal Details
     When I enter the ESS credentials
     And I click the Login button
 
-    @Smoke
+  @Smoke @Regression
   Scenario: Login and Verify Disabled Fields
     When I navigate to the My Info page
     Then the following fields should be disabled in the Personal Details section:
-      | Employee ID        |
-      | Driver License No  |
-      | Date of Birth      |
+      | Employee ID       |
+      | Driver License No |
+      | Date of Birth     |
 
+  @Regression
   Scenario: Verify Last Name can't be deleted
     Given I navigate to the My Info page
     When I delete the value from Last Name field
     Then "Required" message in red should display under the Last Name field and the change shouldn't be saved
 
+  @Regression
   Scenario: Verify First Name can't be deleted
     Given I navigate to the My Info page
     When I delete the value from First Name field
     Then "Required" message in red should display under the First Name field and the change shouldn't be saved
 
-    @Regression
+  @Regression
   Scenario: Update First Name with a Valid Value
     Given I navigate to the My Info page
     When I change the First Name field to "Sonia"
@@ -42,11 +44,11 @@ Feature: Personal Details
     And I click on the Save button
     Then The updated Marital Status should be successfully saved and displayed
 
-    Scenario: Selecting Gender
-      Given I'm on the My Info page
-      When I click on Male radio button
-      And I click on the Save button
-      Then The Gender should be successfully saved and displayed
+  Scenario: Selecting Gender
+    Given I'm on the My Info page
+    When I click on Male radio button
+    And I click on the Save button
+    Then The Gender should be successfully saved and displayed
 
   Scenario: Selecting a Blood Type
     Given I'm on the My Info page
