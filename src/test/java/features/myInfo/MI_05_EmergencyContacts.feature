@@ -18,13 +18,15 @@ Feature: Emergency Contacts
     And I click on the Save button
     Then The new Emergency Contact should be successfully saved and displayed
 
+      @Regression
   Scenario: Verify a new Emergency Contact can't be added without a Name
     Given I navigate to Emergency Contacts section
     When I click on the Add button
     And I fill out the fields besides "Name"
     And I click the Save button
     Then "Required" error message should be displayed under the "Name" field and contact shouldn't be saved
-#
+
+        @Regression
   Scenario Outline: Verify phone number fields Allows numbers and only + - / ( ) characters
     Given I navigate to Emergency Contacts section
     When I click on the Add button

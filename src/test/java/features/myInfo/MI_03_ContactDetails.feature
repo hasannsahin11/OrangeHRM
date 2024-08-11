@@ -5,7 +5,7 @@ Feature: Contact Details View and Update
     When I enter the ESS credentials
     And I click the Login button
 
-@Regression
+  @Regression
   Scenario: Verify existing email address displayed
     Given I'm on the My Info page
     When I navigate to the Contact Details page
@@ -26,7 +26,7 @@ Feature: Contact Details View and Update
     When I navigate to the Contact Details page
     Then the updated contact information should be displayed accurately
 
-
+  @Regression
   Scenario: Verify Contact Details deleted
     Given I'm on the My Info page
     When I navigate to the Contact Details page
@@ -44,13 +44,14 @@ Feature: Contact Details View and Update
     And Enter an email address with more than "50" characters.
     Then The system should prevent the user from entering more than required amounts and display a red error message under each field
 
+    @Regression
   Scenario: Verify new Work Email Address added
     Given I'm on the My Info page
     When I navigate to the Contact Details page
     And I enter a new Work Email address
     Then The new email address successfully saved and displayed
 
-
+  @Smoke
   Scenario: Verify same email address can't be added as the Other Email
     Given I'm on the My Info page
     When I navigate to the Contact Details page
