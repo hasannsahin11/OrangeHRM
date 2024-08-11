@@ -7,7 +7,7 @@ Feature: Login to OrangeHRM ESS
     And I click the Login button
     Then I should see the Dashboard page displayed
 
-    @Regression
+  @Smoke @Regression
   Scenario Outline: Login with Invalid Credentials
     Given I am on the OrangeHRM login page
     When I enter the username "<username>"
@@ -16,10 +16,10 @@ Feature: Login to OrangeHRM ESS
     Then I should see an error message
 
     Examples:
-      | username | password  |
+      | username   | password   |
 #  both invalid username & password
-      | GButlers | 7Sbhaheen7 |
+      | GButlers   | 7Sbhaheen7 |
 #  valid un invalid pass
-      | SShaheen11 | JButlers  |
+      | SShaheen11 | JButlers   |
 #  invalid un valid pass
-      | GButlers | SShaheen11  |
+      | GButlers   | SShaheen11 |
