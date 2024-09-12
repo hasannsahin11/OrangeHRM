@@ -5,10 +5,5 @@
         <classes>
             <class name="runners._01_SmokeTestRunner"/>
         </classes>
-<!--                <groups>-->
-<!--                    <run>-->
-<!--                        <include name="smoke"/>-->
-<!--                    </run>-->
-<!--                </groups>-->
     </test>
 </suite>
