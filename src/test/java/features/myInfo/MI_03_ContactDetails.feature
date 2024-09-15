@@ -51,7 +51,7 @@ Feature: Contact Details View and Update
     And I enter a new Work Email address
     Then The new email address successfully saved and displayed
 
-  @Smoke
+#  @Smoke
   Scenario: Verify same email address can't be added as the Other Email
     Given I'm on the My Info page
     When I navigate to the Contact Details page

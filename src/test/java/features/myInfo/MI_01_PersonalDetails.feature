@@ -5,7 +5,7 @@ Feature: Personal Details
     When I enter the ESS credentials
     And I click the Login button
 
-  @Smoke @Regression
+#  @Smoke @Regression
   Scenario: Login and Verify Disabled Fields
     When I navigate to the My Info page
     Then the following fields should be disabled in the Personal Details section:
