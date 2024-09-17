@@ -28,6 +28,9 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
         DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+        System.out.println("On the orangeHRM login page");
+
     }
 
     @When("I enter the Admin credentials")
@@ -44,6 +47,8 @@ public class LI_01_ESSUserAccountCreationSteps {
         ap.getUserName().sendKeys("Admin");
         ap.getPassword().sendKeys("admin123");
 
+        System.out.println("Entered admin credentials");
+
     }
 
     @And("I click the Login button")
@@ -58,6 +63,8 @@ public class LI_01_ESSUserAccountCreationSteps {
         }
 
         ap.clickMethod(ap.getLoginBtn());
+
+        System.out.println("Clicked on login");
     }
 
     @And("I navigate to the Admin panel")
@@ -75,6 +82,8 @@ public class LI_01_ESSUserAccountCreationSteps {
 //        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
 //        ap.getAdminBtn().click();
 
+        System.out.println("Navigated to the admin panel");
+
     }
 
     @And("I click the Add button")
@@ -90,6 +99,8 @@ public class LI_01_ESSUserAccountCreationSteps {
 
 //        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
 //        ap.getAddBtn().click();
+
+        System.out.println("Clicked on the Add button");
 
     }
 
