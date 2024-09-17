@@ -35,7 +35,7 @@ public class LI_01_ESSUserAccountCreationSteps {
 
     @And("I click the Add button")
     public void i_click_the_add_button() {
-        ap.clickMethod(ap.getAddBtn());
+        ap.getAddBtn().click();
 
     }
 
