@@ -36,7 +36,8 @@ public class DriverClass {
                 default:
                     ChromeOptions options = new ChromeOptions();
                     if (!runningFromIntelliJ()) {
-                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+//                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+                        options.addArguments("window-size=1920,1080");
                     }
                     threadDriver.set(new ChromeDriver());
             }
