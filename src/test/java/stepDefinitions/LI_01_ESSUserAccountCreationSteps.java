@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.AdminPanel;
@@ -29,12 +30,24 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I navigate to the Admin panel")
     public void i_navigate_to_the_admin_panel() {
 
-        ap.clickMethod(ap.getAdminBtn());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
+        ap.getAdminBtn().click();
 
     }
 
     @And("I click the Add button")
     public void i_click_the_add_button() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
         ap.getAddBtn().click();
 
     }
@@ -42,6 +55,11 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I select the necessary options for User role and Status")
     public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         ap.clickMethod(ap.getUserRoleSelect());
 
 
