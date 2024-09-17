@@ -17,8 +17,19 @@ public class LI_01_ESSUserAccountCreationSteps {
     DialogContent dc = new DialogContent();
     AdminPanel ap = new AdminPanel();
 
+    @Given("I am on the OrangeHRM login page")
+    public void i_am_on_the_orange_hrm_login_page() {
+        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    }
+
     @When("I enter the Admin credentials")
     public void i_enter_the_admin_credentials() {
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         ap.wait.until(ExpectedConditions.visibilityOf(ap.getUserName()));
 

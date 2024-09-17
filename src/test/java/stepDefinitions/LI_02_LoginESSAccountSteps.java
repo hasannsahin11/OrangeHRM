@@ -12,11 +12,6 @@ public class LI_02_LoginESSAccountSteps {
 
     LoginPage lp = new LoginPage();
 
-    @Given("I am on the OrangeHRM login page")
-    public void i_am_on_the_orange_hrm_login_page() {
-        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-    }
-
     @When("I enter the ESS credentials")
     public void i_enter_the_ess_credentials() {
 
