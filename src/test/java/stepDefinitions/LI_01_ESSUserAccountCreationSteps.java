@@ -22,13 +22,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @Given("I am on the OrangeHRM login page")
     public void i_am_on_the_orange_hrm_login_page() {
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
+        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         System.out.println("On the orangeHRM login page");
 
     }
@@ -36,14 +31,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I enter the Admin credentials")
     public void i_enter_the_admin_credentials() {
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         ap.wait.until(ExpectedConditions.visibilityOf(ap.getUserName()));
-
         ap.getUserName().sendKeys("Admin");
         ap.getPassword().sendKeys("admin123");
 
@@ -54,34 +43,15 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I click the Login button")
     public void i_click_the_login_button() {
 
-//        WebElement element = DriverClass.getDriver().findElement(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']"));
-//        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].click();", element);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
         ap.clickMethod(ap.getLoginBtn());
-
         System.out.println("Clicked on login");
     }
 
     @And("I navigate to the Admin panel")
     public void i_navigate_to_the_admin_panel() {
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        WebElement element = DriverClass.getDriver().findElement(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']"));
-        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].click();", element);
-
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
-//        ap.getAdminBtn().click();
-
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
+        ap.getAdminBtn().click();
         System.out.println("Navigated to the admin panel");
 
     }
@@ -136,6 +106,8 @@ public class LI_01_ESSUserAccountCreationSteps {
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
 
+        System.out.println("Selected user role and status");
+
     }
 
     @And("I fill out the necessary fields with:")
@@ -182,6 +154,9 @@ public class LI_01_ESSUserAccountCreationSteps {
                     break;
             }
         }
+
+        System.out.println("Filled out all the necessary fields");
+
     }
 
     @And("I click on the Save button")
