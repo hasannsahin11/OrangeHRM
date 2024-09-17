@@ -36,8 +36,7 @@ public class DriverClass {
                 default:
                     ChromeOptions options = new ChromeOptions();
                     if (!runningFromIntelliJ()) {
-//                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
-                        options.addArguments("window-size=1920,1080");
+                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
                     }
                     threadDriver.set(new ChromeDriver());
             }
@@ -55,6 +54,7 @@ public class DriverClass {
         String classPath = System.getProperty("java.class.path");
         return classPath.contains("idea_rt.jar");
     }
+
     public static void quitDriver() {
         try {
             Thread.sleep(3000);
