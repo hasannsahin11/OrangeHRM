@@ -19,10 +19,6 @@ public class LI_02_LoginESSAccountSteps {
         lp.sendKeysMethod(lp.getPassword(), "SShaheen11");
     }
 
-    @And("I click the Login button")
-    public void i_click_the_login_button() {
-        lp.clickMethod(lp.getLoginBtn());
-    }
 
     @Then("I should see the Dashboard page displayed")
     public void i_should_see_the_dashboard_page_displayed() {

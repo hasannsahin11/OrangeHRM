@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.AdminPanel;
@@ -44,6 +46,20 @@ public class LI_01_ESSUserAccountCreationSteps {
 
     }
 
+    @And("I click the Login button")
+    public void i_click_the_login_button() {
+
+//        WebElement element = DriverClass.getDriver().findElement(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']"));
+//        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].click();", element);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        ap.clickMethod(ap.getLoginBtn());
+    }
+
     @And("I navigate to the Admin panel")
     public void i_navigate_to_the_admin_panel() {
 
@@ -52,8 +68,12 @@ public class LI_01_ESSUserAccountCreationSteps {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
-        ap.getAdminBtn().click();
+
+        WebElement element = DriverClass.getDriver().findElement(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']"));
+        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].click();", element);
+
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
+//        ap.getAdminBtn().click();
 
     }
 
@@ -64,8 +84,12 @@ public class LI_01_ESSUserAccountCreationSteps {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
-        ap.getAddBtn().click();
+
+        WebElement element = DriverClass.getDriver().findElement(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]"));
+        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].click();", element);
+
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
+//        ap.getAddBtn().click();
 
     }
 
