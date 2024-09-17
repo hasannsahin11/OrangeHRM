@@ -19,6 +19,12 @@ public class LI_01_ESSUserAccountCreationSteps {
 
     @Given("I am on the OrangeHRM login page")
     public void i_am_on_the_orange_hrm_login_page() {
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
@@ -145,6 +151,12 @@ public class LI_01_ESSUserAccountCreationSteps {
 
     @And("I click on the Save button")
     public void i_click_on_the_save_button() {
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         dc.waitUntilClickable(dc.getSaveBtn());
         dc.clickMethod(dc.getSaveBtn());
