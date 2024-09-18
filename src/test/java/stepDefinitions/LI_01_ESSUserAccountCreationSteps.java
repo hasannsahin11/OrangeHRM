@@ -59,24 +59,9 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I click the Add button")
     public void i_click_the_add_button() {
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
-        WebElement element = DriverClass.getDriver().findElement(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]"));
-        ((JavascriptExecutor) DriverClass.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        element.click();
-
-//        ap.getAddBtn().click();
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
+        ap.getAddBtn().click();
 
         System.out.println("Clicked on the Add button");
 
