@@ -70,13 +70,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I select the necessary options for User role and Status")
     public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        ap.clickMethod(ap.getUserRoleSelect());
-
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+        ap.getUserRoleSelect().click();
 
         Robot robot = new Robot();
         robot.delay(500);
@@ -89,8 +84,8 @@ public class LI_01_ESSUserAccountCreationSteps {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-        ap.clickMethod(ap.getStatusSelect());
-
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+        ap.getStatusSelect().click();
 
         robot.delay(500);
 
@@ -154,12 +149,6 @@ public class LI_01_ESSUserAccountCreationSteps {
 
     @And("I click on the Save button")
     public void i_click_on_the_save_button() {
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         dc.waitUntilClickable(dc.getSaveBtn());
         dc.clickMethod(dc.getSaveBtn());
