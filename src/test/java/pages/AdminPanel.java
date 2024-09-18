@@ -27,7 +27,7 @@ public class AdminPanel extends MyMethods {
     @FindBy(xpath = "(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")
     private WebElement addBtn;
 
-    @FindBy(xpath = "//div[@class='oxd-select-text-input']")
+    @FindBy(xpath = "(//div[@class='oxd-select-text-input' and text()='-- Select --'])[1]")
     private WebElement userRoleSelect;
 
     @FindBy(xpath = "(//div[@class='oxd-select-text-input' and @tabindex='0'])[2]")

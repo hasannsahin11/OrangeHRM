@@ -70,7 +70,7 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I select the necessary options for User role and Status")
     public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input' and text()='-- Select --'])[1]")));
         ap.getUserRoleSelect().click();
 
         Robot robot = new Robot();
