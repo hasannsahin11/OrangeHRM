@@ -30,7 +30,7 @@ public class AdminPanel extends MyMethods {
     @FindBy(xpath = "//div[@class='oxd-select-text-input']")
     private WebElement userRoleSelect;
 
-    @FindBy(xpath = "(//div[@class='oxd-select-text-input'])[2]")
+    @FindBy(xpath = "(//div[@class='oxd-select-text-input' and @tabindex='0'])[2]")
     private WebElement statusSelect;
 
     @FindBy(css = "input[data-v-75e744cd][placeholder=\"Type for hints...\"]")

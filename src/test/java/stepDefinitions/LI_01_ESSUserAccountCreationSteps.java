@@ -84,7 +84,7 @@ public class LI_01_ESSUserAccountCreationSteps {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input' and @tabindex='0'])[2]")));
         ap.getStatusSelect().click();
 
         robot.delay(500);
