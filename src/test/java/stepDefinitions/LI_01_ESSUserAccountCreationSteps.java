@@ -65,6 +65,7 @@ public class LI_01_ESSUserAccountCreationSteps {
         ap.getAddBtn().click();
 
         System.out.println("Clicked on the Add button");
+        ap.wait.until(ExpectedConditions.urlToBe("https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser"));
 
     }
 
