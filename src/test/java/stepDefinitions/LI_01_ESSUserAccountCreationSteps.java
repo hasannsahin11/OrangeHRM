@@ -169,10 +169,10 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I click on the Save button")
     public void i_click_on_the_save_button() {
 
-        dc.waitUntilClickable(dc.getSaveBtn());
-        dc.clickMethod(dc.getSaveBtn());
+        dc.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")));
+        dc.getSaveBtn().click();
 
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.getSuccessMessage()));
+        dc.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
         System.out.println(dc.getSuccessMessage().getText());
 
     }
