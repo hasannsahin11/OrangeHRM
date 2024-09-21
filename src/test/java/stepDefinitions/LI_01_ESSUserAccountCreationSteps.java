@@ -184,7 +184,7 @@ public class LI_01_ESSUserAccountCreationSteps {
     @Then("An ESS user should be successfully created")
     public void an_ess_user_should_be_successfully_created() {
 
-        dc.waitUntilVisible(dc.getSuccessMessage());
+//        dc.waitUntilVisible(dc.getSuccessMessage());
 
 //        System.out.println(dc.getSuccessMessage().getText());
         Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
