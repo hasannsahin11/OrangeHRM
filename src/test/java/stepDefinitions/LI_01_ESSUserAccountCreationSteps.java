@@ -176,8 +176,16 @@ public class LI_01_ESSUserAccountCreationSteps {
         System.out.println("Clicked on Save button");
 
 
-        dc.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
-        System.out.println(dc.getSuccessMessage().getText());
+//        dc.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
+//        System.out.println(dc.getSuccessMessage().getText());
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(DriverClass.getDriver().findElement(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")).getText());
 
     }
 
@@ -187,8 +195,9 @@ public class LI_01_ESSUserAccountCreationSteps {
 //        dc.waitUntilVisible(dc.getSuccessMessage());
 
 //        System.out.println(dc.getSuccessMessage().getText());
-        Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
+//        Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
 
+        Assert.assertTrue(DriverClass.getDriver().findElement(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")).isDisplayed());
         System.out.println("An ESS account has been successfully created!");
 
         DriverClass.quitDriver();
