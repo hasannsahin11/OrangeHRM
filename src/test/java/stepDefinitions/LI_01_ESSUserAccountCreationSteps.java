@@ -72,6 +72,12 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I select the necessary options for User role and Status")
     public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
         ap.getUserRoleSelect().click();
 
@@ -85,6 +91,11 @@ public class LI_01_ESSUserAccountCreationSteps {
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
         ap.getStatusSelect().click();
