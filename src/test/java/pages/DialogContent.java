@@ -19,6 +19,7 @@ public class DialogContent extends MyMethods {
     private WebElement secondSaveBtn;
 
     @FindBy (xpath = "//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")
+
     private WebElement successMessage;
 
     @FindBy(css = ".oxd-input-field-error-message")
