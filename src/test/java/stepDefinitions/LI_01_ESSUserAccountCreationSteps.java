@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.AdminPanel;
@@ -78,8 +79,11 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
-        ap.getUserRoleSelect().click();
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+//        ap.getUserRoleSelect().click();
+
+        Actions actions = new Actions(DriverClass.getDriver());
+        actions.moveToElement(ap.getUserRoleSelect()).click().build().perform();
 
 
         Robot robot = new Robot();
@@ -98,8 +102,10 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
-        ap.getStatusSelect().click();
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+//        ap.getStatusSelect().click();
+
+        actions.moveToElement(ap.getStatusSelect()).click().build().perform();
 
 
         robot.delay(500);
