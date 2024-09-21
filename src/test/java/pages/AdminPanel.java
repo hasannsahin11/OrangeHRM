@@ -27,10 +27,10 @@ public class AdminPanel extends MyMethods {
     @FindBy(xpath = "(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")
     private WebElement addBtn;
 
-    @FindBy(xpath = "(//div[@class='oxd-select-text-input' and text()='-- Select --'])[1]")
+    @FindBy(xpath = "//div[@class='oxd-select-text-input']")
     private WebElement userRoleSelect;
 
-    @FindBy(xpath = "(//div[@class='oxd-select-text-input' and @tabindex='0'])[2]")
+    @FindBy(xpath = "(//div[@class='oxd-select-text-input'])[2]")
     private WebElement statusSelect;
 
     @FindBy(css = "input[data-v-75e744cd][placeholder=\"Type for hints...\"]")

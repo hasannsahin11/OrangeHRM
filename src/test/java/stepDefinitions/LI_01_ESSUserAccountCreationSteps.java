@@ -22,8 +22,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @Given("I am on the OrangeHRM login page")
     public void i_am_on_the_orange_hrm_login_page() {
 
-
         DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        ap.wait.until(ExpectedConditions.urlToBe("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"));
         System.out.println("On the orangeHRM login page");
 
     }
@@ -45,6 +45,7 @@ public class LI_01_ESSUserAccountCreationSteps {
 
         ap.clickMethod(ap.getLoginBtn());
         System.out.println("Clicked on login");
+        ap.wait.until(ExpectedConditions.urlContains("dashboard"));
     }
 
     @And("I navigate to the Admin panel")
@@ -70,9 +71,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I select the necessary options for User role and Status")
     public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
 
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input' and text()='-- Select --'])[1]")));
-//        ap.getUserRoleSelect().click();
-        ap.clickMethod(ap.getUserRoleSelect());
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+        ap.getUserRoleSelect().click();
 
         Robot robot = new Robot();
         robot.delay(500);
@@ -85,10 +85,8 @@ public class LI_01_ESSUserAccountCreationSteps {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input' and @tabindex='0'])[2]")));
-//        ap.getStatusSelect().click();
-
-        ap.clickMethod(ap.getStatusSelect());
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+        ap.getStatusSelect().click();
 
         robot.delay(500);
 
