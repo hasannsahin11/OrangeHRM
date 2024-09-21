@@ -78,8 +78,11 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
-        ap.getUserRoleSelect().click();
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+//        ap.getUserRoleSelect().click();
+
+        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
+        js.executeScript("arguments[0].click();", ap.getUserRoleSelect());
 
         Robot robot = new Robot();
         robot.delay(500);
@@ -97,8 +100,11 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
-        ap.getStatusSelect().click();
+//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+//        ap.getStatusSelect().click();
+
+        js = (JavascriptExecutor) DriverClass.getDriver();
+        js.executeScript("arguments[0].click();", ap.getStatusSelect());
 
         robot.delay(500);
 
