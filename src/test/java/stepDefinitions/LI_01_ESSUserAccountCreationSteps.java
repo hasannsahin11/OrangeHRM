@@ -78,11 +78,9 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
-//        ap.getUserRoleSelect().click();
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
+        ap.getUserRoleSelect().click();
 
-        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
-        js.executeScript("arguments[0].click();", ap.getUserRoleSelect());
 
         Robot robot = new Robot();
         robot.delay(500);
@@ -100,11 +98,9 @@ public class LI_01_ESSUserAccountCreationSteps {
             throw new RuntimeException(e);
         }
 
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
-//        ap.getStatusSelect().click();
+        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
+        ap.getStatusSelect().click();
 
-        js = (JavascriptExecutor) DriverClass.getDriver();
-        js.executeScript("arguments[0].click();", ap.getStatusSelect());
 
         robot.delay(500);
 
@@ -170,10 +166,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     public void i_click_on_the_save_button() {
 
         dc.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")));
-//        dc.getSaveBtn().click();
+        dc.getSaveBtn().click();
 
-        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
-        js.executeScript("arguments[0].click();", dc.getSaveBtn());
 
         dc.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
         System.out.println(dc.getSuccessMessage().getText());
