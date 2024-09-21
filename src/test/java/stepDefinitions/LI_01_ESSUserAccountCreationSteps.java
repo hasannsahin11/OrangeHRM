@@ -175,7 +175,7 @@ public class LI_01_ESSUserAccountCreationSteps {
         JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
         js.executeScript("arguments[0].click();", dc.getSaveBtn());
 
-//        dc.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
+        dc.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
         System.out.println(dc.getSuccessMessage().getText());
 
     }
