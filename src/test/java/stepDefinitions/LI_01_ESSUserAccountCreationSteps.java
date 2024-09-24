@@ -34,13 +34,11 @@ public class LI_01_ESSUserAccountCreationSteps {
     @When("I enter the Admin credentials")
     public void i_enter_the_admin_credentials() {
 
-
         ap.wait.until(ExpectedConditions.visibilityOf(ap.getUserName()));
         ap.getUserName().sendKeys("Admin");
         ap.getPassword().sendKeys("admin123");
 
         System.out.println("Entered admin credentials");
-
     }
 
     @And("I click the Login button")
@@ -54,7 +52,7 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I navigate to the Admin panel")
     public void i_navigate_to_the_admin_panel() {
 
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/web/index.php/admin/viewAdminModule']")));
+        ap.wait.until(ExpectedConditions.elementToBeClickable(ap.getAdminBtn()));
         ap.getAdminBtn().click();
         System.out.println("Navigated to the admin panel");
 
@@ -63,53 +61,34 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I click the Add button")
     public void i_click_the_add_button() {
 
-
-        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")));
+        ap.wait.until(ExpectedConditions.elementToBeClickable(ap.getAddBtn()));
         ap.getAddBtn().click();
-
         System.out.println("Clicked on the Add button");
+
         ap.wait.until(ExpectedConditions.urlToBe("https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser"));
 
     }
 
     @When("I select the necessary options for User role and Status")
-    public void i_select_the_necessary_options_for_user_role_and_status() throws AWTException {
+    public void i_select_the_necessary_options_for_user_role_and_status(){
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input']")));
-//        ap.getUserRoleSelect().click();
+        ap.wait.until(ExpectedConditions.elementToBeClickable(ap.getUserRoleSelect()));
+        ap.getUserRoleSelect().click();
 
         Actions actions = new Actions(DriverClass.getDriver());
-        actions.moveToElement(ap.getUserRoleSelect()).click().build().perform();
-
         actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-//        ap.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='oxd-select-text-input'])[2]")));
-//        ap.getStatusSelect().click();
-
-        actions.moveToElement(ap.getStatusSelect()).click().build().perform();
+        ap.wait.until(ExpectedConditions.elementToBeClickable(ap.getStatusSelect()));
+        ap.getStatusSelect().click();
 
         actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
-
-
         System.out.println("Selected user role and status");
 
     }
 
     @And("I fill out the necessary fields with:")
-    public void i_fill_out_the_necessary_fields_with(List<Map<String, String>> dataTable) throws AWTException {
+    public void i_fill_out_the_necessary_fields_with(List<Map<String, String>> dataTable) throws InterruptedException {
 
         Actions actions = new Actions(DriverClass.getDriver());
 
@@ -121,42 +100,22 @@ public class LI_01_ESSUserAccountCreationSteps {
                 case "Employee Name":
                     ap.clickMethod(ap.getEmployeeName());
                     ap.sendKeysMethod(ap.getEmployeeName(), row.get("Value"));
-
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-
+                    Thread.sleep(1500);
                     actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
                     break;
 
                 case "Username":
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    Thread.sleep(1500);
                     ap.sendKeysMethod(ap.getEssUserName(), row.get("Value"));
                     break;
 
                 case "Password":
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-
+                    Thread.sleep(1500);
                     ap.sendKeysMethod(ap.getEssPassword(), row.get("Value"));
                     break;
 
                 case "Confirm Password":
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-
+                    Thread.sleep(1500);
                     ap.sendKeysMethod(ap.getEssConfPassword(), row.get("Value"));
                     break;
 
@@ -165,45 +124,28 @@ public class LI_01_ESSUserAccountCreationSteps {
                     break;
             }
         }
-
         System.out.println("Filled out all the necessary fields");
-
     }
 
     @And("I click on the Save button")
     public void i_click_on_the_save_button() {
 
-        dc.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.getSaveBtn()));
         dc.getSaveBtn().click();
         System.out.println("Clicked on Save button");
-
-
-//        dc.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")));
-//        System.out.println(dc.getSuccessMessage().getText());
-
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println(DriverClass.getDriver().findElement(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")).getText());
 
     }
 
     @Then("An ESS user should be successfully created")
     public void an_ess_user_should_be_successfully_created() {
 
-//        dc.waitUntilVisible(dc.getSuccessMessage());
+        dc.waitUntilVisible(dc.getSuccessMessage());
 
-//        System.out.println(dc.getSuccessMessage().getText());
-//        Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
+        System.out.println(dc.getSuccessMessage().getText());
+        Assert.assertTrue(dc.getSuccessMessage().isDisplayed());
 
-        Assert.assertTrue(DriverClass.getDriver().findElement(By.xpath("//p[@data-v-7b563373 and @data-v-35c8fe09 and contains(@class, 'oxd-text') and contains(@class, 'oxd-text--toast-message') and contains(@class, 'oxd-toast-content-text')]")).isDisplayed());
         System.out.println("An ESS account has been successfully created!");
 
         DriverClass.quitDriver();
-
     }
-
 }
