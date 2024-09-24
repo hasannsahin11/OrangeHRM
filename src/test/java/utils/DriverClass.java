@@ -1,6 +1,5 @@
 package utils;
 
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -38,14 +37,13 @@ public class DriverClass {
                     ChromeOptions options = new ChromeOptions();
                     if (!runningFromIntelliJ()) {
 //                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
-                        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1920,1080");
+                        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
                     }
                     threadDriver.set(new ChromeDriver());
             }
 
             WebDriver driver = threadDriver.get();
-//            driver.manage().window().maximize();
-            driver.manage().window().setSize(new Dimension(1920, 1080));
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 

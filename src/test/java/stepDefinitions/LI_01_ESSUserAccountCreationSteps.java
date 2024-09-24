@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -85,16 +86,18 @@ public class LI_01_ESSUserAccountCreationSteps {
         Actions actions = new Actions(DriverClass.getDriver());
         actions.moveToElement(ap.getUserRoleSelect()).click().build().perform();
 
+        actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 
-        Robot robot = new Robot();
-        robot.delay(500);
-
-        robot.keyPress(KeyEvent.VK_DOWN);
-        robot.keyRelease(KeyEvent.VK_DOWN);
-        robot.keyPress(KeyEvent.VK_DOWN);
-        robot.keyRelease(KeyEvent.VK_DOWN);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+//
+//        Robot robot = new Robot();
+//        robot.delay(500);
+//
+//        robot.keyPress(KeyEvent.VK_DOWN);
+//        robot.keyRelease(KeyEvent.VK_DOWN);
+//        robot.keyPress(KeyEvent.VK_DOWN);
+//        robot.keyRelease(KeyEvent.VK_DOWN);
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.keyRelease(KeyEvent.VK_ENTER);
 
         try {
             Thread.sleep(3000);
@@ -107,13 +110,15 @@ public class LI_01_ESSUserAccountCreationSteps {
 
         actions.moveToElement(ap.getStatusSelect()).click().build().perform();
 
+        actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 
-        robot.delay(500);
 
-        robot.keyPress(KeyEvent.VK_DOWN);
-        robot.keyRelease(KeyEvent.VK_DOWN);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+//        robot.delay(500);
+//
+//        robot.keyPress(KeyEvent.VK_DOWN);
+//        robot.keyRelease(KeyEvent.VK_DOWN);
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.keyRelease(KeyEvent.VK_ENTER);
 
         System.out.println("Selected user role and status");
 
