@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -88,16 +89,6 @@ public class LI_01_ESSUserAccountCreationSteps {
 
         actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 
-//
-//        Robot robot = new Robot();
-//        robot.delay(500);
-//
-//        robot.keyPress(KeyEvent.VK_DOWN);
-//        robot.keyRelease(KeyEvent.VK_DOWN);
-//        robot.keyPress(KeyEvent.VK_DOWN);
-//        robot.keyRelease(KeyEvent.VK_DOWN);
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
 
         try {
             Thread.sleep(3000);
@@ -113,13 +104,6 @@ public class LI_01_ESSUserAccountCreationSteps {
         actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 
 
-//        robot.delay(500);
-//
-//        robot.keyPress(KeyEvent.VK_DOWN);
-//        robot.keyRelease(KeyEvent.VK_DOWN);
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
-
         System.out.println("Selected user role and status");
 
     }
@@ -127,7 +111,7 @@ public class LI_01_ESSUserAccountCreationSteps {
     @And("I fill out the necessary fields with:")
     public void i_fill_out_the_necessary_fields_with(List<Map<String, String>> dataTable) throws AWTException {
 
-        Robot robot = new Robot();
+        Actions actions = new Actions(DriverClass.getDriver());
 
         for (Map<String, String> row : dataTable) {
             String field = row.get("Field");
@@ -138,27 +122,40 @@ public class LI_01_ESSUserAccountCreationSteps {
                     ap.clickMethod(ap.getEmployeeName());
                     ap.sendKeysMethod(ap.getEmployeeName(), row.get("Value"));
 
-                    robot.delay(2000);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
 
-                    robot.keyPress(KeyEvent.VK_DOWN);
-                    robot.keyRelease(KeyEvent.VK_DOWN);
-                    robot.keyPress(KeyEvent.VK_ENTER);
-                    robot.keyRelease(KeyEvent.VK_ENTER);
+                    actions.keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
                     break;
 
                 case "Username":
-                    robot.delay(2000);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     ap.sendKeysMethod(ap.getEssUserName(), row.get("Value"));
                     break;
 
                 case "Password":
-                    robot.delay(2000);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
 
                     ap.sendKeysMethod(ap.getEssPassword(), row.get("Value"));
                     break;
 
                 case "Confirm Password":
-                    robot.delay(2000);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
 
                     ap.sendKeysMethod(ap.getEssConfPassword(), row.get("Value"));
                     break;
