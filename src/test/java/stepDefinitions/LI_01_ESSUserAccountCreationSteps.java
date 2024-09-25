@@ -64,7 +64,7 @@ public class LI_01_ESSUserAccountCreationSteps {
     }
 
     @When("I select the necessary options for User role and Status")
-    public void i_select_the_necessary_options_for_user_role_and_status(){
+    public void i_select_the_necessary_options_for_user_role_and_status() {
 
         ap.wait.until(ExpectedConditions.elementToBeClickable(ap.getUserRoleSelect()));
         ap.getUserRoleSelect().click();
