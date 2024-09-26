@@ -11,8 +11,7 @@ import org.testng.annotations.AfterClass;
         glue = {"stepDefinitions"},
 //        plugin = {"html:target/site/cucumber-pretty.html"}
 //        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-//        plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"}
-        plugin = {"pretty", "html:target/site/cucumber-pretty", "json:target/cucumber/cucumber.json"}
+        plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"}
 )
 
 public class _01_SmokeTestRunner extends AbstractTestNGCucumberTests {
