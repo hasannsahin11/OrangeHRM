@@ -66,24 +66,9 @@
 
     </dependencies>
 
+
     <!--    Jenkins integration-->
     <!--    https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html-->
-
-    <!--                    This one is build the test with the .xml file -->
-    <!--    <build>-->
-    <!--        <plugins>-->
-    <!--                        <plugin>&ndash;&gt;-->
-    <!--                           <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-    <!--                            <artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
-    <!--                           <version>3.5.0</version>&ndash;&gt;-->
-    <!--                           <configuration>&ndash;&gt;-->
-    <!--                                <suiteXmlFiles>&ndash;&gt;-->
-    <!--                                    <suiteXmlFile>src\test\java\xmlFiles\_01_SmokeTest.xml</suiteXmlFile>&ndash;&gt;-->
-    <!--                                </suiteXmlFiles>&ndash;&gt;-->
-    <!--                          </configuration>&ndash;&gt;-->
-    <!--                        </plugin>&ndash;&gt;-->
-    <!--        </plugins>-->
-    <!--    </build>-->
 
     <!--            This one is build with the Runner class-->
     <build>
@@ -100,5 +85,62 @@
             </plugin>
         </plugins>
     </build>
+
+
+<profiles>
+<!--    Smoke Test Profile-->
+    <profile>
+        <id>smoke_profile</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <configuration>
+                        <includes>
+                            <include>runners._01_SmokeTestRunner</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+
+    <!--    Regression Test Profile-->
+    <profile>
+        <id>regression_profile</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <configuration>
+                        <includes>
+                            <include>runners._01_SmokeTestRunner</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
+
+    <!--                    This one is build the test with the .xml file -->
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--                        <plugin>&ndash;&gt;-->
+    <!--                           <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+    <!--                            <artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
+    <!--                           <version>3.5.0</version>&ndash;&gt;-->
+    <!--                           <configuration>&ndash;&gt;-->
+    <!--                                <suiteXmlFiles>&ndash;&gt;-->
+    <!--                                    <suiteXmlFile>src\test\java\xmlFiles\_01_SmokeTest.xml</suiteXmlFile>&ndash;&gt;-->
+    <!--                                </suiteXmlFiles>&ndash;&gt;-->
+    <!--                          </configuration>&ndash;&gt;-->
+    <!--                        </plugin>&ndash;&gt;-->
+    <!--        </plugins>-->
+    <!--    </build>-->
 
 </project>
