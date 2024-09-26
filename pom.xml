@@ -118,7 +118,7 @@
                     <version>3.5.0</version>
                     <configuration>
                         <includes>
-                            <include>runners._01_SmokeTestRunner</include>
+                            <include>_02_RegressionRunner.java</include>
                         </includes>
                     </configuration>
                 </plugin>
