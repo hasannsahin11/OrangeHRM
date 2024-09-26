@@ -94,7 +94,7 @@
                 <version>3.5.0</version>
                 <configuration>
                     <includes>
-                        <include>src/test/java/runners/_01_SmokeTestRunner.java</include>
+                        <include>runners._01_SmokeTestRunner</include>
                     </includes>
                 </configuration>
             </plugin>
