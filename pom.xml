@@ -68,34 +68,36 @@
 
     <!--    Jenkins integration-->
     <!--    https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html-->
+
+    <!--                    This one is build the test with the .xml file -->
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--                        <plugin>&ndash;&gt;-->
+    <!--                           <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+    <!--                            <artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
+    <!--                           <version>3.5.0</version>&ndash;&gt;-->
+    <!--                           <configuration>&ndash;&gt;-->
+    <!--                                <suiteXmlFiles>&ndash;&gt;-->
+    <!--                                    <suiteXmlFile>src\test\java\xmlFiles\_01_SmokeTest.xml</suiteXmlFile>&ndash;&gt;-->
+    <!--                                </suiteXmlFiles>&ndash;&gt;-->
+    <!--                          </configuration>&ndash;&gt;-->
+    <!--                        </plugin>&ndash;&gt;-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+
+    <!--            This one is build with the Runner class-->
     <build>
-<!--        <plugins>-->
-<!--            &lt;!&ndash;        This one is build the test with the .xml file&ndash;&gt;-->
-<!--            &lt;!&ndash;            <plugin>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <version>3.5.0</version>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <configuration>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <suiteXmlFiles>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <suiteXmlFile>src\test\java\xmlFiles\_01_SmokeTest.xml</suiteXmlFile>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </suiteXmlFiles>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </configuration>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </plugin>&ndash;&gt;-->
-<!--        </plugins>-->
-
-
-        <!--            This one is build with the Runner class-->
-            <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.5.0</version>
-                            <configuration>
-                                <includes>
-                                    <include>src/test/java/runners/_01_SmokeTestRunner.java</include>
-                                </includes>
-                            </configuration>
-                        </plugin>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <includes>
+                        <include>src/test/java/runners/_01_SmokeTestRunner.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
