@@ -19,8 +19,8 @@ public class LI_01_ESSUserAccountCreationSteps {
     @Given("I am on the OrangeHRM login page")
     public void i_am_on_the_orange_hrm_login_page() {
 
-        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        ap.wait.until(ExpectedConditions.urlToBe("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"));
+        DriverClass.getDriver().get("https://opensource-demo.orangehrmlive.com/auth/login");
+        ap.wait.until(ExpectedConditions.urlToBe("https://opensource-demo.orangehrmlive.com/auth/login"));
         System.out.println("On the orangeHRM login page");
 
     }
