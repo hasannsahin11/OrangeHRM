@@ -21,7 +21,7 @@ public class AdminPanel extends MyMethods {
     @FindBy(css = "button[type='submit']")
     private WebElement loginBtn;
 
-    @FindBy(xpath = "//a[@href='/web/index.php/admin/viewAdminModule']")
+    @FindBy(xpath = "//a[@href='/admin/viewAdminModule']")
     private WebElement adminBtn;
 
     @FindBy(xpath = "(//button[contains(@class, 'oxd-button') and contains(@class, 'oxd-button--medium') and contains(@class, 'oxd-button--secondary')])[2]")
